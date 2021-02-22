@@ -63,26 +63,85 @@ router.post("/:id",
       }
 
       const newGoal = new Goal ({
-
+        user: req.user.id,
+        body: req.body.body,
+        title: req.body.title,
+        expirationDate: req.body.expirationDate,
+        avatar: req.body.avatar,
+        checkInterval: req.body.checkInterval,
+        active: req.body.active,
+        count: req.body.count,
+        streak: req.body.streak
       });
+
+      //might have to move keys with default
+      //values outside of the newGoal 
+      //and only set with if statements, like
+      // if (req.body.streak) newGoal[streak] = req.body.streak;
+      //
+      // need to look into how Mongoose default values work
+
+      newGoal
+        .save()
+        .then(goal => res.json(goal));
+
 });
 
 // goal-update route: PATCH
 // should only be accesible when a user is authenticated and current goal belongs to user
 // should only be able to modify goal attributes (not userId or journalIds -- unless )
+
+// could be useful? https://stackoverflow.com/questions/7267102/how-do-i-update-upsert-a-document-in-mongoose
 router.patch("/:id",  
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-  
+    
+    const { isValid, errors } = validateGoalInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    Goal
+    .findbyId(req.params.id)
+    .then(goal => {
+      // Goal.updateOne?
+      // there is probably a better way to do this, 
+      // will look into it later
+      goal.body = req.body.body || goal.body;
+      goal.title = req.body.title || goal.title;
+      goal.expirationDate = req.body.expirationDate || goal.expirationDate;
+      goal.avatar = req.body.avatar || goal.avatar;
+      goal.checkInterval = req.body.checkInterval || goal.checkInterval;
+      goal.active = req.body.active || goal.active;
+      goal.count = req.body.count || goal.count;
+      goal.streak = req.body.streak || goal.streak;
+
+      goal.save()
+      .then(goal => res.json(goal));
+    })
+    .catch(err => res.status(400).json(err));
 });
 
 // goal-delete route: DESTROY
 // should only be accesible when a user is authenticated and current goal belongs to user
 // destroys all associated journals
-router.destroy("/:id",  
+
+// https://stackoverflow.com/questions/43851589/mongoose-delete-selected-element
+router.delete("/:id",  
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-  
+    
+    Goal
+      .findByIdAndRemove(req.params.id, (err, deletedGoal) => {
+        if (err){
+          res.status(500);
+        } else if (!deletedGoal){
+          res.status(404);
+        }
+        res.redirect("/")
+      })
+      
 });
 
 
