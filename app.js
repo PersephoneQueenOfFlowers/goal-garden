@@ -5,7 +5,7 @@ const db = require("./config/keys").mongoURI;
 // const users = require("./routes/api/users");
 // const goals = require("./routes/api/goals");
 const bodyParser = require('body-parser');
-// const User = require('./models/User');
+const User = require('./models/User');
 // const passport = require('passport');
 
 // const path = require('path');
@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 
 
 app.get("/", (req, res) => {
-    
+
   res.send("Welcome to Goal Garden")
 });
   
