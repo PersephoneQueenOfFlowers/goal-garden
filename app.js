@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const db = require("./config/keys").mongoURI;
-// const users = require("./routes/api/users");
+const users = require("./routes/api/users");
 // const goals = require("./routes/api/goals");
 const bodyParser = require('body-parser');
 const User = require('./models/User');
-// const passport = require('passport');
+const passport = require('passport');
 
 // const path = require('path');
 
@@ -22,8 +22,8 @@ mongoose
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
 
-// app.use(passport.initialize());
-// require('./config/passport')(passport);
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 });
   
 
-// app.use("/api/users", users);
+app.use("/api/users", users);
 // app.use("/api/goals", goals);
 
 
