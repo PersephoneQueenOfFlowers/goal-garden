@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById('root');
 
+  window.store = store;
   window.setAuthtoken = setAuthToken;
   window.signUp = signUp;
   window.login = login;
