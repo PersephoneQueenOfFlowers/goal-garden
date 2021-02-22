@@ -32,7 +32,7 @@ export const logoutUser = () => {
     };
 };
 
-export const signup = user => dispatch => (
+export const signUp = user => dispatch => (
     APIUtil.signup(user).then(() =>(
         dispatch(recieveUserSignIn())
     ), err => {
