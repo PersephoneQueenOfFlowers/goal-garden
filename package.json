@@ -1,12 +1,12 @@
 {
-  "name": "ls",
+  "name": "goal-garden",
   "version": "1.0.0",
   "description": "personal development app",
   "main": "index.js",
   "scripts": {
-    "frontend-install":"npm install --prefix frontend",
-    "frontend":"npm start --prefix frontend",
-    "dev":"concurrently \"npm run server\" \"npm run frontend\"",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "server": "nodemon app.js",
     "server-debug": "nodemon --inspect app.js",
     "start": "node app.js",
