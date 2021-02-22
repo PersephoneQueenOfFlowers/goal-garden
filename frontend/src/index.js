@@ -7,9 +7,9 @@ import configureStore from './store/store';
 
 import jwt_decode from 'jwt-decode';
 
-import { login, setAuthToken, signUp } from './util/session_api_util';
+import { setAuthToken } from "./util/session_api_util"
 
-import { logout } from './actions/session_actions';
+import { login, logout, signUp } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
   window.store = store;
-  window.setAuthtoken = setAuthToken;
-  window.signUp = signUp;
+  window.dispatch = store.dispatch;
+  window.signUp = signUp
   window.login = login;
+  window.logout = logout
 
   ReactDOM.render(<Root store={store} />, root);
 });
