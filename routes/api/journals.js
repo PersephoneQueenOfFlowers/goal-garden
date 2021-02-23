@@ -7,8 +7,8 @@ const Journal = require('../../models/Journal')
 
 const validateJournalInput = require("../../validation/journal")
 
-router.get('/goal/:id', (req, res) => {
-    Journal.find({goal: req.params.goal_id})
+router.get('/goal/:goalId', (req, res) => {
+    Journal.find({goal: req.params.goalId})
     .then(journals => res.json(journals))
     .catch(err => res.status(404).json({ nojournalsfound: 'No Journals found'}));
 });
@@ -19,15 +19,14 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({nojournalfound: 'No journal found'}));
 });
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-    debugger
+router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, res) => {
     const { errors, isValid } = validateJournalInput(req.body)
     if(!isValid) {
         return res.status(400).json(errors);
     }
 
     const newJournal = new Journal({
-        goal: req.goal,
+        goal: req.params.goalId,
         body: req.body.body,
         success: req.body.success,
         highlights: req.body.highlights,
@@ -40,10 +39,18 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     newJournal.save().then(journal => res.json(journal));
 });
 
-router.delete('/journal/:id', (req, res) => {
-    Journal.find({id: req.params.id})
-    .then(journals => res.json(journals))
-    .catch(err => res.status(404)).json({ nojournalsfound: 'No Journals found' })
-});
+router.delete("/:id",
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Journal
+            .findByIdAndRemove(req.params.id, (err, deletedJournal) => {
+                debugger
+                if (err) {
+                    res.status(500);
+                } else if (!deletedGoal) {
+                    res.status(404);
+                }
+            })
+    });
 
 module.exports = router;
