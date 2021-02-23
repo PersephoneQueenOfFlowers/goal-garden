@@ -4,11 +4,14 @@ class Hero extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Hero component</p>
-      </div>
+      <section className="hero">
+        <div>        
+          <p>Hero component</p>
+        </div>
+      </section>
     );
   }
 }
 
 export default Hero;
+
