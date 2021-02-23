@@ -12,7 +12,7 @@ const Goal = require('../../models/Goal');
 const keys = require('../../config/keys');
 
 //validations
-// const validateRegisterInput = require('../../validation/register');
+const validateGoalCreate = require('../../validation/goal-create');
 // const validateLoginInput = require('../../validation/login');
 
 //routes
@@ -52,11 +52,11 @@ router.get("/:id",
 // goal-create route: POST
 // should only be accesible when a user is authenticated and current goal belongs to user
 // should only save goal if it passes validations
-router.post("/:id", 
+router.post("/", 
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-  
-      const { isValid, errors } = validateGoalInput(req.body);
+      
+      const { isValid, errors } = validateGoalCreate(req.body);
 
       if (!isValid) {
         return res.status(400).json(errors);
@@ -66,13 +66,14 @@ router.post("/:id",
         user: req.user.id,
         body: req.body.body,
         title: req.body.title,
-        expirationDate: req.body.expirationDate,
-        avatar: req.body.avatar,
-        checkInterval: req.body.checkInterval,
-        active: req.body.active,
-        count: req.body.count,
-        streak: req.body.streak
+        // expirationDate: req.body.expirationDate,
+        // avatar: req.body.avatar,
+        // checkInterval: req.body.checkInterval,
+        // active: req.body.active,
+        // count: req.body.count,
+        // streak: req.body.streak
       });
+     
 
       //might have to move keys with default
       //values outside of the newGoal 
@@ -124,7 +125,8 @@ router.patch("/:id",
       // goal.count = req.body.count || goal.count;
       // goal.streak = req.body.streak || goal.streak;
 
-      goalProps = ["body", "title", "expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
+      goalProps = ["body", "title", ]
+      //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
 
       for (prop of goalProps) {
         goal[prop] = req.body[prop] || goal[prop];
@@ -157,4 +159,4 @@ router.delete("/:id",
       
 });
 
-
+module.exports = router;

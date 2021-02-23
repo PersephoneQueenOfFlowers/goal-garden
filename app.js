@@ -3,10 +3,13 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
-// const goals = require("./routes/api/goals");
 const bodyParser = require('body-parser');
 const User = require('./models/User');
 const passport = require('passport');
+
+const Goal = require('./models/Goal');
+const goals = require("./routes/api/goals");
+
 
 // const path = require('path');
 
@@ -36,7 +39,7 @@ app.get("/", (req, res) => {
   
 
 app.use("/api/users", users);
-// app.use("/api/goals", goals);
+app.use("/api/goals", goals);
 
 
 const port = process.env.PORT || 5000;
