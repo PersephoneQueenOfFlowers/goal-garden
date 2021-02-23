@@ -1,0 +1,18 @@
+.hero {
+  background-image: url('./images/hero-bg-trans.png');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  min-height: 415px;
+  background-position-x: center;
+  background-position-y: bottom;
+  > div {
+    height: 415px;
+    background-image: url('./images/flower-grown.gif');
+    background-repeat: no-repeat;
+    background-size: 150px;
+    bottom: 0;
+    z-index: 1000;
+    opacity: 1;
+    background-position: 200px 150px;
+  }
+}
