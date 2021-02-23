@@ -28,8 +28,8 @@ Run:
   
 Then, with terminal inside frontend dir: 
 Run:
-  [npm run build-css] - to build public/CSS file from src/styles/App.scss
-  [npm run watch-css] - to watch for changes in the src/styles directory during development. 
+  [npm run build-css] - to build public/CSS file from src/styles/App.scss and scss imports
+  [npm run watch-css] - to watch for changes in the src/styles directory during development and rebuild. 
 
   
 

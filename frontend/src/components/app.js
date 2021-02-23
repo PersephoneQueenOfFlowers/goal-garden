@@ -7,11 +7,19 @@ import {
   Redirect
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import LoginFormContainer from './session/login_form_container';
+import SignupFormContainer from './session/signup_form_container';
+import GoalsContainer from './goal/goals_container';
+
 const App = () => {
     return(
         <div>
             <Switch>
-              <Route exact path="/" component={Main} />
+              <AuthRoute exact path="/" component={Main} />
+              <AuthRoute exact path="/login" component={LoginFormContainer} />
+              <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+              <ProtectedRoute exact path="/goals" component={GoalsContainer} />
               <Redirect to="/" />
             </Switch>
         </div>
