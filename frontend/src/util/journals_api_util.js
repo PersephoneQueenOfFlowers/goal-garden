@@ -9,7 +9,7 @@ export const getJournal = journalId => {
 }
 
 export const createJournal = data => {
-    return axios.post(`/api/journals/${data.goal.id}`, data)
+    return axios.post(`/api/journals/${data.goal}`, data)
 }
 
 export const deleteJournal = journalId => {
