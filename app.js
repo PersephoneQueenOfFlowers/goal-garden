@@ -29,7 +29,6 @@ app.use(bodyParser.json());
 const path = require('path');
 
 // app.get("/", (req, res) => {
-
 //   res.send("Welcome to Goal Garden")
 // });
 
