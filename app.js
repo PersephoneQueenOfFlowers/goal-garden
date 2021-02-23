@@ -12,7 +12,6 @@ const passport = require('passport');
 const Goal = require('./models/Goal');
 const goals = require("./routes/api/goals");
 
-const sslRedirect = require('heroku-ssl-redirect');
 const path = require('path');
 
 mongoose
