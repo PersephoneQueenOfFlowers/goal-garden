@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Hero from './hero';
 
 export default class home extends Component {
   constructor(props){
@@ -7,18 +8,21 @@ export default class home extends Component {
   
   render() {
     return (
-      <div className="body">
+      <div className="body home">
+          
+          <Hero />
+
         <section className="middle taskList">
           <div className="left">
             <h1>Current Goals</h1>
           </div>
           <div className="right">
             <ul>
-              <li class="goalTitle">clean out the garage</li>
-              <li class="goalTitle">build a new dog house</li>
-              <li class="goalTitle">go shopping</li>
-              <li class="goalTitle">start on the novel</li>
-              <li class="goalTitle">paint the kitchen</li>
+              <li className="goalTitle">clean out the garage</li>
+              <li className="goalTitle">build a new dog house</li>
+              <li className="goalTitle">go shopping</li>
+              <li className="goalTitle">start on the novel</li>
+              <li className="goalTitle">paint the kitchen</li>
             </ul>
           </div>
         </section>
@@ -27,13 +31,13 @@ export default class home extends Component {
             <p>
               GoalGarden is a curated space for help with personal goal accountability and tracking.
               Here you can:
-                  <ul>
+            </p>
+              <ul>
                 <li>Create goals and track your progress</li>
                 <li>keep a journal of your progress attached to each goal</li>
                 <li>receive reminder notifications when attention is needed</li>
                 <li>mark and celebrate your progress and success!</li>
               </ul>
-            </p>
           </div>
         </section>
       </div>

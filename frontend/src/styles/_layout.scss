@@ -1,0 +1,18 @@
+@import '_nav.scss';
+
+.main-container {
+  display: grid;
+  grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
+  grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last];
+  .nav {
+    grid-column: 1 / span 2;
+    grid-row: header-start / 1;
+  }
+  .home {
+    grid-column: first / span 2;
+    grid-row: main-start / 2;
+    .hero {
+      min-height: 340px;
+    }
+  }
+}

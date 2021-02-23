@@ -21,7 +21,8 @@ const JournalSchema = new Schema ({
     type: Array
   },
   goalState: {
-    type: Integer,
+    //should be integer
+    type: String,
     required: true
   },
   cues: {
