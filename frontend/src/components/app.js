@@ -9,6 +9,8 @@ import {
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
+import GoalsContainer from './goal/goals_container';
+
 const App = () => {
     return(
         <div>
@@ -17,11 +19,7 @@ const App = () => {
               <AuthRoute exact path="/login" component={LoginFormContainer} />
               <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-              {/* <ProtectedRoute exact path="/goals" component={GoalsContainer} /> */}
-              {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
-              {/* <ProtectedRoute exact path="/new_goal" component={GoalComposeContainer} /> */}
-
-              {/* <Route exact path="/" component={Main} /> */} 
+              <ProtectedRoute exact path="/goals" component={GoalsContainer} />
               <Redirect to="/" />
             </Switch>
         </div>
