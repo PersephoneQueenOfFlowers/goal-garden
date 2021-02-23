@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Hero from './hero';
 import HomeContainer from '../home/home_container'
+import Nav from '../nav/nav';
 
 class Main extends React.Component {
   constructor(props){
@@ -11,10 +11,8 @@ class Main extends React.Component {
   render() {
     return (
       <div className="main-container">
-        <Hero />
-        <div>
-        <div>hi from main</div>
-        </div>
+        <Nav />
+        <HomeContainer />
       </div>
     );
   }

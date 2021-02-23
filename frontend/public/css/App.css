@@ -1,3 +1,41 @@
+.main-container .nav {
+  display: flex;
+  justify-content: space-between; }
+
+.main-container {
+  display: grid;
+  grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
+  grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last]; }
+  .main-container .nav {
+    grid-column: 1 / span 2;
+    grid-row: header-start / 1; }
+  .main-container .home {
+    grid-column: first / span 2;
+    grid-row: main-start / 2; }
+    .main-container .home .hero {
+      min-height: 340px; }
+
+.hero {
+  background-image: url("./images/hero-bg-trans.png");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  min-height: 415px;
+  background-position-x: center;
+  background-position-y: bottom; }
+  .hero > div {
+    height: 415px;
+    background-image: url("./images/flower-grown.gif");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    bottom: 0;
+    z-index: 1000;
+    opacity: 1;
+    background-position: 200px 150px; }
+
+.main-container .nav {
+  display: flex;
+  justify-content: space-between; }
+
 .App {
   text-align: center; }
 
