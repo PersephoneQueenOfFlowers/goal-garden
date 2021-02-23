@@ -3,7 +3,7 @@ import Home from './home';
 
 const mSTP = (state, ownProps) => {
   return {
-    item: state.entities.items[ownProps.match.params.itemId]
+    // item: state.entities.items[ownProps.match.params.itemId]
   }
 }
 
