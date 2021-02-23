@@ -10,8 +10,11 @@ class Main extends React.Component {
   
   render() {
     return (
-      <div>
-       <div>hi from main</div>
+      <div className="main-container">
+        <Hero />
+        <div>
+        <div>hi from main</div>
+        </div>
       </div>
     );
   }
