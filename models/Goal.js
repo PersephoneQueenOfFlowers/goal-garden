@@ -14,31 +14,31 @@ const GoalSchema = new Schema ({
     type: String,
     required: true
   },
-  expirationDate: {
-    type: Date
-  },
-  avatar: {
-    type: Number,
-    required: true
-  },
-  checkInterval: {
-    type: Number,
-    min: 1,
-    max: 365,
-    required: true
-  },
-  active: {
-    type: Boolean,
-    required: true
-  },
-  count: {
-    type: Number,
-    default: 0
-  },
-  streak: {
-    type: Number,
-    default: 0
-  }
+  // expirationDate: {
+  //   type: Date
+  // },
+  // avatar: {
+  //   type: Number,
+  //   required: true
+  // },
+  // checkInterval: {
+  //   type: Number,
+  //   min: 1,
+  //   max: 365,
+  //   required: true
+  // },
+  // active: {
+  //   type: Boolean,
+  //   required: true
+  // },
+  // count: {
+  //   type: Number,
+  //   default: 0
+  // },
+  // streak: {
+  //   type: Number,
+  //   default: 0
+  // }
 },{
   timestamps: true  
 });
