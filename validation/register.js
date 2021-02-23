@@ -4,7 +4,7 @@ const validText = require('./valid-text');
 module.exports = function validateRegisterInput(data) {
     let errors = {};
 
-    data.handle = validText(data.firstName) ? data.firstName : '';
+    data.firstName = validText(data.firstName) ? data.firstName : '';
     data.email = validText(data.email) ? data.email: '';
     data.password = validText(data.password) ? data.password : '';
 
