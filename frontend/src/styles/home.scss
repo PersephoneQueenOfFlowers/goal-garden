@@ -1,0 +1,22 @@
+.middle {
+    display: flex;
+    box-sizing: border-box;
+    padding: 30px 50px;
+    justify-content: space-evenly;
+    bottom: 0;
+    z-index: 1000;
+    opacity: 1;
+    position: relative;
+    background-image: linear-gradient(180deg, #6c5d47, #fff);
+    img {
+      width: 115%;
+      position: absolute;
+      top: -79px;
+    }
+    .left{
+      flex: 40%;
+    }
+    .right{
+      flex: 20%;
+    }
+}

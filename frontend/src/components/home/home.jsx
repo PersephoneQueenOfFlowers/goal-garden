@@ -13,10 +13,23 @@ export default class home extends Component {
           <Hero />
 
         <section className="middle taskList">
+          <img src='./css/images/grass-illust.png' alt=""/>
           <div className="left">
-            <h1>Current Goals</h1>
+            <div className="background-container">
+              <p>
+                GoalGarden is a curated space for help with personal goal accountability and tracking.
+                Here you can:
+            </p>
+              <ul>
+                <li>Create goals and track your progress</li>
+                <li>keep a journal of your progress attached to each goal</li>
+                <li>receive reminder notifications when attention is needed</li>
+                <li>mark and celebrate your progress and success!</li>
+              </ul>
+            </div>
           </div>
           <div className="right">
+            <h1>Current Goals</h1>
             <ul>
               <li className="goalTitle">clean out the garage</li>
               <li className="goalTitle">build a new dog house</li>
@@ -27,18 +40,7 @@ export default class home extends Component {
           </div>
         </section>
         <section className="background description">
-          <div className="background-container">
-            <p>
-              GoalGarden is a curated space for help with personal goal accountability and tracking.
-              Here you can:
-            </p>
-              <ul>
-                <li>Create goals and track your progress</li>
-                <li>keep a journal of your progress attached to each goal</li>
-                <li>receive reminder notifications when attention is needed</li>
-                <li>mark and celebrate your progress and success!</li>
-              </ul>
-          </div>
+          
         </section>
       </div>
     )
