@@ -1,4 +1,5 @@
-import { RECEIVE_GOALS_JOURNALS, RECEIVE_JOURNAL, REMOVE_JOURNAL } from '../actions/journal_actions.js'
+import { RECEIVE_GOALS_JOURNALS, RECEIVE_JOURNAL, REMOVE_JOURNAL } from "../actions/journal_actions";
+
 
 const JournalsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
