@@ -6,9 +6,9 @@ const JournalsReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_GOALS_JOURNALS:
-            return action.journals
+            return action.journals.data
         case RECEIVE_JOURNAL:
-            newState[action.journal.id] = action.journal
+            newState[action.journal.data._id] = action.journal.data
             return newState;
         case REMOVE_JOURNAL:
             delete newState[action.journalId]

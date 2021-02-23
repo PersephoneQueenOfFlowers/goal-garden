@@ -12,6 +12,7 @@ import { setAuthToken } from "./util/session_api_util"
 import { login, logout, signup } from './actions/session_actions';
 import { createJournal, deleteJournal, fetchJournal, fetchJournals } from './actions/journal_actions';
 
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -38,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.store = store;
   window.dispatch = store.dispatch;
-  window.signup = signup
+
   window.login = login;
-  window.logout = logout
+  window.logout = logout;
 
   window.fetchJournals = fetchJournals;
   window.fetchJournal = fetchJournal;
