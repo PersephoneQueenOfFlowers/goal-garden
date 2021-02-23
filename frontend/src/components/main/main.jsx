@@ -11,11 +11,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Hero />
-        <Home />
-        <footer>
-          <p>content for footer</p>
-        </footer>
+       <div>hi from main</div>
       </div>
     );
   }
