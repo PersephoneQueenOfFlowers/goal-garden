@@ -13,7 +13,7 @@ const keys = require('../../config/keys');
 
 //validations
 const validateGoalCreate = require('../../validation/goal-create');
-// const validateLoginInput = require('../../validation/login');
+const validateGoalUpdate = require('../../validation/goal-update');
 
 //routes
 
@@ -97,7 +97,7 @@ router.patch("/:id",
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     
-    const { isValid, errors } = validateGoalInput(req.body);
+    const { isValid, errors } = validateGoalUpdate(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -110,32 +110,32 @@ router.patch("/:id",
     // If you need full-fledged validation, use the traditional approach of first retrieving the document.
     
     Goal
-    .findbyId(req.params.id)
-    .then(goal => {
-      // Goal.update
-      // there is probably a better way to do this, 
-      // will look into it later
+      .findById(req.params.id)
+      .then(goal => {
+        // Goal.update
+        // there is probably a better way to do this, 
+        // will look into it later
 
-      // goal.body = req.body.body || goal.body;
-      // goal.title = req.body.title || goal.title;
-      // goal.expirationDate = req.body.expirationDate || goal.expirationDate;
-      // goal.avatar = req.body.avatar || goal.avatar;
-      // goal.checkInterval = req.body.checkInterval || goal.checkInterval;
-      // goal.active = req.body.active || goal.active;
-      // goal.count = req.body.count || goal.count;
-      // goal.streak = req.body.streak || goal.streak;
+        // goal.body = req.body.body || goal.body;
+        // goal.title = req.body.title || goal.title;
+        // goal.expirationDate = req.body.expirationDate || goal.expirationDate;
+        // goal.avatar = req.body.avatar || goal.avatar;
+        // goal.checkInterval = req.body.checkInterval || goal.checkInterval;
+        // goal.active = req.body.active || goal.active;
+        // goal.count = req.body.count || goal.count;
+        // goal.streak = req.body.streak || goal.streak;
 
-      goalProps = ["body", "title", ]
-      //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
+        goalProps = ["body", "title", ]
+        //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
 
-      for (prop of goalProps) {
-        goal[prop] = req.body[prop] || goal[prop];
-      }
+        for (prop of goalProps) {
+          goal[prop] = req.body[prop] || goal[prop];
+        }
 
-      goal.save()
-      .then(goal => res.json(goal));
-    })
-    .catch(err => res.status(400).json(err));
+        goal.save()
+        .then(goal => res.json(goal));
+      })
+      .catch(err => res.status(400).json(err));
 });
 
 // goal-delete route: DESTROY
