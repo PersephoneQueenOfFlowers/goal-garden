@@ -1,7 +1,7 @@
 goal garden root directory README
 
-Git workflow notes
-/**********()**********/
+
+/**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
 * git checkout master
 * git pull (to make sure master has latest content when you create the feature branch)
@@ -14,3 +14,23 @@ example git checkout -b <ss-2-21-home-goal-list>
 * they'll check out the branch locally, look at it, run it, make sure that the pages and the work in the commit match what the feature branch says they are doing. 
 
 Peer-reviewer, you may want to have some conversation with the other dev if you have some questions, about what they did. Then merge the code into master. Remember, we are branching off <master>.
+
+Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/git-workflow with git-workflow questions.
+
+/**********( Styles )**********/
+
+New SCSS preprocessor folders and commands. 
+When we write CSS, we write it into the files under the src/styles directory and write it as SCSS code. NOTE: The files will still accept CSS, but what a waste. Better to write SCSS into the src/styles directory. 
+
+Run:
+  cd frontend
+  [npm install node-sass --save] 
+  
+Then, with terminal inside frontend dir: 
+Run:
+  [npm run build-css] - to build public/CSS file from src/styles/App.scss and scss imports
+  [npm run watch-css] - to watch for changes in the src/styles directory during development and rebuild. 
+
+  
+
+

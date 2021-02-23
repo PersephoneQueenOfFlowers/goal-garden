@@ -32,14 +32,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
 
-  res.send("Welcome to Goal Garden")
-});
-  
+//   res.send("Welcome to Goal Garden")
+// });
 
 app.use("/api/users", users);
 app.use("/api/goals", goals);
+app.use(express.static('frontend/public'));
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+})
 
 
 const port = process.env.PORT || 5000;
