@@ -44,11 +44,12 @@ router.delete("/:id",
     (req, res) => {
         Journal
             .findByIdAndRemove(req.params.id, (err, deletedJournal) => {
-                debugger
                 if (err) {
                     res.status(500);
-                } else if (!deletedGoal) {
+                } else if (!deletedJournal) {
                     res.status(404);
+                } else {
+                    res.json(deletedJournal)
                 }
             })
     });
