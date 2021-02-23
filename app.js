@@ -3,11 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
-<<<<<<< HEAD
 const journals = require("./routes/api/journals")
 // const goals = require("./routes/api/goals");
-=======
->>>>>>> master
 const bodyParser = require('body-parser');
 const User = require('./models/User');
 const passport = require('passport');
