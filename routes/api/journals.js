@@ -37,4 +37,10 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     newJournal.save().then(journal => res.json(journal));
 });
 
+router.delete('/:id', (req, res) => {
+    Journal.find(id: req.params.id)
+    .then(journals => res.json(journals))
+    .catch(err => res.status(404)).json({ nojournalsfound: 'No Journals found' })
+});
+
 module.exports = router;
