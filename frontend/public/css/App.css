@@ -1,0 +1,67 @@
+.main-container .nav {
+  display: flex;
+  justify-content: space-between; }
+
+.main-container {
+  display: grid;
+  grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
+  grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last]; }
+  .main-container .nav {
+    grid-column: 1 / span 2;
+    grid-row: header-start / 1; }
+  .main-container .home {
+    grid-column: first / span 2;
+    grid-row: main-start / 2; }
+    .main-container .home .hero {
+      min-height: 340px; }
+
+.hero {
+  background-image: url("./images/3d-garden-darker.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 415px;
+  background-position-x: center;
+  background-position-y: bottom; }
+  .hero > div {
+    height: 415px;
+    background-image: url("./images/flower-grown.gif");
+    background-repeat: no-repeat;
+    background-size: 150px;
+    bottom: 0;
+    z-index: 1000;
+    opacity: 1;
+    background-position: 200px 150px; }
+
+.main-container .nav {
+  display: flex;
+  justify-content: space-between; }
+
+.App {
+  text-align: center; }
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear; } }
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; }
+
+.App-link {
+  color: #61dafb; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }

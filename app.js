@@ -3,11 +3,18 @@ const app = express();
 const mongoose = require('mongoose');
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
+<<<<<<< HEAD
 const journals = require("./routes/api/journals")
 // const goals = require("./routes/api/goals");
+=======
+>>>>>>> master
 const bodyParser = require('body-parser');
 const User = require('./models/User');
 const passport = require('passport');
+
+const Goal = require('./models/Goal');
+const goals = require("./routes/api/goals");
+
 
 // const path = require('path');
 
@@ -30,15 +37,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
 
-  res.send("Welcome to Goal Garden")
-});
-  
+//   res.send("Welcome to Goal Garden")
+// });
 
 app.use("/api/users", users);
 app.use("/api/journals", journals);
-// app.use("/api/goals", goals);
+app.use("/api/goals", goals);
+app.use(express.static('frontend/public'));
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+})
 
 
 const port = process.env.PORT || 5000;
