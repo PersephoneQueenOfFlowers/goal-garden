@@ -12,8 +12,8 @@ const passport = require('passport');
 const Goal = require('./models/Goal');
 const goals = require("./routes/api/goals");
 
-
-
+const sslRedirect = require('heroku-ssl-redirect');
+const path = require('path');
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -28,7 +28,7 @@ require('./config/passport')(passport);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const path = require('path');
+
 
 // app.get("/", (req, res) => {
 //   res.send("Welcome to Goal Garden")
