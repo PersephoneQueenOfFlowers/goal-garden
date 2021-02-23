@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from "./util/session_api_util"
 
 import { login, logout, signup } from './actions/session_actions';
+import { createJournal, deleteJournal, fetchJournal, fetchJournals } from './actions/journal_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,6 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.login = login;
   window.logout = logout;
+
+  window.fetchJournals = fetchJournals;
+  window.fetchJournal = fetchJournal;
+  window.createJournal = createJournal;
+  window.deleteJournal = deleteJournal;
 
   ReactDOM.render(<Root store={store} />, root);
 });
