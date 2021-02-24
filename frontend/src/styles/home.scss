@@ -1,8 +1,9 @@
 .middle {
     display: flex;
+    flex-wrap: wrap;
     box-sizing: border-box;
-    padding: 30px 50px;
     justify-content: space-evenly;
+    padding: 30px 50px;
     bottom: 0;
     z-index: 1000;
     opacity: 1;
@@ -11,6 +12,7 @@
     img {
       width: 115%;
       position: absolute;
+      flex: 1;
       @media all and (min-width: 500px) and (max-width: 992px) {
         margin-top: -15%;
       }
@@ -19,9 +21,40 @@
       }
     }
     .left{
-      flex: 40%;
+      flex: 30%;
     }
     .right{
       flex: 20%;
+      .goal-list {
+       li{list-style:none;}
+       li:before{
+        content: '';
+        display: inline-block;
+        height: 25px;
+        width: 48px;
+        background-image: url(./images/watering-can.png);
+        background-size: 35px;
+        background-position: 4px;
+        background-repeat: no-repeat;
+       }
+      }
     }
-}
+    .right .goals-container,
+    .left .background-container {
+      background-color: #fff;
+      border-radius: 13px;
+      margin-top: 52px;
+      box-sizing: border-box;
+      padding: 15px;
+      max-width: 360px;
+      min-height: 300px;
+      h3 {
+        max-width: 60%;
+        margin: 0 auto;
+        padding-bottom: 10px;
+      }
+      ul {
+        list-style-type: none;
+      }
+    }
+  }

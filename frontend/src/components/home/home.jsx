@@ -56,14 +56,16 @@ const Home = (props) => {
           </div>
         </div>
         <div className="right">
-          <h1>Current Goals</h1>
-          <ul>
-            <li className="goalTitle"><button onClick={() => setModalShow(true)}>clean out the garage</button></li>
-            <li className="goalTitle"><button onClick={() => setModalShow(true)}>build a new dog house</button></li>
-            <li className="goalTitle"><button onClick={() => setModalShow(true)}>go shopping</button></li>
-            <li className="goalTitle"><button onClick={() => setModalShow(true)}>start on the novel</button></li>
-            <li className="goalTitle"><button onClick={() => setModalShow(true)}>paint the kitchen</button></li>
-          </ul>
+          <div className="goals-container">
+            <h3>Current Goals</h3>
+            <ul className="goal-list">
+              <li className="goalTitle"><button onClick={() => setModalShow(true)}>clean out the garage</button></li>
+              <li className="goalTitle"><button onClick={() => setModalShow(true)}>build a new dog house</button></li>
+              <li className="goalTitle"><button onClick={() => setModalShow(true)}>go shopping</button></li>
+              <li className="goalTitle"><button onClick={() => setModalShow(true)}>start on the novel</button></li>
+              <li className="goalTitle"><button onClick={() => setModalShow(true)}>paint the kitchen</button></li>
+            </ul>
+          </div>
         </div>
       </section>
       <MyVerticallyCenteredModal
