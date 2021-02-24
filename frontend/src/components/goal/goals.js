@@ -6,29 +6,25 @@ class Goal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      goals: []
-    }
   }
 
-  componentWillMount() {
-    // this.props.fetchGoals();
+  componentDidMount() {
+    this.props.fetchGoals();
   }
-
-  // componentWillReceiveProps(newState) {
-  //   this.setState({ goals: newState.goals });
-  // }
 
   render() {
-    if (this.state.goals.length === 0) {
-      return (<div>There are no Goals</div>)
+    const { goals } = this.props;
+    if(goals.length === 0){
+      return (<div>You have no Goals</div>)
     } else {
       return (
         <div>
           <h2>All Your Goals</h2>
-          {this.state.goals.map(goal => (
-            <GoalBox key={goal._id} title={goal.title} />
+          {goals.map(goal => (
+            <GoalBox key={goal._id} goal={goal} />
           ))}
+
+          <button type="button">Add New Goal</button>
         </div>
       );
     }
