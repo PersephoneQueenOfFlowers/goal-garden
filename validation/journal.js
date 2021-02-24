@@ -4,7 +4,7 @@ const validText = require('./valid-text');
 
 module.exports = function validateJournalInput(data){
     let errors = {};
-
+    
     data.body = validText(data.body) ? data.body : '';
 
     if(validator.isEmpty(data.body)) {

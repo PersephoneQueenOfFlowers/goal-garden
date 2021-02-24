@@ -1,7 +1,7 @@
 const Validator = require('validator');
 const validFutureDate = require('./valid-future-date');
 const validText = require('./valid-text');
-module.exports = function validateCreateGoal(data) {
+module.exports = (data) => {
     let errors = {};
     // data is req.body
 

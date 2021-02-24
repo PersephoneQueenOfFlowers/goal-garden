@@ -13,7 +13,7 @@ const Goal = require('./models/Goal');
 const goals = require("./routes/api/goals");
 
 const path = require('path');
-// const sslRedirect = import('heroku-ssl-redirect'); 
+
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -34,6 +34,7 @@ app.use(bodyParser.json());
 //   res.send("Welcome to Goal Garden")
 // });
 
+
 app.use("/api/users", users);
 app.use("/api/journals", journals);
 app.use("/api/goals", goals);
@@ -42,8 +43,6 @@ app.use("/api/goals", goals);
 //   res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
 // })
 
-
-// app.use(sslRedirect()); 
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
