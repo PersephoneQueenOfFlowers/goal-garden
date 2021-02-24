@@ -91,4 +91,11 @@ router.delete("/:id",
             })
     });
 
+router.patch("/:id", 
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const updateObject = req.body;
+        const id = req.params.id;
+    })
+
 module.exports = router;

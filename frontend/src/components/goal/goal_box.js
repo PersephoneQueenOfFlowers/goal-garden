@@ -1,14 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class GoalBox extends React.Component {
+  constructor(props){
+    super(props);
+
+  }
+
   render() {
+    const { goal } = this.props;
+    if (!goal) return null;
     return (
         <div>
-            {/* <h3>{this.props.title}</h3> */}
-            <p>Goal Box</p>
+            <Link to={`/goals/${goal._id}`}>{goal.title}</Link>
         </div>
     );
   }
 }
 
 export default GoalBox;
+

@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
-// import { fetchGoals } from '../../actions/goal_actions';
+import { composeGoal, fetchGoals } from '../../actions/goal_actions';
 import Goals from './goals';
 
 const mapStateToProps = (state) => {
   return {
-    // goals: Object.values(state.goals.all)
+    currentUser: state.session.user,
+    goals: Object.values(state.goals.all),
+    errors: state.errors.goal
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // fetchGoals: () => dispatch(fetchGoals())
+    fetchGoals: () => dispatch(fetchGoals()),
+    composeGoal: goal => dispatch(composeGoal(goal))
   };
 };
 

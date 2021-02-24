@@ -5,30 +5,59 @@ import GoalBox from './goal_box';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      goals: []
-    }
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"}
+    this.createGoal = this.createGoal.bind(this);
   }
 
-  componentWillMount() {
-    // this.props.fetchGoals();
+  componentDidMount() {
+    this.props.fetchGoals();
   }
 
-  // componentWillReceiveProps(newState) {
-  //   this.setState({ goals: newState.goals });
-  // }
+  handleChange(type){
+    return(e => {
+      this.setState({[type]: e.currentTarget.value})
+    })
+  }
+
+  createGoal(e){
+    e.preventDefault();
+    this.props.composeGoal({body: this.state.body,
+                            title: this.state.title,
+                            expirationDate: this.state.date})
+    this.setState({ title: "", body: "", 
+      date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"})
+    setTimeout(() => {
+      this.props.fetchGoals();
+    }, 300)
+  }
 
   render() {
-    if (this.state.goals.length === 0) {
-      return (<div>There are no Goals</div>)
+    const { goals } = this.props;
+    if(goals.length === 0){
+      return (<div>You have no Goals</div>)
     } else {
       return (
         <div>
           <h2>All Your Goals</h2>
-          {this.state.goals.map(goal => (
-            <GoalBox key={goal._id} title={goal.title} />
+          {goals.map(goal => (
+            <GoalBox key={goal._id} goal={goal} />
           ))}
+          <form onSubmit={this.createGoal}>
+            <label>Goal Title:
+              <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
+            </label>
+            <label>Goal Description:
+              <textarea value={this.state.body} onChange={this.handleChange("body")}/>
+            </label>
+            <label>How Long do you want to keep this goal going for?
+              <input type="date" value={this.state.date} onChange={this.handleChange("date")}/>
+            </label>
+            <button type="submit">Add New Goal!</button>
+          </form>
+          <button type="button">Add New Goal</button>
+          {this.props.errors.map(error => {
+            return (<div>{error}</div>)
+          })}
         </div>
       );
     }

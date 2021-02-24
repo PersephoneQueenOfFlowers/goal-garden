@@ -12,6 +12,7 @@ const passport = require('passport');
 const Goal = require('./models/Goal');
 const goals = require("./routes/api/goals");
 
+const path = require('path');
 
 
 mongoose
@@ -37,14 +38,12 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/journals", journals);
 app.use("/api/goals", goals);
-app.use(express.static('frontend/public'));
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
-})
+// app.use(express.static('frontend/public'));
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+// })
 
 
-
-const path = require('path');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
