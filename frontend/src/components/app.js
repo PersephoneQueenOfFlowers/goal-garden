@@ -10,6 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import GoalsContainer from './goal/goals_container';
+import JournalShowContainer from './journals/journal_show_container';
 
 const App = () => {
     return(
@@ -20,6 +21,9 @@ const App = () => {
               <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
               <ProtectedRoute exact path="/goals" component={GoalsContainer} />
+
+              <ProtectedRoute exact path="/journal/:journalId" component={JournalShowContainer} />
+
               <Redirect to="/" />
             </Switch>
         </div>
