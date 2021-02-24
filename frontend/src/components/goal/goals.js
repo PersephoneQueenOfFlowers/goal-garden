@@ -23,16 +23,14 @@ class Goal extends React.Component {
                 <GoalBox goal={goal} key={goal._id} removeGoal={this.props.removeGoal}/>
             )
         });
-    // const { goals } = this.props;
+ 
     if(goals.length === 0){
       return (<div>You have no Goals <button>Create New Goal</button></div>)
     } else {
       return (
         <div>
           <h2>All Your Goals</h2>
-          {/* {goals.map(goal => (
-            <GoalBox key={goal._id} goal={goal} removeGoal={this.props.removeGoal}/>
-          ))} */}
+        
           {goals}
 
           <button type="button">Add New Goal</button>
