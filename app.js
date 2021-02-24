@@ -39,10 +39,10 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/goals", goals);
-app.use(express.static('frontend/public'));
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
-})
+// app.use(express.static('frontend/public'));
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+// })
 
 
 const port = process.env.PORT || 5000;

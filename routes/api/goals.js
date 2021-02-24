@@ -27,12 +27,12 @@ const validateGoalUpdate = require('../../validation/goal-update');
 // should return all names + goal status + id's (for linking to goal show page) -- for now just send whole goals down
 router.get("/", (req, res) => {
   //also is test route for now
-  res.json({ msg: "This is the goal route" });
-  //  Goal
-  //   .find()
-  //   .sort({ date: -1 })
-  //   .then(goals => res.json(goals))
-  //   .catch(err => res.status(400).json(err));
+  // res.json({ msg: "This is the goal route" });
+   Goal
+    .find()
+    .sort({ date: -1 })
+    .then(goals => res.json(goals))
+    .catch(err => res.status(400).json(err));
 });
 
 
