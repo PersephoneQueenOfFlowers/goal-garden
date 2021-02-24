@@ -32,16 +32,19 @@ class Goal extends React.Component {
   }
 
   render() {
-    const { goals } = this.props;
+    const goals = this.props.goals.map(goal => {
+            return (
+                <GoalBox goal={goal} key={goal._id} removeGoal={this.props.removeGoal}/>
+            )
+        });
+ 
     if(goals.length === 0){
-      return (<div>You have no Goals</div>)
+      return (<div>You have no Goals <button>Create New Goal</button></div>)
     } else {
       return (
         <div>
           <h2>All Your Goals</h2>
-          {goals.map(goal => (
-            <GoalBox key={goal._id} goal={goal} />
-          ))}
+          {goals}
           <form onSubmit={this.createGoal}>
             <label>Goal Title:
               <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
