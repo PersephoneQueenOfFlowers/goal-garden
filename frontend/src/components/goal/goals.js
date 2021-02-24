@@ -5,11 +5,16 @@ import GoalBox from './goal_box';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {}
 
   }
 
   componentDidMount() {
     this.props.fetchGoals();
+  }
+
+  createGoal(){
+    
   }
 
   render() {
