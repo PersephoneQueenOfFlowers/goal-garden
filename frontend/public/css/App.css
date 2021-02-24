@@ -1,3 +1,12 @@
+body {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  body .bodoni {
+    font-family: 'Bodoni Ornaments'; }
+
+@font-face {
+  font-family: 'beauty-moments';
+  src: local("beauty-moments"), url(./fonts/beauty-mountains.ttf) format("ttf"); }
+
 .main-container .nav {
   display: flex;
   justify-content: space-between; }
@@ -16,25 +25,48 @@
       min-height: 340px; }
 
 .hero {
-  background-image: url("./images/3d-garden-darker.png");
+  background-image: url("./images/cloudy-sky-w-garden-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
-  min-height: 415px;
+  min-height: 300px;
   background-position-x: center;
   background-position-y: bottom; }
-  .hero > div {
-    height: 415px;
+  .hero .hero-inner-container {
+    display: flex;
+    justify-content: center;
+    height: 335px;
     background-image: url("./images/flower-grown.gif");
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: 100px;
     bottom: 0;
     z-index: 1000;
     opacity: 1;
-    background-position: 200px 150px; }
+    background-position: 160px 161px;
+    font-size: 1.5rem;
+    color: #142d20; }
 
 .main-container .nav {
   display: flex;
   justify-content: space-between; }
+
+.middle {
+  display: flex;
+  box-sizing: border-box;
+  padding: 30px 50px;
+  justify-content: space-evenly;
+  bottom: 0;
+  z-index: 1000;
+  opacity: 1;
+  position: relative;
+  background-image: linear-gradient(180deg, #6c5d47, #fff); }
+  .middle img {
+    width: 115%;
+    position: absolute;
+    top: -79px; }
+  .middle .left {
+    flex: 40%; }
+  .middle .right {
+    flex: 20%; }
 
 .App {
   text-align: center; }
