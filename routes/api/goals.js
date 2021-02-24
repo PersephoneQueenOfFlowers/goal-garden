@@ -46,7 +46,7 @@ router.get("/:id",
     Goal
       .findById(req.params.id)
       .then(goal => res.json(goal))
-      .catch(err => res.status(400).json(err));
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
 
 // goal-create route: POST
@@ -96,7 +96,7 @@ router.post("/",
 router.patch("/:id",  
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    
+
     const { isValid, errors } = validateGoalUpdate(req.body);
 
     if (!isValid) {
@@ -125,17 +125,20 @@ router.patch("/:id",
         // goal.count = req.body.count || goal.count;
         // goal.streak = req.body.streak || goal.streak;
 
-        goalProps = ["body", "title", ]
-        //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
+        goalProps = ["body", "title", "expirationDate",  
+        //"avatar", "checkInterval", "active", "count", "streak"
+        ];
 
         for (prop of goalProps) {
           goal[prop] = req.body[prop] || goal[prop];
         }
+      
+        
 
         goal.save()
         .then(goal => res.json(goal));
       })
-      .catch(err => res.status(400).json(err));
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
 
 // goal-delete route: DESTROY
@@ -156,6 +159,7 @@ router.delete("/:id",
         }
         res.redirect("/")
       })
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
       
 });
 
