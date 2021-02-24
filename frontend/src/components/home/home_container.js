@@ -3,7 +3,9 @@ import Home from './home';
 
 const mSTP = (state, ownProps) => {
   return {
-    // item: state.entities.items[ownProps.match.params.itemId]
+    modal: ownProps.modal,
+    setModalShow: ownProps.setModalShow,
+    modalShow: ownProps.modalShow
   }
 }
 
