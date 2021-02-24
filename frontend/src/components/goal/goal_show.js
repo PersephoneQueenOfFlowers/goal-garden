@@ -26,7 +26,7 @@ class GoalShow extends React.Component{
                <p>{goal.body}</p>
                <div>Journals
                     {journalsArr.map(journal => {
-                        return(<Link>{journal.body}</Link>)
+                        return (<div>{journal.body}</div>)
                     })}
                </div>
            </div>
