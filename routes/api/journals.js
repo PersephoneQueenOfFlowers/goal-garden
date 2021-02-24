@@ -5,7 +5,8 @@ const passport = require('passport')
 
 const Journal = require('../../models/Journal')
 
-const validateJournalUpdate = require("../../validation/journal-update")
+const validateJournalInput = require("../../validation/journal");
+const validateJournalUpdate = require("../../validation/journal-update");
 
 router.get('/goal/:goalId', (req, res) => {
     Journal.find({goal: req.params.goalId})
@@ -55,8 +56,14 @@ router.patch("/:id",
       })
       .then(journal => {
 
+        //for now make it so that journals cannot be moved from one goal
+        //to another because otherwise we would need to verify that
+        //the other goal belongs to current user
+        // and would then mess up the goal progress and whatnot.
+        
         journalProps = [  
-            "goal", "body", "success", "highlights", "media", "goalState", "cues", "rewards"
+            //"goal", 
+            "body", "success", "highlights", "media", "goalState", "cues", "rewards"
         ];
 
         for (prop of journalProps) {
