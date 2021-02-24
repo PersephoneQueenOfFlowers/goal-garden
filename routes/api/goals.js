@@ -71,8 +71,8 @@ router.post("/",
         body: req.body.body,
         title: req.body.title,
         expirationDate: req.body.expirationDate,
+        checkInterval: req.body.checkInterval,
         // avatar: req.body.avatar,
-        // checkInterval: req.body.checkInterval,
         // active: req.body.active,
         // count: req.body.count,
         // streak: req.body.streak
@@ -120,8 +120,9 @@ router.patch("/:id",
       })
       .then(goal => {
 
-        goalProps = ["body", "title", "expirationDate",  
-        //"avatar", "checkInterval", "active", "count", "streak"
+        goalProps = [
+          "body", "title", "expirationDate", "checkInterval",
+        // "avatar", "active", "count", "streak"
         ];
 
         for (prop of goalProps) {
