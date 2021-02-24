@@ -1,0 +1,14 @@
+body {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .beauty {
+        // font-family: 'beauty-moments', 'Garamond';
+  }
+  .bodoni {
+    font-family: 'Bodoni Ornaments';
+  }
+} 
+
+@font-face {
+  font-family: 'beauty-moments';
+  src: local('beauty-moments'), url(./fonts/beauty-mountains.ttf) format('ttf');
+}

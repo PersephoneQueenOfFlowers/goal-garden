@@ -1,16 +1,18 @@
 import React from 'react';
+import Nav from '../nav/nav';
 
-class Hero extends React.Component {
+function Hero(props){
 
-  render() {
-    return (
-      <section className="hero">
-        <div>        
-          <p>Hero component</p>
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="hero">
+      <Nav />
+      <div className="hero-inner-container">
+        <h1><span className="beauty">G</span>oal<span className="beauty">G</span>arden</h1>
+        <p>Curated Space for Personal Goal Setting<br />  and Tracking</p>
+      </div>
+    </section>
+  );
+
 }
 
 export default Hero;
