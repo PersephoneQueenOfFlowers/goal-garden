@@ -43,15 +43,14 @@ const Home = (props) => {
         <img src='./css/images/grass-illust.png' alt=""/>
         <div className="left">
           <div className="background-container">
-            <p>
-              GoalGarden is a curated space for help with personal goal accountability and tracking.
+            <h3>
               Here you can:
-          </p>
+          </h3>
             <ul>
               <li>Create goals and track your progress</li>
-              <li>keep a journal of your progress attached to each goal</li>
-              <li>receive reminder notifications when attention is needed</li>
-              <li>mark and celebrate your progress and success!</li>
+              <li>keep a journal attached to each goal</li>
+              <li>receive reminder notifications</li>
+              <li>celebrate your progress and success!</li>
             </ul>
           </div>
         </div>
