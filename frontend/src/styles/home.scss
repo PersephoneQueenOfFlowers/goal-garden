@@ -11,7 +11,12 @@
     img {
       width: 115%;
       position: absolute;
-      top: -79px;
+      @media all and (min-width: 500px) and (max-width: 992px) {
+        margin-top: -15%;
+      }
+      @media all and (min-width: 993px) {
+        margin-top: -13%;
+      }
     }
     .left{
       flex: 40%;
