@@ -41,6 +41,9 @@ button,
 input[type="submit"] {
   cursor: pointer; }
 
+button:hover {
+  cursor: pointer; }
+
 .shimmer {
   text-align: center;
   color: rgba(255, 255, 255, 0.1);
@@ -251,6 +254,12 @@ body {
     .middle .left .background-container ul li:before {
       background-image: none;
       width: 10%; }
+
+.signup-form-container {
+  border: 1px solid red; }
+
+.signup-form {
+  border: 1px solid green; }
 
 .App {
   text-align: center; }

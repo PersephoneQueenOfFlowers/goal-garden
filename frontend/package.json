@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-css": "node-sass -o public/css/ src/styles/",
-    "watch-css": "nodemon -e sass -x \"npm run build-css\""
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "eslintConfig": {
     "extends": [

@@ -57,7 +57,6 @@ class Goal extends React.Component {
             </label>
             <button type="submit">Add New Goal!</button>
           </form>
-          <button type="button">Add New Goal</button>
           {this.props.errors.map(error => {
             return (<div>{error}</div>)
           })}
