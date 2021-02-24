@@ -26,7 +26,9 @@ class Goal extends React.Component {
                             expirationDate: this.state.date})
     this.setState({ title: "", body: "", 
       date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"})
-    this.props.fetchGoals();
+    setTimeout(() => {
+      this.props.fetchGoals();
+    }, 300)
   }
 
   render() {
