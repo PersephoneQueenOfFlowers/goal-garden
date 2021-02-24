@@ -14,9 +14,9 @@ const GoalSchema = new Schema ({
     type: String,
     required: true
   },
-  // expirationDate: {
-  //   type: Date
-  // },
+  expirationDate: {
+    type: Date
+  },
   // avatar: {
   //   type: Number,
   //   required: true

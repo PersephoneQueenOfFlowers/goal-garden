@@ -1,29 +1,12 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
+const validFutureDate = require('./valid-future-date');
 module.exports = function validateCreateGoal(data) {
     let errors = {};
-
-
-    // user: req.user.id,
-    // body: req.body.body,
-    // title: req.body.title,
-    // expirationDate: req.body.expirationDate,
-    // avatar: req.body.avatar,
-    // checkInterval: req.body.checkInterval,
-    // active: req.body.active,
-    // count: req.body.count,
-    // streak: req.body.streak
-
-
-    // data.email = validText(data.email) ? data.email : '';
-    // data.password = validText(data.password) ? data.password : '';
-
-
     
     // data is req.body
 
-    goalProps = ["body", "title", 
-    //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"
+    goalProps = ["body", "title", "expirationDate", "avatar", "checkInterval", "active", "count", "streak"
     ];
 
     for (prop of goalProps) {
@@ -58,6 +41,14 @@ module.exports = function validateCreateGoal(data) {
 
     if(Validator.isEmpty(data.title)) {
         errors.title = 'Title field is required'
+    }
+    if (Validator.isEmpty(data.expirationDate)) {
+      errors.expirationDate = "Expiration Date field is required";
+    }
+    if (!Validator.isISO8601(data.expirationDate)) {
+        errors.expirationDate = "Expiration Date must be a valid date";
+    } else if (!validFutureDate(data.expirationDate)){
+        errors.expirationDate = "Expiration Date must be at least 24 hours from now";
     }
 
     return {
