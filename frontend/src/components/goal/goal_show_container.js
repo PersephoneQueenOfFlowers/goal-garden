@@ -4,7 +4,7 @@ import { fetchGoal } from '../../actions/goal_actions';
 import GoalShow from './goal_show';
 
 const mapStateToProps = (state, { match }) => {
-  const goal = state.goals.user;
+  const goal = state.goals[match.params.goalId];
   return {
     goal
   };
