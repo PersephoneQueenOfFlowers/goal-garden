@@ -43,7 +43,7 @@ router.patch("/:id",
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
 
-    const { isValid, errors } = validateGoalUpdate(req.body);
+    const { isValid, errors } = validateJournalUpdate(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -55,20 +55,18 @@ router.patch("/:id",
       })
       .then(journal => {
 
-        journalProps = ["body", "title", "expirationDate",  
-        //"avatar", "checkInterval", "active", "count", "streak"
+        journalProps = [  
+            "goal", "body", "success", "highlights", "media", "goalState", "cues", "rewards"
         ];
 
         for (prop of journalProps) {
           journal[prop] = req.body[prop] || journal[prop];
         }
       
-        
-
         journal.save()
         .then(journal => res.json(journal));
       })
-      .catch(err => res.status(400).json({noJournalFound: "No Goal Found"}));
+      .catch(err => res.status(400).json({noJournalFound: "No Journal Found"}));
 });
 
 router.delete("/:id",
