@@ -61,8 +61,13 @@ body {
   background-image: linear-gradient(180deg, #6c5d47, #fff); }
   .middle img {
     width: 115%;
-    position: absolute;
-    top: -79px; }
+    position: absolute; }
+    @media all and (min-width: 500px) and (max-width: 992px) {
+      .middle img {
+        margin-top: -15%; } }
+    @media all and (min-width: 993px) {
+      .middle img {
+        margin-top: -13%; } }
   .middle .left {
     flex: 40%; }
   .middle .right {
