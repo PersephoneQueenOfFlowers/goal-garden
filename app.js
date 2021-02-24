@@ -36,10 +36,10 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/journals", journals);
 app.use("/api/goals", goals);
-app.use(express.static('frontend/public'));
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
-})
+// app.use(express.static('frontend/public'));
+// app.get('/', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
+// })
 
 
 if (process.env.NODE_ENV === 'production') {
