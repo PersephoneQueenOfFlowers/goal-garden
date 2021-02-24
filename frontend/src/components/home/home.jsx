@@ -8,7 +8,8 @@ class MyVerticallyCenteredModal extends React.Component {
   constructor(props){
     super(props)
     this.props = props
-    this.state = modalContent
+    this.state = this.props.modalContent
+    this.state.journal_entry = ""
     this.addJournal = this.addJournal.bind(this);
   }
 
@@ -38,7 +39,7 @@ class MyVerticallyCenteredModal extends React.Component {
           })}
         
             <form>
-              <input type="textarea" />
+              <input type="textarea" value={this.state.journal_entry}/>
               <input 
                 type="button" 
                 value="add journal"
@@ -105,9 +106,7 @@ const Home = (props) => {
     } 
 
     modalContent = modalGoals[e.target.value];
-    debugger
     setModalShow(true);
-    debugger
   }
 
   return (
