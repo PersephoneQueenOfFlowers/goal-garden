@@ -44,7 +44,6 @@ router.get("/",
 router.get("/:id", 
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    debugger
     Goal
       .findOne({ 
         user: req.user.id,
