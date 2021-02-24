@@ -6,7 +6,7 @@ const GoalErrorsReducer = (state = _nullErrors, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_GOAL_ERRORS:
-            return action.errors;
+            return Object.values(action.errors);
         case RECEIVE_GOAL:
             return _nullErrors;
         default:

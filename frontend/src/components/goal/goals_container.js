@@ -5,7 +5,8 @@ import Goals from './goals';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.user,
-    goals: Object.values(state.goals.all)
+    goals: Object.values(state.goals.all),
+    errors: state.errors.goal
   };
 };
 
