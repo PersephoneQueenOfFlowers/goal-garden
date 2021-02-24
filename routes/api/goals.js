@@ -25,14 +25,15 @@ const validateGoalUpdate = require('../../validation/goal-update');
 // goal-index route: GET
 // should only be accessible when a user is authenticated
 // should return all names + goal status + id's (for linking to goal show page) -- for now just send whole goals down
-router.get("/", (req, res) => {
+router.get("/",
+  passport.authenticate('jwt', { session: false }), 
+  (req, res) => {
   //also is test route for now
-  res.json({ msg: "This is the goal route" });
-  //  Goal
-  //   .find()
-  //   .sort({ date: -1 })
-  //   .then(goals => res.json(goals))
-  //   .catch(err => res.status(400).json(err));
+  // res.json({ msg: "This is the goal route" });
+   Goal
+    .find({ user: req.user.id })
+    .then(goals => res.json(goals))
+    .catch(err => res.status(400).json(err));
 });
 
 
@@ -44,9 +45,12 @@ router.get("/:id",
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Goal
-      .findById(req.params.id)
+      .findOne({ 
+        user: req.user.id,
+        _id: req.params.id
+      })
       .then(goal => res.json(goal))
-      .catch(err => res.status(400).json(err));
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
 
 // goal-create route: POST
@@ -66,7 +70,7 @@ router.post("/",
         user: req.user.id,
         body: req.body.body,
         title: req.body.title,
-        // expirationDate: req.body.expirationDate,
+        expirationDate: req.body.expirationDate,
         // avatar: req.body.avatar,
         // checkInterval: req.body.checkInterval,
         // active: req.body.active,
@@ -96,7 +100,7 @@ router.post("/",
 router.patch("/:id",  
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    
+
     const { isValid, errors } = validateGoalUpdate(req.body);
 
     if (!isValid) {
@@ -110,7 +114,10 @@ router.patch("/:id",
     // If you need full-fledged validation, use the traditional approach of first retrieving the document.
     
     Goal
-      .findById(req.params.id)
+      .findOne({ 
+        user: req.user.id,
+        _id: req.params.id
+      })
       .then(goal => {
         // Goal.update
         // there is probably a better way to do this, 
@@ -125,17 +132,20 @@ router.patch("/:id",
         // goal.count = req.body.count || goal.count;
         // goal.streak = req.body.streak || goal.streak;
 
-        goalProps = ["body", "title", ]
-        //"expirationDate", "avatar", "checkInterval", "active", "count", "streak"];
+        goalProps = ["body", "title", "expirationDate",  
+        //"avatar", "checkInterval", "active", "count", "streak"
+        ];
 
         for (prop of goalProps) {
           goal[prop] = req.body[prop] || goal[prop];
         }
+      
+        
 
         goal.save()
         .then(goal => res.json(goal));
       })
-      .catch(err => res.status(400).json(err));
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
 
 // goal-delete route: DESTROY
@@ -147,15 +157,27 @@ router.delete("/:id",
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     
+
     Goal
-      .findByIdAndRemove(req.params.id, (err, deletedGoal) => {
-        if (err){
-          res.status(500);
-        } else if (!deletedGoal){
-          res.status(404);
-        }
-        res.redirect("/")
+      .findOneAndRemove({
+        user: req.user.id,
+        _id: req.params.id
       })
+      .then(goal => {
+        res.json(goal);
+        res.redirect("/");
+      })
+      .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
+    // Goal
+    //   .findByIdAndRemove(req.params.id, (err, deletedGoal) => {
+    //     if (err){
+    //       res.status(500);
+    //     } else if (!deletedGoal){
+    //       res.status(404);
+    //     }
+    //     res.redirect("/")
+    //   })
+    //   .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
       
 });
 

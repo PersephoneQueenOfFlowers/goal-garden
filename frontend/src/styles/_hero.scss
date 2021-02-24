@@ -1,18 +1,22 @@
 .hero {
-  background-image: url('./images/3d-garden-darker.png');
+  background-image: url('./images/cloudy-sky-w-garden-bg.png');
   background-repeat: no-repeat;
   background-size: 100%;
-  min-height: 415px;
+  min-height: 300px;
   background-position-x: center;
   background-position-y: bottom;
-  > div {
-    height: 415px;
+  .hero-inner-container {
+    display: flex;
+    justify-content: center;
+    height: 335px;
     background-image: url('./images/flower-grown.gif');
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: 100px;
     bottom: 0;
     z-index: 1000;
     opacity: 1;
-    background-position: 200px 150px;
+    background-position: 160px 161px;
+    font-size: 1.5rem;
+    color: #142d20;
   }
 }
