@@ -1,11 +1,8 @@
-
-import { getGoals, writeGoal, getGoal } from '../util/goal_api_util';
-
+import { getGoals, writeGoal, getGoal, deleteGoal} from '../util/goal_api_util';
 
 export const RECEIVE_GOALS = "RECEIVE_GOALS";
 export const RECEIVE_GOAL = "RECEIVE_GOAL";
-
-
+export const REMOVE_GOAL = "REMOVE_GOAL";
 
 export const receiveGoals = goals => ({
   type: RECEIVE_GOALS,
@@ -17,6 +14,10 @@ export const receiveGoal = goal => ({
   goal
 });
 
+export const eraseGoal = (goalId) => ({
+  type: REMOVE_GOAL,
+  goalId
+});
 
 export const fetchGoals = () => dispatch => (
   getGoals()
@@ -30,8 +31,16 @@ export const fetchGoal = id => dispatch => (
     .catch(err => console.log(err))
 );
 
+export const removeGoal = id => dispatch => (
+  deleteGoal(id)
+    .then(() => dispatch(eraseGoal(id)))
+    .catch(err => console.log(err))
+);
+
 export const composeGoal = data => dispatch => (
   writeGoal(data)
     .then(goal => dispatch(receiveGoal(goal)))
     .catch(err => console.log(err))
 );
+
+
