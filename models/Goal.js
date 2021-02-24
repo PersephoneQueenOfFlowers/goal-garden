@@ -21,12 +21,12 @@ const GoalSchema = new Schema ({
   //   type: Number,
   //   required: true
   // },
-  // checkInterval: {
-  //   type: Number,
-  //   min: 1,
-  //   max: 365,
-  //   required: true
-  // },
+  checkInterval: {
+    type: Number,
+    min: 1,
+    max: 365,
+    // required: true
+  },
   // active: {
   //   type: Boolean,
   //   required: true
