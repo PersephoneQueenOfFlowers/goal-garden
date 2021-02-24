@@ -14,6 +14,7 @@ import { createJournal, deleteJournal, fetchJournal, fetchJournals } from './act
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("hello");
   let store;
 
   if (localStorage.jwtToken) {

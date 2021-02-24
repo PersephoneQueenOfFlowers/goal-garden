@@ -13,6 +13,7 @@ const Goal = require('./models/Goal');
 const goals = require("./routes/api/goals");
 
 const path = require('path');
+const sslRedirect = require('heroku-ssl-redirect'); 
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -43,6 +44,7 @@ app.use("/api/goals", goals);
 
 
 if (process.env.NODE_ENV === 'production') {
+  app.use(sslRedirect()) 
   app.use(express.static('frontend/build'));
   app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
