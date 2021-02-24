@@ -1,7 +1,7 @@
 
 import React from 'react';
 import HomeContainer from '../home/home_container'
-import Nav from '../nav/nav';
+// import Nav from '../nav/nav';
 import Modal from 'react-bootstrap/Modal';
 
 function MyVerticallyCenteredModal(props) {
@@ -37,7 +37,6 @@ function Main(props) {
 
   return (
     <div className="main-container">
-      <Nav />
       <HomeContainer modalShow={modalShow} setModalShow={setModalShow} modal={MyVerticallyCenteredModal}/>
     </div>
   );
