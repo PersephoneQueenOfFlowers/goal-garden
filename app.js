@@ -14,6 +14,7 @@ const goals = require("./routes/api/goals");
 
 const path = require('path');
 
+
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 // app.get("/", (req, res) => {
 //   res.send("Welcome to Goal Garden")
 // });
+
 
 app.use("/api/users", users);
 app.use("/api/journals", journals);

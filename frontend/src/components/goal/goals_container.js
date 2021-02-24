@@ -5,8 +5,8 @@ import { asArray } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.session.user,
-    goals: asArray(state)
+    goals: asArray(state),
+    errors: state.errors.goal
   };
 };
 
