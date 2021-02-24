@@ -33,5 +33,5 @@ export const fetchGoal = id => dispatch => (
 export const composeGoal = data => dispatch => (
   writeGoal(data)
     .then(goal => dispatch(receiveGoal(goal)))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.response.data))
 );
