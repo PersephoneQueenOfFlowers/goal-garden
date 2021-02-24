@@ -34,7 +34,7 @@ export const fetchGoals = () => dispatch => (
 export const fetchGoal = id => dispatch => (
   getGoal(id)
     .then(goal => dispatch(receiveGoal(goal)))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.response.data))
 );
 
 export const composeGoal = data => dispatch => (
