@@ -59,10 +59,10 @@ const Home = (props) => {
           <h1>Current Goals</h1>
           <ul>
             <li className="goalTitle"><button onClick={() => setModalShow(true)}>clean out the garage</button></li>
-            <li className="goalTitle">build a new dog house</li>
-            <li className="goalTitle">go shopping</li>
-            <li className="goalTitle">start on the novel</li>
-            <li className="goalTitle">paint the kitchen</li>
+            <li className="goalTitle"><button onClick={() => setModalShow(true)}>build a new dog house</button></li>
+            <li className="goalTitle"><button onClick={() => setModalShow(true)}>go shopping</button></li>
+            <li className="goalTitle"><button onClick={() => setModalShow(true)}>start on the novel</button></li>
+            <li className="goalTitle"><button onClick={() => setModalShow(true)}>paint the kitchen</button></li>
           </ul>
         </div>
       </section>

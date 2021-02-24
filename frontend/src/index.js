@@ -11,7 +11,7 @@ import { setAuthToken } from "./util/session_api_util"
 
 import { login, logout, signup } from './actions/session_actions';
 import { createJournal, deleteJournal, fetchJournal, fetchJournals } from './actions/journal_actions';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
