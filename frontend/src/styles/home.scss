@@ -26,17 +26,28 @@
     .right{
       flex: 20%;
       .goal-list {
-       li{list-style:none;}
-       li:before{
-        content: '';
-        display: inline-block;
-        height: 25px;
-        width: 48px;
-        background-image: url(./images/watering-can.png);
-        background-size: 35px;
-        background-position: 4px;
-        background-repeat: no-repeat;
-       }
+       li{
+          list-style:none;
+          &:before{
+            content: '';
+            display: inline-block;
+            height: 25px;
+            width: 48px;
+            background-image: url(./images/watering-can.png);
+            background-size: 35px;
+            background-position: 4px;
+            background-repeat: no-repeat;
+          }
+          button{
+            border: none;
+            background: none;
+            font-family: cursive;
+            color: green;
+            &:hover {
+              color:#1089ea;
+            }
+          }
+        }
       }
     }
     .right .goals-container,

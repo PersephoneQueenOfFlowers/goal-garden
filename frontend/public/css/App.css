@@ -9,20 +9,40 @@ body {
 
 .main-container .nav {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
+  .main-container .nav .button {
+    padding: 10px 16px;
+    margin: 10px;
+    background: #fffd54;
+    color: #acc95c;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.3em;
+    border: 2px dashed #acc95c;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+    text-shadow: -1px -1px #ffde1c;
+    font-weight: normal; }
 
 .main-container {
   display: grid;
   grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
-  grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last]; }
-  .main-container .nav {
-    grid-column: 1 / span 2;
-    grid-row: header-start / 1; }
+  grid-template-rows: [main-start] 1fr [footer-start] 50px [last]; }
   .main-container .home {
     grid-column: first / span 2;
     grid-row: main-start / 2; }
     .main-container .home .hero {
-      min-height: 340px; }
+      min-height: 340px;
+      display: grid;
+      grid-template-columns: [first] 200px [center] 1fr [right] 200px;
+      grid-template-rows: [nav] 75px [hero-inner] 1fr [last]; }
+      .main-container .home .hero .nav {
+        grid-column: 1 / span 3;
+        grid-row: 1; }
+      .main-container .home .hero .hero-inner-container {
+        grid-column: 1 / span 3;
+        grid-row: 2; }
 
 .hero {
   background-image: url("./images/cloudy-sky-w-garden-bg.png");
@@ -47,7 +67,21 @@ body {
 
 .main-container .nav {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: center; }
+  .main-container .nav .button {
+    padding: 10px 16px;
+    margin: 10px;
+    background: #fffd54;
+    color: #acc95c;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.3em;
+    border: 2px dashed #acc95c;
+    border-radius: 10px;
+    box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+    text-shadow: -1px -1px #ffde1c;
+    font-weight: normal; }
 
 .middle {
   display: flex;
@@ -76,15 +110,22 @@ body {
     flex: 20%; }
     .middle .right .goal-list li {
       list-style: none; }
-    .middle .right .goal-list li:before {
-      content: '';
-      display: inline-block;
-      height: 25px;
-      width: 48px;
-      background-image: url(./images/watering-can.png);
-      background-size: 35px;
-      background-position: 4px;
-      background-repeat: no-repeat; }
+      .middle .right .goal-list li:before {
+        content: '';
+        display: inline-block;
+        height: 25px;
+        width: 48px;
+        background-image: url(./images/watering-can.png);
+        background-size: 35px;
+        background-position: 4px;
+        background-repeat: no-repeat; }
+      .middle .right .goal-list li button {
+        border: none;
+        background: none;
+        font-family: cursive;
+        color: green; }
+        .middle .right .goal-list li button:hover {
+          color: #1089ea; }
   .middle .right .goals-container,
   .middle .left .background-container {
     background-color: #fff;

@@ -3,16 +3,23 @@
 .main-container {
   display: grid;
   grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
-  grid-template-rows: [first header-start] 50px [main-start] 1fr [footer-start] 50px [last];
-  .nav {
-    grid-column: 1 / span 2;
-    grid-row: header-start / 1;
-  }
+  grid-template-rows: [main-start] 1fr [footer-start] 50px [last];
   .home {
     grid-column: first / span 2;
     grid-row: main-start / 2;
     .hero {
       min-height: 340px;
+      display: grid;
+      grid-template-columns: [first] 200px [center] 1fr [right] 200px;
+      grid-template-rows: [nav] 75px [hero-inner] 1fr [last];
+      .nav {
+        grid-column: 1 / span 3;
+        grid-row: 1;
+      }
+      .hero-inner-container {
+        grid-column: 1 / span 3;
+        grid-row: 2;
+      }
     }
   }
 }
