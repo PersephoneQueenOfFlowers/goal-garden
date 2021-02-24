@@ -119,18 +119,6 @@ router.patch("/:id",
         _id: req.params.id
       })
       .then(goal => {
-        // Goal.update
-        // there is probably a better way to do this, 
-        // will look into it later
-
-        // goal.body = req.body.body || goal.body;
-        // goal.title = req.body.title || goal.title;
-        // goal.expirationDate = req.body.expirationDate || goal.expirationDate;
-        // goal.avatar = req.body.avatar || goal.avatar;
-        // goal.checkInterval = req.body.checkInterval || goal.checkInterval;
-        // goal.active = req.body.active || goal.active;
-        // goal.count = req.body.count || goal.count;
-        // goal.streak = req.body.streak || goal.streak;
 
         goalProps = ["body", "title", "expirationDate",  
         //"avatar", "checkInterval", "active", "count", "streak"

@@ -1,19 +1,23 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
-const validFutureDate = require('./valid-future-date');
 module.exports = (data) => {
     let errors = {};
-    
-    // data is req.body
 
-    goalProps = ["body", "title", "expirationDate", "avatar", "checkInterval", "active", "count", "streak"
+    journalProps = [
+      "goal", "highlights", "body", "success",
+      "media", "goalState", "cues", "rewards"
     ];
 
-    for (prop of goalProps) {
-      data[prop] = validText(data[prop]) ? data[prop] : "";
+    presentProps = {}
+
+    for (prop of journalProps) {
+        if(data[prop] === undefined){
+            presentProps[prop] = false;
+        } else{
+            if(!validText(data[prop])) data[prop] = "";
+            presentProps[prop] = true;
+        }
     }
-
-
     // Validator Methods -- https://www.npmjs.com/package/validator
 
     // 
@@ -34,23 +38,12 @@ module.exports = (data) => {
 
 
     // 
-
-    if(Validator.isEmpty(data.body)) {
-        errors.body = 'Body field is rquired';
+    if (presentProps["body"]){
+        if(Validator.isEmpty(data.body)) {
+            errors.body = 'Body field is rquired';
+        }
     }
-
-    if(Validator.isEmpty(data.title)) {
-        errors.title = 'Title field is required'
-    }
-    if (Validator.isEmpty(data.expirationDate)) {
-      errors.expirationDate = "Expiration Date field is required";
-    }
-    if (!Validator.isISO8601(data.expirationDate)) {
-        errors.expirationDate = "Expiration Date must be a valid date";
-    } else if (!validFutureDate(data.expirationDate)){
-        errors.expirationDate = "Expiration Date must be at least 24 hours from now";
-    }
-
+    
     return {
         errors,
         isValid: Object.keys(errors).length === 0

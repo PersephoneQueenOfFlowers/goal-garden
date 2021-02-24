@@ -5,7 +5,7 @@ const passport = require('passport')
 
 const Journal = require('../../models/Journal')
 
-const validateJournalInput = require("../../validation/journal")
+const validateJournalUpdate = require("../../validation/journal-update")
 
 router.get('/goal/:goalId', (req, res) => {
     Journal.find({goal: req.params.goalId})
@@ -37,6 +37,38 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
     });
 
     newJournal.save().then(journal => res.json(journal));
+});
+
+router.patch("/:id",  
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    const { isValid, errors } = validateGoalUpdate(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    Journal
+      .findOne({ 
+        _id: req.params.id
+      })
+      .then(journal => {
+
+        journalProps = ["body", "title", "expirationDate",  
+        //"avatar", "checkInterval", "active", "count", "streak"
+        ];
+
+        for (prop of journalProps) {
+          journal[prop] = req.body[prop] || journal[prop];
+        }
+      
+        
+
+        journal.save()
+        .then(journal => res.json(journal));
+      })
+      .catch(err => res.status(400).json({noJournalFound: "No Goal Found"}));
 });
 
 router.delete("/:id",
