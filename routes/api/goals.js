@@ -46,7 +46,7 @@ router.get("/:id",
   (req, res) => {
     debugger
     Goal
-      .find({ 
+      .findOne({ 
         user: req.user.id,
         _id: req.params.id
       })
@@ -115,7 +115,7 @@ router.patch("/:id",
     // If you need full-fledged validation, use the traditional approach of first retrieving the document.
     
     Goal
-      .find({ 
+      .findOne({ 
         user: req.user.id,
         _id: req.params.id
       })

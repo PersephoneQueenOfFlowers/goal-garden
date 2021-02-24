@@ -56,7 +56,7 @@ module.exports = function validateCreateGoal(data) {
 
     // 
     if (presentProps["body"]){
-        if(presentValidator.isEmpty(data.body)) {
+        if(Validator.isEmpty(data.body)) {
             errors.body = 'Body field is rquired';
         }
     }
