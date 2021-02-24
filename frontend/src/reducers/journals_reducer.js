@@ -6,7 +6,11 @@ const JournalsReducer = (oldState = {}, action) => {
     let newState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_GOALS_JOURNALS:
-            return action.journals.data
+            newState[action.journals.data[0].goal] = {}
+            action.journals.data.forEach(journal => {
+                newState[journal.goal][journal._id] = journal
+            });
+            return newState;
         case RECEIVE_JOURNAL:
             newState[action.journal.data._id] = action.journal.data
             return newState;
