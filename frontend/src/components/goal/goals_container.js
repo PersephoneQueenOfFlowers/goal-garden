@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGoals } from '../../actions/goal_actions';
+import { composeGoal, fetchGoals } from '../../actions/goal_actions';
 import Goals from './goals';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchGoals: () => dispatch(fetchGoals())
+    fetchGoals: () => dispatch(fetchGoals()),
+    composeGoal: goal => dispatch(composeGoal(goal))
   };
 };
 
