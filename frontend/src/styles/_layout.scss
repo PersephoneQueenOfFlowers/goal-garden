@@ -1,6 +1,10 @@
-.login-signup {
+.login-signup, .header-greeting {
     display: flex;
-    justify-content: flex-end;
+    position: absolute;
+    margin-top: -5px;
+    background: transparent;
+    right: 20px;
+    align-items: center;
     .button {
       width: 80px;
       padding: 10px 6px;
@@ -13,7 +17,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: -250px;
+    
   }
+
+  .goal .hero-inner-container {
+      flex-direction: column;
+      align-items: center;
+    }
 
 .main-container {
   display: grid;
