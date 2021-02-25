@@ -1,4 +1,8 @@
-@import '_nav.scss';
+body {
+  background-image: url(./images/form-page-bg-big-sky.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .main-container {
   display: grid;
