@@ -429,8 +429,11 @@ body {
   margin-left: 10px; }
 
 .add_journal_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 225px;
-  height: 24px;
+  height: 36px;
   padding: 10px 16px;
   margin-top: 15px;
   text-align: center;
@@ -454,7 +457,7 @@ body {
 
 .journal_form_show, .journal_goal_show {
   position: absolute;
-  right: 636px;
+  right: 639px;
   top: 200px;
   border: 2px solid green;
   border-radius: 10px;
@@ -462,7 +465,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  width: max-content;
+  width: 402px;
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 28px;
@@ -497,9 +500,6 @@ body {
   border: 1px solid #acc95c;
   margin-left: 10px; }
 
-.journal_goal_show {
-  right: 710px; }
-
 .journal_goal_hidden {
   display: none; }
 
@@ -510,6 +510,20 @@ body {
 
 .goal_description {
   overflow-wrap: break-word; }
+
+.journal_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.journal_header {
+  font-size: 20px;
+  padding: 5px; }
+
+.journal_header > * {
+  font-size: 15px;
+  margin-left: 10px; }
 
 .App {
   text-align: center; }

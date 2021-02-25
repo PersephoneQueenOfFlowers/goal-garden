@@ -127,6 +127,7 @@ class GoalShow extends React.Component{
               </div>
               <div className="right">
                 <div className="goals-container">
+                  <div className="journal_right">
                   <h3>Journals</h3>
                     <div className={this.state.journalShow}>
                         <button onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button>
@@ -144,6 +145,7 @@ class GoalShow extends React.Component{
                         })}
                   </ul>
                   <button className="add_journal_button" onClick={() => this.state.journalForm === "journal_form_hidden" ? this.setState({ journalForm: "journal_form_show" }) : this.setState({ journalForm: "journal_form_hidden" })}>Add New Journal</button>
+                  </div>
                   <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                        <div className="journal_radio">
                            <label>Did achieve your goal step?</label>
