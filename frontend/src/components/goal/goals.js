@@ -6,7 +6,7 @@ import Hero from '../home/hero';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"}
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_hidden"}
     this.createGoal = this.createGoal.bind(this);
   }
 
@@ -24,9 +24,10 @@ class Goal extends React.Component {
     e.preventDefault();
     this.props.composeGoal({body: this.state.body,
                             title: this.state.title,
-                            expirationDate: this.state.date})
+                            expirationDate: this.state.date,
+                            checkInterval: this.state.interval})
     this.setState({ title: "", body: "", 
-      date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"})
+      date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden"})
     setTimeout(() => {
       this.props.fetchGoals();
     }, 300)
@@ -40,12 +41,8 @@ class Goal extends React.Component {
               </div>
             )
         });
- 
-    if(goals.length === 0){
-      return (<div>You have no Goals <button>Create New Goal</button></div>)
-    } else {
+    const headerMsg = goals.length === 0 ? "You have no goals." : "All Goals";
       return (
-    
           <div className="body home goal">
 
             <Hero />
@@ -55,7 +52,7 @@ class Goal extends React.Component {
               <div className="left">
                 <div className="background-container">
                   <h3>
-                  <h2>All Goals</h2>
+                  <h2>{headerMsg}</h2>
                   </h3>
                     {goals}
                     <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })}>Add a New Goal</button>
@@ -63,14 +60,17 @@ class Goal extends React.Component {
                       <div className="goals-container form-container">
                         <form className="form" onSubmit={this.createGoal} className={this.state.formClass}>
                         <h4>Make a new goal</h4>
-                          <label>Goal Title:
-                  <input type="text" value={this.state.title} onChange={this.handleChange("title")} />
+                          <label>Title
+                            <input type="text" value={this.state.title} onChange={this.handleChange("title")} />
                           </label>
-                          <label>Goal Description:
-                  <textarea value={this.state.body} onChange={this.handleChange("body")} />
+                          <label>Description
+                              <textarea value={this.state.body} onChange={this.handleChange("body")} />
                           </label>
                           <label>How Long do you want to keep this goal going for?
-                  <input type="date" value={this.state.date} onChange={this.handleChange("date")} />
+                            <input type="date" value={this.state.date} onChange={this.handleChange("date")} />
+                          </label>
+                          <label>How often?
+                            <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
                           </label>
                           <button type="submit">Create New Goal!</button>
                         </form>
@@ -88,7 +88,6 @@ class Goal extends React.Component {
             </section>         
         </div>
       );
-    }
   }
 }
 
