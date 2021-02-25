@@ -14,7 +14,7 @@ class GoalShow extends React.Component{
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden"}
-        this.growth = 6;
+        this.growth = 4;
         this.addJournal = this.addJournal.bind(this)
     }
 

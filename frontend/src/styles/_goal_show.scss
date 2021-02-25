@@ -1,7 +1,7 @@
 
 .flower_picture{
     height: 800px;
-    width: 330px;
+    margin-left: 40px;
     background-image: url('./images/sprite-daisy.png');
     // background-position: 150px 300px;
     background-repeat: no-repeat;
@@ -19,30 +19,38 @@
 
 #growth0{
     background-position-x: 37px;
+    width: 330px;
 }
 
 #growth1{
     background-position-x: -284px;
+    width: 330px;
 }
 
 #growth2{
     background-position-x: -619px;
+    width: 330px;
 }
 
 #growth3{
     background-position-x: -953px;
+    width: 330px;
 }
 
 #growth4{
     background-position-x: -1285px;
+    padding-right: 45px;
+    width: 330px;
 }
 
 #growth5{
-    background-position-x: -1618px;
+    background-position-x: -1658px;
+    width: 290px;
 }
 
 #growth6{
     background-position-x: -1954px;
+    width: 330px;
 }
 
 .goal_show_info{

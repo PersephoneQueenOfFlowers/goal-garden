@@ -379,7 +379,7 @@ body {
 
 .flower_picture {
   height: 800px;
-  width: 330px;
+  margin-left: 40px;
   background-image: url("./images/sprite-daisy.png");
   background-repeat: no-repeat;
   background-position-y: 10px;
@@ -393,25 +393,33 @@ body {
   margin-top: 50px; }
 
 #growth0 {
-  background-position-x: 37px; }
+  background-position-x: 37px;
+  width: 330px; }
 
 #growth1 {
-  background-position-x: -284px; }
+  background-position-x: -284px;
+  width: 330px; }
 
 #growth2 {
-  background-position-x: -619px; }
+  background-position-x: -619px;
+  width: 330px; }
 
 #growth3 {
-  background-position-x: -953px; }
+  background-position-x: -953px;
+  width: 330px; }
 
 #growth4 {
-  background-position-x: -1285px; }
+  background-position-x: -1285px;
+  padding-right: 45px;
+  width: 330px; }
 
 #growth5 {
-  background-position-x: -1618px; }
+  background-position-x: -1658px;
+  width: 290px; }
 
 #growth6 {
-  background-position-x: -1954px; }
+  background-position-x: -1954px;
+  width: 330px; }
 
 .goal_show_info {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
