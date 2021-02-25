@@ -1,5 +1,4 @@
 .signup-form-container {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,12 +6,13 @@
 
 .signup-form {
   border: 2px solid green;
-  height: 440px;
+  height: 460px;
   padding: 20px;
   border-radius: 15px; }
   .signup-form h2 {
     font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-weight: 400;
     font-size: 18px; }
 
@@ -25,13 +25,14 @@
   margin-top: 5px; }
 
 .signup-form label {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px; }
 
 .signup-button {
   width: 225px;
   height: 24px;
   padding: 10px 16px;
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
   background: #fffd54;
   color: #acc95c;
