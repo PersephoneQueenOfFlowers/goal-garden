@@ -1,5 +1,6 @@
 import React from 'react';
 import Main from './main/main';
+import NavContainer from './nav/nav_container';
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +17,7 @@ import GoalShowContainer from './goal/goal_show_container';
 const App = () => {
     return(
         <div>
+          <NavContainer />
             <Switch>
               <AuthRoute exact path="/" component={Main} />
               <AuthRoute exact path="/login" component={LoginFormContainer} />

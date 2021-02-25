@@ -2,13 +2,19 @@ import React from 'react';
 import Nav from '../nav/nav';
 
 function Hero(props){
-
+  let header = ""
+  if(props.header === undefined){
+    header = <p>Curated Space for Personal Goal Setting<br />  and Tracking"</p>
+  }else{
+    header = props.header
+  }
+  debugger
   return (
     <section className="hero">
-      <Nav />
+      {/* <Nav /> */}
       <div className="hero-inner-container">
         <h1><span className="beauty">G</span>oal<span className="beauty">G</span>arden</h1>
-        <p>Curated Space for Personal Goal Setting<br />  and Tracking</p>
+        <p>{props.header}</p>
       </div>
     </section>
   );
