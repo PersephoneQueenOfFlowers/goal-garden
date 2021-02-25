@@ -87,17 +87,51 @@
 
 .journal_form_show{
     border: 2px solid green;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: max-content;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 28px;
+    // justify-content: flex-start;
 }
+
+.journal_radio{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.journal_radio_buttons{
+    display: flex;
+    flex-direction: row;
+}
+
+.journal_radio_buttons > *{
+    margin-left: 10px; 
+    margin-right: 10px;
+}
+
 .journal_text_area{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    padding-bottom: 30px;
+    margin-left: 10px;
+}
+
+.journal_text_area_input{
+    height: 150px;
+    width: 100%;
+    margin-right: 20px;
 }
 
 #journal_input{
-    border: 1px solid black;
+    border: 1px solid rgb(172,201,92); 
+    margin-left: 10px
 }
 
 .journal_goal_show{
@@ -108,4 +142,10 @@
 
 .journal_goal_hidden{
     display: none
+}
+
+.journal_button_div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

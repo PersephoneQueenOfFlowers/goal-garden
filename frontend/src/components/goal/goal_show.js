@@ -74,38 +74,39 @@ class GoalShow extends React.Component{
                     </div>
                     <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                         <div className="journal_radio">
-                            <label>Did achieve your goal step?
-                            <div>
-                                 <label>Yes I did!
+                            <label>Did achieve your goal step?</label>
+                            <div className="journal_radio_buttons">
+                                 <p>Yes I did!
                                     <input type="radio" name="success" value="true" onClick={() => this.setState({success: true})}/>
-                                 </label>
-                                <label>No, but I will next time!
+                                 </p>
+                                <p>No, but I will next time!
                                     <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
-                                </label>
+                                </p>
                             </div>
-                            </label>
                         </div>
                         <div className="journal_text_area">
-                            <label>Journal about your Goal!
+                            <label className="">Journal about your Goal!
                             </label>
-                                <textarea id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
+                            <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
                         </div>
-                        <div>
+                        <div className="journal_text_area">
                             <label>Add any highlights:
-                                <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")}/>
                             </label>
+                            <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")}/>
                         </div>
-                        <div>
-                            <label>Add any Cues or distractions:
-                                <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
-                            </label>
+                        <div className="journal_text_area">
+                            <label>Add any Cues or distractions:</label>
+                            <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
                         </div>
-                        <label>Add any rewards you gave yourself:
-                                <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")}/>
-                        </label>
-                        <button type="submit">Create New Journal</button>
+                        <div className="journal_text_area">
+                            <label>Add any rewards you gave yourself:</label>
+                            <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
+                            <div className="journal_button_div">
+                                <button className="add_journal_button" type="submit">Create New Journal</button>
+                            </div>
+                        </div>
                     </form>
-                    <button className="add_journal_button" onClick={() => this.state.journalForm === "journal_form_hidden" ? this.setState({ journalForm: "journal_form_show" }) : this.setState({ journalForm: "journal_form_hidden" })}>Add New Journal</button>
+                        <button className="add_journal_button" onClick={() => this.state.journalForm === "journal_form_hidden" ? this.setState({ journalForm: "journal_form_show" }) : this.setState({ journalForm: "journal_form_hidden" })}>Add New Journal</button>
                 </div>
            </div>
         )
