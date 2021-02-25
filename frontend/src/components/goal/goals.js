@@ -69,7 +69,7 @@ class Goal extends React.Component {
                           <label>How Long do you want to keep this goal going for?
                             <input type="date" value={this.state.date} onChange={this.handleChange("date")} />
                           </label>
-                          <label>How often?
+                          <label>How often does this goal occur?(in days)
                             <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
                           </label>
                           <button type="submit">Create New Goal!</button>
