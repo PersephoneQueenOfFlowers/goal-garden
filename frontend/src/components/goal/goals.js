@@ -23,7 +23,8 @@ class Goal extends React.Component {
     e.preventDefault();
     this.props.composeGoal({body: this.state.body,
                             title: this.state.title,
-                            expirationDate: this.state.date})
+                            expirationDate: this.state.date,
+                            checkInterval: "1"})
     this.setState({ title: "", body: "", 
       date: new Date().toISOString().slice(0, 10), formClass: "add_goal_hidden"})
     setTimeout(() => {
@@ -39,7 +40,20 @@ class Goal extends React.Component {
         });
  
     if(goals.length === 0){
-      return (<div>You have no Goals <button>Create New Goal</button></div>)
+      return (<div>You have no Goals <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })}>Create New Goal</button>
+        <form onSubmit={this.createGoal} className={this.state.formClass}>
+          <label>Goal Title:
+              <input type="text" value={this.state.title} onChange={this.handleChange("title")} />
+          </label>
+          <label>Goal Description:
+              <textarea value={this.state.body} onChange={this.handleChange("body")} />
+          </label>
+          <label>How Long do you want to keep this goal going for?
+              <input type="date" value={this.state.date} onChange={this.handleChange("date")} />
+          </label>
+          <button type="submit">Create New Goal!</button>
+        </form>
+      </div>)
     } else {
       return (
         <div>

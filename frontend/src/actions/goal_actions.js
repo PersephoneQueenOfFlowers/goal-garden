@@ -46,10 +46,11 @@ export const removeGoal = id => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const composeGoal = data => dispatch => (
+export const composeGoal = data => dispatch => {
+  debugger
   writeGoal(data)
     .then(goal => dispatch(receiveGoal(goal)))
     .catch(err => dispatch(receiveGoalErrors(err.response.data)))
-);
+};
 
 
