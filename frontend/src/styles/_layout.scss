@@ -1,8 +1,19 @@
-body {
-  background-image: url(./images/form-page-bg-big-sky.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+.login-signup {
+    display: flex;
+    justify-content: flex-end;
+    .button {
+      width: 80px;
+      padding: 10px 6px;
+      margin: 14px 10px;
+    }
 }
+
+  body {
+    background-image: url(./images/form-page-bg-big-sky.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -250px;
+  }
 
 .main-container {
   display: grid;
