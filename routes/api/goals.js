@@ -59,13 +59,12 @@ router.get("/:id",
 router.post("/", 
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-      
       const { isValid, errors } = validateGoalCreate(req.body);
 
       if (!isValid) {
         return res.status(400).json(errors);
       }
-
+      
       const newGoal = new Goal ({
         user: req.user.id,
         body: req.body.body,
