@@ -261,6 +261,21 @@ body {
 .signup-form {
   border: 1px solid green; }
 
+.add_goal_hidden {
+  display: none; }
+
+.goal_box_container {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  border: 1px solid red; }
+
+.flower_picture {
+  height: 650px;
+  width: 280px;
+  background-image: url("./images/sprite-daisy.png");
+  background-repeat: no-repeat; }
+
 .App {
   text-align: center; }
 
