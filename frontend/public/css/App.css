@@ -105,23 +105,10 @@ body {
   font-family: 'beauty-moments';
   src: local("beauty-moments"), url(./fonts/beauty-mountains.ttf) format("ttf"); }
 
-.main-container .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  .main-container .nav .button {
-    padding: 10px 16px;
-    margin: 10px;
-    background: #fffd54;
-    color: #acc95c;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 1.3em;
-    border: 2px dashed #acc95c;
-    border-radius: 10px;
-    box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
-    text-shadow: -1px -1px #ffde1c;
-    font-weight: normal; }
+body {
+  background-image: url(./images/form-page-bg-big-sky.png);
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 .main-container {
   display: grid;
@@ -200,8 +187,7 @@ body {
   opacity: 1;
   position: relative;
   background-image: linear-gradient(180deg, #6c5d47, #fff);
-  border-image: 2 repeat url("./images/grass-border.png");
-  border-width: 2px 0 0 0; }
+  margin-bottom: -65px; }
   .middle img {
     width: 95%;
     position: absolute;
@@ -261,7 +247,6 @@ body {
       width: 10%; }
 
 .signup-form-container {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
