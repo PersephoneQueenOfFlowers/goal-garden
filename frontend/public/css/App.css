@@ -164,6 +164,13 @@ body {
     font-weight: 400;
     font-size: 18px; }
 
+.add_goal_show .form {
+  border: 1px solid red;
+  height: 550px; }
+  .add_goal_show .form h2 {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+
 .form input {
   border: 1px solid #acc95c;
   border-radius: 3px;
@@ -171,6 +178,14 @@ body {
   height: 32px;
   padding-left: 8px;
   margin-top: 5px; }
+
+.form textarea {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  padding-left: 8px;
+  margin-top: 5px;
+  width: 250px;
+  height: 50px; }
 
 .form label {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
