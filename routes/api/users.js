@@ -21,7 +21,7 @@ const generateMissedCheckins = require('./user-missed-check-ins');
 router.get("/test", passport.authenticate('jwt', { session: false }), (req, res) => {
   // res.json({ msg: "This is the user route" });
   // debugger;
-  generateMissedCheckins(req.user.id);
+  generateMissedCheckins(req.user.id, res);
 });
 
 router.get("/current", passport.authenticate('jwt', { session: false }), (req, res) => {

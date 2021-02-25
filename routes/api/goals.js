@@ -66,6 +66,9 @@ router.post("/",
         return res.status(400).json(errors);
       }
 
+      const longAgo = new Date();
+      longAgo.setDate(longAgo.getDate() - 100);
+
       const newGoal = new Goal ({
         user: req.user.id,
         body: req.body.body,
@@ -76,6 +79,7 @@ router.post("/",
         // active: req.body.active,
         // count: req.body.count,
         // streak: req.body.streak
+        createdAt: longAgo
       });
      
 

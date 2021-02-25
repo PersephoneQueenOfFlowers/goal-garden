@@ -30,7 +30,15 @@ const JournalSchema = new Schema ({
   },
   rewards: {
     type: Array
-  }
+  },
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now
+  // },
+  // updatedAt: {
+  //   type: Date,
+  //   default: Date.now
+  // }
 },{
   timestamps: true
 })
