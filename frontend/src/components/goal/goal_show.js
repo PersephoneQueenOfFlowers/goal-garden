@@ -15,6 +15,7 @@ class GoalShow extends React.Component{
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden"}
+        this.addOrLater = "Add New Journal"
         this.growth = 6;
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
@@ -47,14 +48,17 @@ class GoalShow extends React.Component{
     }
 
     handleButton(type){
-      if(type === "create"){
-        if (this.state.journalShow === "journal_form_hidden"){
+      if (type === "create"){
+        if (this.state.journalForm === "journal_form_hidden"){
           this.setState({ journalForm: "journal_form_show", journalShow: "journal_goal_hidden"})
+          this.addOrLater = "Write one Later"
         }else{
           this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_hidden" })
+          this.addOrLater = "Add New Journal"
         }
       }else{
         this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type})
+        this.addOrLater = "Add New Journal"
       }
     }
 
@@ -157,7 +161,7 @@ class GoalShow extends React.Component{
                              </div>)
                         })}
                   </ul>
-                  <button className="add_journal_button" onClick={() => this.handleButton("create")}>Add New Journal</button>
+                  <button className="add_journal_button" onClick={() => this.handleButton("create")}>{this.addOrLater}</button>
                   </div>
                   <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                        <div className="journal_radio">

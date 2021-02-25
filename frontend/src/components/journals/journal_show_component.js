@@ -29,7 +29,7 @@ class JournalShowComponent extends React.Component {
             influence = "Distractions:"
             rewards = "rewards_false"
         }
-        debugger
+        
         return(
             <div>
                 <div className="journal_show_component">

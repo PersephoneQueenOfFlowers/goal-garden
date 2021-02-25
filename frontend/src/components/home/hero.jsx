@@ -8,7 +8,6 @@ function Hero(props){
   }else{
     header = props.header
   }
-  debugger
   return (
     <section className="hero">
       {/* <Nav /> */}

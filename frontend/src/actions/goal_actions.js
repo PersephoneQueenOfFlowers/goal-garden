@@ -47,7 +47,6 @@ export const removeGoal = id => dispatch => (
 );
 
 export const composeGoal = data => dispatch => {
-  debugger
   writeGoal(data)
     .then(goal => dispatch(receiveGoal(goal)))
     .catch(err => dispatch(receiveGoalErrors(err.response.data)))
