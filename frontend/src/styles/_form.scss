@@ -1,12 +1,11 @@
 .form-container{
-    // border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 700px;
 }
 .form{
-    border: 2px solid green;
+    border: 2px dashed #acc95c;
     height: 440px;
     padding: 20px;
     border-radius: 15px;
@@ -54,10 +53,10 @@
     font-size: 14px;
 }
 .button:hover{
-    text-decoration: underline;
+    text-decoration: none;
+    color: #014421;
 }
 .errors{
-    // border: 1px solid red;
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     color: rgb(174, 73, 73);
