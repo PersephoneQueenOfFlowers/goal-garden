@@ -6,7 +6,7 @@ import Hero from '../home/hero';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_show"}
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_hidden"}
     this.createGoal = this.createGoal.bind(this);
   }
 
@@ -84,7 +84,9 @@ class Goal extends React.Component {
                             </div>
                             <div>
                                 <label>How often does this goal occur?(in days)
-                                  <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  <div>
+                                    <input type="number" className="num-input" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  </div>
                                 </label>
                             </div>
                                 <button type="submit" className="button">Create New Goal!</button>
