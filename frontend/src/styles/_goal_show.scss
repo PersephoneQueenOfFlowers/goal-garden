@@ -1,0 +1,44 @@
+
+.flower_picture{
+    height: 650px;
+    width: 330px;
+    background-image: url('./images/sprite-daisy.png');
+    // background-position: 150px 300px;
+    background-repeat: no-repeat;
+    background-position-y: -66px;
+    border: 1px solid red;
+}
+
+.goal_show_component{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#growth0{
+    background-position-x: 37px;
+}
+
+#growth1{
+    background-position-x: -284px;
+}
+
+#growth2{
+    background-position-x: -619px;
+}
+
+#growth3{
+    background-position-x: -953px;
+}
+
+#growth4{
+    background-position-x: -1285px;
+}
+
+#growth5{
+    background-position-x: -1618px;
+}
+
+#growth6{
+    background-position-x: -1954px;
+}

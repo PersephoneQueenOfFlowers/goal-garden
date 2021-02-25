@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 class GoalShow extends React.Component{
     constructor(props){
         super(props);
+        this.growth = 4;
 
     }
     componentDidMount(){
@@ -18,17 +19,19 @@ class GoalShow extends React.Component{
         let journalsArr = []
         if(journals !== undefined){
             journalsArr = Object.values(journals)
-            debugger
         }
         return(
-           <div>
-               <h2>{goal.title}</h2>
-               <p>{goal.body}</p>
-               <div>Journals
-                    {journalsArr.map(journal => {
-                        return (<div>{journal.body}</div>)
-                    })}
-               </div>
+           <div className="goal_show_component">
+                <div id={`growth${this.growth}`} className="flower_picture"></div>
+               <div>
+                    <h2>{goal.title}</h2>
+                    <p>{goal.body}</p>
+                    <div>Journals
+                            {journalsArr.map(journal => {
+                                return (<div>{journal.body}</div>)
+                            })}
+                    </div>
+                </div>
            </div>
         )
     }
