@@ -161,7 +161,7 @@ body {
     height: 335px;
     background-image: url("./images/flower-grown.gif");
     background-repeat: no-repeat;
-    background-size: 100px;
+    background-size: cover;
     bottom: 0;
     z-index: 1000;
     opacity: 1;
