@@ -58,6 +58,10 @@ class GoalShow extends React.Component{
                     <h2>{goal.title}</h2>
                     <p>{goal.body}</p>
                     <div>Journals
+                        <div className={this.state.journalShow}>
+                            <button onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button>
+                            {<JournalShowContainer journal={this.state.journal} />}
+                        </div>
                             {journalsArr.map(journal => {
                                 return (
                                 <div key={journal._id}>
@@ -67,10 +71,6 @@ class GoalShow extends React.Component{
                                     </div>
                                 </div>)
                             })}
-                            <div className={this.state.journalShow}>
-                            <button onClick={() => this.setState({ journalShow: "journal_goal_hidden"})}> X </button>
-                                {<JournalShowContainer journal={this.state.journal}/>}
-                            </div>
                     </div>
                     <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                         <div className="journal_radio">

@@ -93,7 +93,9 @@
 }
 
 .journal_goal_show{
-    border: 2px solid red
+    border: 2px solid red;
+    position: absolute;
+    margin-left: 280px;
 }
 
 .journal_goal_hidden{
