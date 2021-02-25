@@ -10,6 +10,7 @@
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "server": "nodemon app.js",
     "server-debug": "nodemon --inspect app.js",
+    "dev-debug": "concurrently \"npm run server-debug\" \"npm run frontend\"",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

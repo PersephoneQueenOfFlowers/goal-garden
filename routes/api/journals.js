@@ -9,7 +9,7 @@ const validateJournalInput = require("../../validation/journal");
 const validateJournalUpdate = require("../../validation/journal-update");
 
 router.get('/goal/:goalId', (req, res) => {
-    Journal.find({goal: req.params.goalId})
+    Journal.find({ goal: req.params.goalId })
     .then(journals => res.json(journals))
     .catch(err => res.status(404).json({ nojournalsfound: 'No Journals found'}));
 });
@@ -26,6 +26,9 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         return res.status(400).json(errors);
     }
 
+    const createdDay = new Date();
+    createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+
     const newJournal = new Journal({
         goal: req.params.goalId,
         body: req.body.body,
@@ -34,7 +37,8 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         media: req.body.media,
         goalState: req.body.goalState,
         cues: req.body.cues,
-        rewards: req.body.rewards
+        rewards: req.body.rewards,
+        createdAt: createdDay
     });
 
     newJournal.save().then(journal => res.json(journal));
@@ -91,11 +95,16 @@ router.delete("/:id",
             })
     });
 
-router.patch("/:id", 
+router.delete("/goal/:goalId",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const updateObject = req.body;
-        const id = req.params.id;
-    })
+        Journal
+            .deleteMany({
+                goal: req.params.goalId
+            })
+            .then(res.json( { "msg": "done" }));
+    }
+);
+
 
 module.exports = router;
