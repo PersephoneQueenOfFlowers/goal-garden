@@ -1,3 +1,4 @@
+@import '_reset.scss';
 @import '_colors.scss';
 @import '_font.scss';
 @import '_layout.scss';
@@ -5,7 +6,9 @@
 @import '_nav.scss'; 
 @import '_footer.scss'; 
 @import 'home.scss';
+@import 'signup.scss';
 @import 'journal.scss';
+@import '_goal_index.scss';
 
 .App {
   text-align: center;

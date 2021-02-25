@@ -1,23 +1,22 @@
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-// import { fetchGoal } from '../../actions/goal_actions';
-// import { selectReviewsForBench, selectBench } from '../../reducers/selectors';
-// import GoalShow from './goal_show';
+import { fetchGoal } from '../../actions/goal_actions';
+import { fetchJournals } from '../../actions/journal_actions';
+import GoalShow from './goal_show';
 
-// const mapStateToProps = (state, { match }) => {
-//   const goalId = parseInt(match.params.goalId);
-//   const goal = state., benchId);
-//   return {
-//     goalId,
-//     goal
-//   };
-// };
+const mapStateToProps = (state, ownProps) => {
+  return {
+    goal: state.goals[ownProps.match.params.goalId],
+    journals: state.journal[ownProps.match.params.goalId],
+  };
+};
 
-// const mapDispatchToProps = dispatch => ({
-//   fetchGoal: id => dispatch(fetchGoal(id))
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchGoal: id => dispatch(fetchGoal(id)),
+  fetchJournals: goalId => dispatch(fetchJournals(goalId))
+});
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(GoalShow);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GoalShow);

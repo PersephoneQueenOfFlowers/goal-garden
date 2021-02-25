@@ -5,7 +5,8 @@ const passport = require('passport')
 
 const Journal = require('../../models/Journal')
 
-const validateJournalInput = require("../../validation/journal")
+const validateJournalInput = require("../../validation/journal");
+const validateJournalUpdate = require("../../validation/journal-update");
 
 router.get('/goal/:goalId', (req, res) => {
     Journal.find({goal: req.params.goalId})
@@ -37,6 +38,42 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
     });
 
     newJournal.save().then(journal => res.json(journal));
+});
+
+router.patch("/:id",  
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+
+    const { isValid, errors } = validateJournalUpdate(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    Journal
+      .findOne({ 
+        _id: req.params.id
+      })
+      .then(journal => {
+
+        //for now make it so that journals cannot be moved from one goal
+        //to another because otherwise we would need to verify that
+        //the other goal belongs to current user
+        // and would then mess up the goal progress and whatnot.
+        
+        journalProps = [  
+            //"goal", 
+            "body", "success", "highlights", "media", "goalState", "cues", "rewards"
+        ];
+
+        for (prop of journalProps) {
+          journal[prop] = req.body[prop] || journal[prop];
+        }
+      
+        journal.save()
+        .then(journal => res.json(journal));
+      })
+      .catch(err => res.status(400).json({noJournalFound: "No Journal Found"}));
 });
 
 router.delete("/:id",

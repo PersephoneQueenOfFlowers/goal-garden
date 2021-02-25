@@ -1,7 +1,7 @@
 const Validator = require('validator');
 const validFutureDate = require('./valid-future-date');
 const validText = require('./valid-text');
-module.exports = function validateCreateGoal(data) {
+module.exports = (data) => {
     let errors = {};
     // data is req.body
 
@@ -21,8 +21,9 @@ module.exports = function validateCreateGoal(data) {
     //   if(!validText(data[prop])) data[prop] = "";
     // }
 
-    goalProps = ["body", "title", "expirationDate"
-    ///, "avatar", "checkInterval", "active", "count", "streak"
+    goalProps = [
+        "body", "title", "expirationDate","checkInterval", 
+        // "avatar", "active", "count", "streak"
     ];
 
     presentProps = {}
@@ -31,8 +32,8 @@ module.exports = function validateCreateGoal(data) {
         if(data[prop] === undefined){
             presentProps[prop] = false;
         } else{
-            if(!validText(data[prop])) data[prop] = "";
             presentProps[prop] = true;
+            if(!validText(data[prop])) data[prop] = "";
         }
     }
     // Validator Methods -- https://www.npmjs.com/package/validator
@@ -70,13 +71,24 @@ module.exports = function validateCreateGoal(data) {
     if (presentProps["expirationDate"]){
         if (Validator.isEmpty(data.expirationDate)) {
           errors.expirationDate = "Expiration Date field is required";
-        }
-        if (!Validator.isISO8601(data.expirationDate)) {
+        } else if (!Validator.isISO8601(data.expirationDate)) {
             errors.expirationDate = "Expiration Date must be a valid date";
         } else if (!validFutureDate(data.expirationDate)){
             errors.expirationDate = "Expiration Date must be at least 24 hours from now";
         }
     }
+
+    if (presentProps["checkInterval"]){
+        if (Validator.isEmpty(data.checkInterval)){
+            errors.checkInterval = "Check Interval field is required";
+        } else if (!Validator.isInt(data.checkInterval)){
+            errors.checkInterval = "Check Interval must be an integer";
+        } else if (Number(data.checkInterval) < 1 || Number(data.checkInterval) > 365){
+            errors.checkInterval = "Check Interval must be between 1 and 365 inclusive";
+        }
+    }
+
+
     
     return {
         errors,

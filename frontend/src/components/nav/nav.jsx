@@ -9,7 +9,7 @@ export default class Nav extends Component {
       <section className="nav">
        <div className="left">left side nav logo</div> 
         <div className="right">
-          <Link className="button" to="/">Login</Link>{' '}
+          <Link className="button" to="/login">Login</Link>{' '}
           <Link className="button" to="/signup">Signup</Link>{' '}
          </div>
       </section>

@@ -1,25 +1,36 @@
-// import React from 'react';
-// import { withRouter } from 'react-router-dom';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-// class GoalShow extends React.Component{
-//     constructor(props){
-//         super(props);
+class GoalShow extends React.Component{
+    constructor(props){
+        super(props);
 
-//     }
-//     componentDidMount(){
-//         const goalId = this.props.goal.id;
-//         this.props.fetchGoal(goalId);
-//     }
+    }
+    componentDidMount(){
+        this.props.fetchGoal(this.props.match.params.goalId);
+        this.props.fetchJournals(this.props.match.params.goalId)
+    }
    
-//     render(){
-//         const { goal } = this.props;
-//         if (goal === undefined) return null;
-//         return(
-//            <div>
-//                <h2>{goal.title}</h2>
-//                <p>{goal.body}</p>
-//            </div>
-//         )
-//     }
-// }
-// export default withRouter(GoalShow);
+    render(){
+        const { goal, journals } = this.props;
+        if (!goal) return null;
+        let journalsArr = []
+        if(journals !== undefined){
+            journalsArr = Object.values(journals)
+            debugger
+        }
+        return(
+           <div>
+               <h2>{goal.title}</h2>
+               <p>{goal.body}</p>
+               <div>Journals
+                    {journalsArr.map(journal => {
+                        return (<div>{journal.body}</div>)
+                    })}
+               </div>
+           </div>
+        )
+    }
+}
+export default withRouter(GoalShow);

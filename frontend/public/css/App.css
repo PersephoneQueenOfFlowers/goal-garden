@@ -1,3 +1,49 @@
+html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  font-family: Verdana; }
+
+ul {
+  list-style: none; }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+button,
+input[type="submit"] {
+  cursor: pointer; }
+
+button:hover {
+  cursor: pointer; }
+
 .shimmer {
   text-align: center;
   color: rgba(255, 255, 255, 0.1);
@@ -208,6 +254,27 @@ body {
     .middle .left .background-container ul li:before {
       background-image: none;
       width: 10%; }
+
+.signup-form-container {
+  border: 1px solid red; }
+
+.signup-form {
+  border: 1px solid green; }
+
+.add_goal_hidden {
+  display: none; }
+
+.goal_box_container {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  border: 1px solid red; }
+
+.flower_picture {
+  height: 650px;
+  width: 280px;
+  background-image: url("./images/sprite-daisy.png");
+  background-repeat: no-repeat; }
 
 .App {
   text-align: center; }

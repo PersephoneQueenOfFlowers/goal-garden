@@ -71,8 +71,8 @@ router.post("/",
         body: req.body.body,
         title: req.body.title,
         expirationDate: req.body.expirationDate,
+        checkInterval: req.body.checkInterval,
         // avatar: req.body.avatar,
-        // checkInterval: req.body.checkInterval,
         // active: req.body.active,
         // count: req.body.count,
         // streak: req.body.streak
@@ -119,21 +119,10 @@ router.patch("/:id",
         _id: req.params.id
       })
       .then(goal => {
-        // Goal.update
-        // there is probably a better way to do this, 
-        // will look into it later
 
-        // goal.body = req.body.body || goal.body;
-        // goal.title = req.body.title || goal.title;
-        // goal.expirationDate = req.body.expirationDate || goal.expirationDate;
-        // goal.avatar = req.body.avatar || goal.avatar;
-        // goal.checkInterval = req.body.checkInterval || goal.checkInterval;
-        // goal.active = req.body.active || goal.active;
-        // goal.count = req.body.count || goal.count;
-        // goal.streak = req.body.streak || goal.streak;
-
-        goalProps = ["body", "title", "expirationDate",  
-        //"avatar", "checkInterval", "active", "count", "streak"
+        goalProps = [
+          "body", "title", "expirationDate", "checkInterval",
+        // "avatar", "active", "count", "streak"
         ];
 
         for (prop of goalProps) {
