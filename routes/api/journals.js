@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require('mongoose');
-const passport = require('passport')
+const passport = require('passport');
 
-const Journal = require('../../models/Journal')
+const Journal = require('../../models/Journal');
+const Goal = require('../../models/Goal');
 
 const validateJournalInput = require("../../validation/journal");
 const validateJournalUpdate = require("../../validation/journal-update");
@@ -26,22 +27,45 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         return res.status(400).json(errors);
     }
 
-    const createdDay = new Date();
-    createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+    Goal
+    .findOne({
+        user: req.user.id,
+        _id: req.params.goalId
+    })
+    .then(goal => {
+        const createdDay = new Date();
+        createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+    
+        const failGoalStateUpdate = {0:0, 1:0, 2:1, 3:4, 4:5, 5:6, 6:6};
+        const succeedGoalStateUpdate = {0:1, 1:2, 2:3, 3:3, 4:3, 5:4, 6:5};
+        let goalState = goal.goalState;
 
-    const newJournal = new Journal({
-        goal: req.params.goalId,
-        body: req.body.body,
-        success: req.body.success,
-        highlights: req.body.highlights,
-        media: req.body.media,
-        goalState: req.body.goalState,
-        cues: req.body.cues,
-        rewards: req.body.rewards,
-        createdAt: createdDay
+        if(req.body.success){
+            goalState = succeedGoalStateUpdate[goalState];
+        } else {
+            goalState = failGoalStateUpdate[goalState];
+        }
+
+        const newJournal = new Journal({
+            goal: goal.id,
+            body: req.body.body,
+            success: req.body.success,
+            highlights: req.body.highlights,
+            media: req.body.media,
+            goalState: goalState,
+            cues: req.body.cues,
+            rewards: req.body.rewards,
+            createdAt: createdDay
+        });
+    
+        newJournal
+            .save()
+            .then(journal => res.json(journal))
+            .then(() => {
+                goal.goalState = goalState;
+                goal.save().then(() => res.json({ "goalUpdate" : `Goalstate updated to ${goalState}`}));
+            });
     });
-
-    newJournal.save().then(journal => res.json(journal));
 });
 
 router.patch("/:id",  
@@ -65,19 +89,25 @@ router.patch("/:id",
         //the other goal belongs to current user
         // and would then mess up the goal progress and whatnot.
         
-        journalProps = [  
-            //"goal", 
-            "body", "success", "highlights", "media", "goalState", "cues", "rewards"
-        ];
+        if(!journal.success) {
+            // journalProps = [  
+            //     //"goal", 
+            //     "body", "success", "highlights", "media", "goalState", "cues", "rewards"
+            // ];
+    
+            // for (prop of journalProps) {
+            //   journal[prop] = req.body[prop] || journal[prop];
+            // }
 
-        for (prop of journalProps) {
-          journal[prop] = req.body[prop] || journal[prop];
+            journal.body = req.body.body
+          
+            journal.save()
+            .then(journal => res.json(journal));
+        } else {
+            res.status(400).json({ journalError: "Journal cannot be edited"});
         }
-      
-        journal.save()
-        .then(journal => res.json(journal));
       })
-      .catch(err => res.status(400).json({noJournalFound: "No Journal Found"}));
+      .catch(err => res.status(400).json({ noJournalFound: "No Journal Found" }));
 });
 
 router.delete("/:id",
