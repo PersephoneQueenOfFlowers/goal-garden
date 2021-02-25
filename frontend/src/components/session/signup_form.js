@@ -40,17 +40,17 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history); 
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
@@ -60,7 +60,6 @@ class SignupForm extends React.Component {
             <div>
               <h2>Create an account</h2>
             </div>
-            <br/>
             <div>
               <label>First name
                 <div>
@@ -72,7 +71,9 @@ class SignupForm extends React.Component {
                 </div>
               </label>
             </div>
-            <br/>
+             <div className="login-errors">
+              {this.state.errors.firstName}
+            </div>
             <div>
               <label>Email address
                   <div>
@@ -83,8 +84,10 @@ class SignupForm extends React.Component {
                   </div>
               </label>
             </div>
-            <br/>
-              <div>
+            <div className="login-errors">
+              {this.state.errors.email}
+            </div>
+            <div>
                   <label>Password
                       <div>
                           <input type="password"
@@ -95,9 +98,12 @@ class SignupForm extends React.Component {
                       </div>
                   </label>
             </div>
-            <br/>
+            <div className="login-errors">
+              {this.state.errors.password}
+            </div>
+          
             <button type="submit" className="signup-button">Submit</button>
-            {this.renderErrors()}
+            
           </div>
         </form>
       </div>

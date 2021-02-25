@@ -12,7 +12,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the goals page
@@ -42,17 +42,17 @@ class LoginForm extends React.Component {
     this.props.login(user); 
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
@@ -62,18 +62,21 @@ class LoginForm extends React.Component {
             <div>
               <h2>Sign in</h2>
             </div>
-            <br/>
+        
             <div>
               <label>Email address
                 <div>
                     <input type="text"
                       value={this.state.email}
                       onChange={this.update('email')}
+                      autoFocus="autofocus"
                     />
                 </div>
               </label>
             </div>
-            <br/>
+            <div className="login-errors">
+              {this.state.errors.email}
+            </div>
             <div>
               <label>Password
                 <div>
@@ -84,9 +87,10 @@ class LoginForm extends React.Component {
                 </div>
               </label>
             </div>
-            <br/>
-            <button type="submit" className="">Submit</button>
-            {this.renderErrors()}
+            <div className="login-errors">
+              {this.state.errors.password}
+            </div>
+            <button type="submit" className="login-button">Submit</button>
           </div>
         </form>
       </div>

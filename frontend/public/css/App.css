@@ -261,7 +261,6 @@ body {
       width: 10%; }
 
 .signup-form-container {
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,12 +268,13 @@ body {
 
 .signup-form {
   border: 2px solid green;
-  height: 440px;
+  height: 460px;
   padding: 20px;
   border-radius: 15px; }
   .signup-form h2 {
     font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-weight: 400;
     font-size: 18px; }
 
@@ -287,13 +287,14 @@ body {
   margin-top: 5px; }
 
 .signup-form label {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px; }
 
 .signup-button {
   width: 225px;
   height: 24px;
   padding: 10px 16px;
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center;
   background: #fffd54;
   color: #acc95c;
@@ -309,6 +310,63 @@ body {
 
 .signup-button:hover {
   text-decoration: underline; }
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px; }
+
+.login-form {
+  border: 2px solid green;
+  height: 440px;
+  padding: 20px;
+  border-radius: 15px; }
+  .login-form h2 {
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 18px; }
+
+.login-form input {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  width: 250px;
+  height: 32px;
+  padding-left: 8px;
+  margin-top: 5px; }
+
+.login-form label {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px; }
+
+.login-button {
+  width: 225px;
+  height: 24px;
+  padding: 10px 16px;
+  margin-top: 20px;
+  text-align: center;
+  background: #fffd54;
+  color: #acc95c;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #acc95c;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+  text-shadow: -1px -1px #ffde1c;
+  font-weight: normal;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.login-button:hover {
+  text-decoration: underline; }
+
+.login-errors {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #ae4949;
+  margin-bottom: 10px; }
 
 .add_goal_hidden {
   display: none; }
