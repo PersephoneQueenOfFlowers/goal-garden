@@ -55,28 +55,48 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="signup-form">
+        <form onSubmit={this.handleSubmit} >
           <div className="signup-form">
+            <div>
+              <h2>Create an account</h2>
+            </div>
             <br/>
-              <input type="text"
-                value={this.state.firstName}
-                onChange={this.update('firstName')}
-                placeholder="First name"
-              />
+            <div>
+              <label>First name
+                <div>
+                  <input type="text"
+                    value={this.state.firstName}
+                    onChange={this.update('firstName')}
+                    autoFocus="autofocus"
+                  />
+                </div>
+              </label>
+            </div>
             <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
+            <div>
+              <label>Email address
+                  <div>
+                      <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                      />
+                  </div>
+              </label>
+            </div>
             <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
+              <div>
+                  <label>Password
+                      <div>
+                          <input type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                          />
+                    
+                      </div>
+                  </label>
+            </div>
             <br/>
-            <input type="submit" value="Submit" />
+            <button type="submit" className="signup-button">Submit</button>
             {this.renderErrors()}
           </div>
         </form>

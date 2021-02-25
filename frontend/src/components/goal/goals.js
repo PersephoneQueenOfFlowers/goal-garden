@@ -45,7 +45,7 @@ class Goal extends React.Component {
         <div>
           <h2>All Your Goals</h2>
           {goals}
-          <form onSubmit={this.createGoal}>
+          <form onSubmit={this.createGoal} className={this.state.formClass}>
             <label>Goal Title:
               <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
             </label>
@@ -55,8 +55,9 @@ class Goal extends React.Component {
             <label>How Long do you want to keep this goal going for?
               <input type="date" value={this.state.date} onChange={this.handleChange("date")}/>
             </label>
-            <button type="submit">Add New Goal!</button>
+            <button type="submit">Create New Goal!</button>
           </form>
+          <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden"})}>Add a New Goal</button>
           {this.props.errors.map(error => {
             return (<div>{error}</div>)
           })}

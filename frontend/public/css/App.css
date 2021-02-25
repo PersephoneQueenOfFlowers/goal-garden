@@ -44,6 +44,9 @@ input[type="submit"] {
 button:hover {
   cursor: pointer; }
 
+body {
+  margin: 0 auto; }
+
 .shimmer {
   text-align: center;
   color: rgba(255, 255, 255, 0.1);
@@ -258,10 +261,69 @@ body {
       width: 10%; }
 
 .signup-form-container {
-  border: 1px solid red; }
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px; }
 
 .signup-form {
-  border: 1px solid green; }
+  border: 2px solid green;
+  height: 440px;
+  padding: 20px;
+  border-radius: 15px; }
+  .signup-form h2 {
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 18px; }
+
+.signup-form input {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  width: 250px;
+  height: 32px;
+  padding-left: 8px;
+  margin-top: 5px; }
+
+.signup-form label {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.signup-button {
+  width: 225px;
+  height: 24px;
+  padding: 10px 16px;
+  margin-top: 10px;
+  text-align: center;
+  background: #fffd54;
+  color: #acc95c;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #acc95c;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+  text-shadow: -1px -1px #ffde1c;
+  font-weight: normal;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.signup-button:hover {
+  text-decoration: underline; }
+
+.add_goal_hidden {
+  display: none; }
+
+.goal_box_container {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  border: 1px solid red; }
+
+.flower_picture {
+  height: 650px;
+  width: 280px;
+  background-image: url("./images/sprite-daisy.png");
+  background-repeat: no-repeat; }
 
 .App {
   text-align: center; }
