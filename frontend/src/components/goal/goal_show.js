@@ -45,6 +45,10 @@ class GoalShow extends React.Component{
         })
     }
 
+    handleButton(){
+      
+    }
+
     render(){
         const { goal, journals } = this.props;
         if (!goal) return null;
