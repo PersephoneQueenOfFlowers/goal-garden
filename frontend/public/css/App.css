@@ -271,17 +271,19 @@ body {
   border: 1px solid red; }
 
 .flower_picture {
-  height: 650px;
+  height: 800px;
   width: 330px;
   background-image: url("./images/sprite-daisy.png");
   background-repeat: no-repeat;
-  background-position-y: -66px;
+  background-position-y: 10px;
   border: 1px solid red; }
 
 .goal_show_component {
   display: flex;
   flex-direction: row;
-  justify-content: center; }
+  justify-content: flex-start;
+  margin-left: 75px;
+  margin-top: 50px; }
 
 #growth0 {
   background-position-x: 37px; }
@@ -303,6 +305,9 @@ body {
 
 #growth6 {
   background-position-x: -1954px; }
+
+.goal_show_info {
+  margin-left: 10px; }
 
 .App {
   text-align: center; }

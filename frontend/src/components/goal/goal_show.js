@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 class GoalShow extends React.Component{
     constructor(props){
         super(props);
-        this.growth = 6;
+        this.growth = 3;
     }
 
     componentDidMount(){
         this.props.fetchGoal(this.props.match.params.goalId);
         this.props.fetchJournals(this.props.match.params.goalId)
     }
-    
+
     render(){
         const { goal, journals } = this.props;
         if (!goal) return null;
@@ -23,7 +23,7 @@ class GoalShow extends React.Component{
         return(
            <div className="goal_show_component">
                 <div id={`growth${this.growth}`} className="flower_picture"></div>
-               <div>
+               <div className="goal_show_info">
                     <h2>{goal.title}</h2>
                     <p>{goal.body}</p>
                     <div>Journals
