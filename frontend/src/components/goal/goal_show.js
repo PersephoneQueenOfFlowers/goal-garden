@@ -9,15 +9,6 @@ class GoalShow extends React.Component{
 
     }
 
-//     <div>
-//   <h2>{goal.title}</h2>
-//   <p>{goal.body}</p>
-//   <div>Journals
-//                     {journalsArr.map(journal => {
-//     return (<div>{journal.body}</div>)
-//   })}
-//   </div>
-// </div>
     componentDidMount(){
         this.props.fetchGoal(this.props.match.params.goalId);
         this.props.fetchJournals(this.props.match.params.goalId)
