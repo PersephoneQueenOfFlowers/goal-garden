@@ -146,7 +146,7 @@ body {
           text-align: center; }
 
 .hero {
-  background-image: url("./images/cloudy-sky-w-garden-bg.png");
+  background-image: url("./images/garden-licensed-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
   min-height: 300px;
@@ -196,9 +196,11 @@ body {
   z-index: 1000;
   opacity: 1;
   position: relative;
-  background-image: linear-gradient(180deg, #6c5d47, #fff); }
+  background-image: linear-gradient(180deg, #6c5d47, #fff);
+  border-image: 2 repeat url("./images/grass-border.png");
+  border-width: 2px 0 0 0; }
   .middle img {
-    width: 115%;
+    width: 95%;
     position: absolute;
     flex: 1; }
     @media all and (min-width: 500px) and (max-width: 992px) {
@@ -206,7 +208,7 @@ body {
         margin-top: -15%; } }
     @media all and (min-width: 993px) {
       .middle img {
-        margin-top: -13%; } }
+        margin-top: -16%; } }
   .middle .left, .middle .right {
     flex: 20%;
     margin-top: 10%; }

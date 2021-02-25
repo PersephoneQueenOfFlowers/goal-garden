@@ -9,15 +9,17 @@
     opacity: 1;
     position: relative;
     background-image: linear-gradient(180deg, #6c5d47, #fff);
+    border-image: 2 repeat url('./images/grass-border.png');
+    border-width:2px 0 0 0;
     img {
-      width: 115%;
+      width: 95%;
       position: absolute;
       flex: 1;
       @media all and (min-width: 500px) and (max-width: 992px) {
         margin-top: -15%;
       }
       @media all and (min-width: 993px) {
-        margin-top: -13%;
+        margin-top: -16%;
       }
     }
     .left, .right{
