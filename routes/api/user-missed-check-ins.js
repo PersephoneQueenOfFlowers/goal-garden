@@ -3,14 +3,13 @@ const Goal = require("../../models/Goal");
 const Journal = require("../../models/Journal");
 
 
-module.exports = (userId, res) => {
+module.exports = (userId) => {
 
   Goal
     .find({ user: userId })
     .then(goals => {
-      // debugger
       for (goal of goals){
-        // debugger
+
         // Step 1 -- find latest date
     
         Journal
@@ -72,7 +71,7 @@ module.exports = (userId, res) => {
           })
       }
     }).then(
-      res.json({ msg: "Finished" })
+      // res.json({ msg: "Finished" })
     )
 
   
