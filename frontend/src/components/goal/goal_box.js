@@ -14,9 +14,11 @@ class GoalBox extends React.Component {
     const { goal } = this.props;
     if (!goal) return null;
     return (
-        <div>
+        <div className="goal_box_container">
+          <div>
             <Link to={`/goals/${goal._id}`}>{goal.title}</Link>
             <button type="button" onClick={this.handleClick}>Delete Goal</button>
+          </div>
         </div>
     );
   }
