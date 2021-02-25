@@ -26,8 +26,8 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         return res.status(400).json(errors);
     }
 
-    // const longAgo = new Date();
-    // longAgo.setDate(longAgo.getDate() - 100000);
+    const createdDay = new Date();
+    createdDay.setDate(createdDay.getDate() - Number(req.body.days));
 
     const newJournal = new Journal({
         goal: req.params.goalId,
@@ -38,8 +38,7 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         goalState: req.body.goalState,
         cues: req.body.cues,
         rewards: req.body.rewards,
-        // createdAt: longAgo,
-        // updatedAt: Date.now()
+        createdAt: createdDay
     });
 
     newJournal.save().then(journal => res.json(journal));
