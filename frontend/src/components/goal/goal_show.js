@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import JournalShowContainer from '../journals/journal_show_container'
 
 class GoalShow extends React.Component{
     constructor(props){
@@ -10,8 +11,10 @@ class GoalShow extends React.Component{
                         body: "",
                         highlights: "",
                         cues: "",
-                        rewards: ""}
-        this.growth = 0;
+                        rewards: "",
+                        journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
+                        journalShow: "journal_goal_hidden"}
+        this.growth = 6;
         this.addJournal = this.addJournal.bind(this)
     }
 
@@ -56,8 +59,18 @@ class GoalShow extends React.Component{
                     <p>{goal.body}</p>
                     <div>Journals
                             {journalsArr.map(journal => {
-                                return (<div>{journal.body}</div>)
+                                return (
+                                <div key={journal._id}>
+                                    <div onClick={() => this.setState({journal: journal, journalShow: "journal_goal_show"})}>
+                                        {journal.createdAt.slice(0, 10)}{" "}
+                                        {journal.success === true ? "Step Success" : "Step Missed"}
+                                    </div>
+                                </div>)
                             })}
+                            <div className={this.state.journalShow}>
+                            <button onClick={() => this.setState({ journalShow: "journal_goal_hidden"})}> X </button>
+                                {<JournalShowContainer journal={this.state.journal}/>}
+                            </div>
                     </div>
                     <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                         <div className="journal_radio">
@@ -83,7 +96,7 @@ class GoalShow extends React.Component{
                             </label>
                         </div>
                         <div>
-                            <label>Add any Cues or distraction seprated by a comma:
+                            <label>Add any Cues or distractions:
                                 <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
                             </label>
                         </div>

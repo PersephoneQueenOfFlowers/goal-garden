@@ -46,6 +46,7 @@
 }
 
 .goal_show_info{
+    font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-left: 10px;
 }
 
@@ -89,4 +90,12 @@
 
 #journal_input{
     border: 1px solid black;
+}
+
+.journal_goal_show{
+    border: 2px solid red
+}
+
+.journal_goal_hidden{
+    display: none
 }

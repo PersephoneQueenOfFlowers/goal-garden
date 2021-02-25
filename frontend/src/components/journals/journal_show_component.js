@@ -7,12 +7,11 @@ class JournalShowComponent extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchJournal(this.props.match.params.journalId)
+        // this.props.fetchJournal(this.props.match.params.journalId)
     }
 
     handleDelete(){
-        debugger
-        this.props.deleteJournal(this.props.match.params.journalId)
+        this.props.deleteJournal(this.props.journal._id)
     }
 
     render(){
@@ -56,7 +55,7 @@ class JournalShowComponent extends React.Component {
                         return(<div>{reward}</div>)
                     })}</div>
                 </div>
-                <button onClick={() => this.handleDelete()}>Delete Journal</button>
+                {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
             </div>
         )
     }
