@@ -65,7 +65,8 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
                 goal.goalState = goalState;
                 goal.save().then(() => res.json({ "goalUpdate" : `Goalstate updated to ${goalState}`}));
             });
-    });
+    })
+    .catch(() => res.status(404).json({ "goalError": "No Goal Found" }));
 });
 
 router.patch("/:id",  
