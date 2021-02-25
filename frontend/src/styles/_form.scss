@@ -1,11 +1,11 @@
-.login-form-container{
+.form-container{
     // border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 700px;
 }
-.login-form{
+.form{
     border: 2px solid green;
     height: 440px;
     padding: 20px;
@@ -18,7 +18,7 @@
         font-size: 18px;
     }
 }
-.login-form input{
+.form input{
     border: 1px solid rgb(172,201,92); 
     border-radius: 3px;
     width: 250px;
@@ -26,11 +26,11 @@
     padding-left: 8px;
     margin-top: 5px;
 }
-.login-form label{
+.form label{
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-top: 5px;
 }
-.login-button {
+.button {
     width: 225px;
     height: 24px;
     padding: 10px 16px;
@@ -49,14 +49,14 @@
     font-weight: normal;
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.login-form p{
+.form p{
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
-.login-button:hover{
+.button:hover{
     text-decoration: underline;
 }
-.login-errors{
+.errors{
     // border: 1px solid red;
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;

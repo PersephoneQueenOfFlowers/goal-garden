@@ -57,9 +57,9 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
+      <div className="form-container">
         <form onSubmit={this.handleSubmit}>
-          <div className="login-form">
+          <div className="form">
             <div>
               <h2>Sign in</h2>
             </div>
@@ -75,7 +75,7 @@ class LoginForm extends React.Component {
                 </div>
               </label>
             </div>
-            <div className="login-errors">
+            <div className="errors">
               {this.state.errors.email}
             </div>
             <div>
@@ -88,10 +88,10 @@ class LoginForm extends React.Component {
                 </div>
               </label>
             </div>
-            <div className="login-errors">
+            <div className="errors">
               {this.state.errors.password}
             </div>
-            <button type="submit" className="login-button">Sign in</button>
+            <button type="submit" className="login-button button">Sign in</button>
             <div>
               <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
             </div>
