@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    // this.renderErrors = this.renderErrors.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the goals page
@@ -42,37 +43,58 @@ class LoginForm extends React.Component {
     this.props.login(user); 
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+          <div className="login-form">
+            <div>
+              <h2>Sign in</h2>
+            </div>
+        
+            <div>
+              <label>Email address
+                <div>
+                    <input type="text"
+                      value={this.state.email}
+                      onChange={this.update('email')}
+                      autoFocus="autofocus"
+                    />
+                </div>
+              </label>
+            </div>
+            <div className="login-errors">
+              {this.state.errors.email}
+            </div>
+            <div>
+              <label>Password
+                <div>
+                    <input type="password"
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                    />
+                </div>
+              </label>
+            </div>
+            <div className="login-errors">
+              {this.state.errors.password}
+            </div>
+            <button type="submit" className="login-button">Sign in</button>
+            <div>
+              <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+            </div>
           </div>
         </form>
       </div>
