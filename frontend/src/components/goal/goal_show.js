@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 class GoalShow extends React.Component{
     constructor(props){
         super(props);
-        this.growth = 4;
-
+        this.growth = 6;
     }
+
     componentDidMount(){
         this.props.fetchGoal(this.props.match.params.goalId);
         this.props.fetchJournals(this.props.match.params.goalId)
     }
-   
+    
     render(){
         const { goal, journals } = this.props;
         if (!goal) return null;
