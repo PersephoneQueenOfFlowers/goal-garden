@@ -6,7 +6,9 @@ import Hero from '../home/hero';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_show"}
+
     this.createGoal = this.createGoal.bind(this);
   }
 

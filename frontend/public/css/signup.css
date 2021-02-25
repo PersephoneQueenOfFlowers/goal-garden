@@ -5,7 +5,7 @@
   height: 700px; }
 
 .signup-form {
-  border: 2px solid green;
+  border: 2px dashed #acc95c;
   height: 480px;
   padding: 20px;
   border-radius: 15px; }

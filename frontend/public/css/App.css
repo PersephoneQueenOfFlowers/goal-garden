@@ -117,12 +117,6 @@ body {
     padding: 10px 6px;
     margin: 14px 10px; }
 
-body {
-  background-image: url(./images/form-page-bg-big-sky.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position-y: -250px; }
-
 .goal .hero-inner-container {
   flex-direction: column;
   align-items: center; }
@@ -159,7 +153,7 @@ body {
   height: 700px; }
 
 .form {
-  border: 2px solid green;
+  border: 2px dashed #acc95c;
   height: 440px;
   padding: 20px;
   border-radius: 15px; }
@@ -221,7 +215,8 @@ body {
   font-size: 14px; }
 
 .button:hover {
-  text-decoration: underline; }
+  text-decoration: none;
+  color: #014421; }
 
 .errors {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -272,6 +267,11 @@ body {
     box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
     text-shadow: -1px -1px #ffde1c;
     font-weight: normal; }
+    .main-container .button:hover, .main-container .logout-btn:hover, .header-greeting .button:hover, .header-greeting .logout-btn:hover {
+      color: #228c22; }
+
+.login-signup .button:hover {
+  color: #228c22; }
 
 .middle {
   display: flex;
@@ -350,7 +350,7 @@ body {
   height: 700px; }
 
 .signup-form {
-  border: 2px solid green;
+  border: 2px dashed #acc95c;
   height: 480px;
   padding: 20px;
   border-radius: 15px; }

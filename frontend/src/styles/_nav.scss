@@ -18,5 +18,12 @@
     box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
     text-shadow: -1px -1px #ffde1c;
     font-weight: normal;
+    &:hover {
+      color: #228c22;
+    }
   }
+}
+
+.login-signup .button:hover{
+  color: #228c22;
 }
