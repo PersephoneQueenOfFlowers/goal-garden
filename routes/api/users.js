@@ -15,8 +15,13 @@ const keys = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-router.get("/test", (req, res) => {
-  res.json({ msg: "This is the user route" });
+//missedCheckins function
+const generateMissedCheckins = require('./user-missed-check-ins');
+
+router.get("/test", passport.authenticate('jwt', { session: false }), (req, res) => {
+  // res.json({ msg: "This is the user route" });
+  // debugger;
+  generateMissedCheckins(req.user.id);
 });
 
 router.get("/current", passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -92,7 +97,9 @@ router.post('/login', (req, res) => {
                   token: "Bearer " + token
                 });
               }
-            )
+            );
+            // debugger;
+            // generateMissedCheckins(user.id);
           } else {
             return res.status(400).json({ password: "Incorrect password" });
           }
