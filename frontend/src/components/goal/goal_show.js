@@ -16,7 +16,8 @@ class GoalShow extends React.Component{
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden"}
         this.growth = 6;
-        this.addJournal = this.addJournal.bind(this)
+        this.addJournal = this.addJournal.bind(this);
+        this.handleButton = this.handleButton.bind(this);
     }
 
     componentDidMount(){
@@ -45,8 +46,16 @@ class GoalShow extends React.Component{
         })
     }
 
-    handleButton(){
-      
+    handleButton(type){
+      if(type === "create"){
+        if (this.state.journalShow === "journal_form_hidden"){
+          this.setState({ journalForm: "journal_form_show", journalShow: "journal_goal_hidden"})
+        }else{
+          this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_hidden" })
+        }
+      }else{
+        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type})
+      }
     }
 
     render(){
@@ -141,14 +150,14 @@ class GoalShow extends React.Component{
                          {journalsArr.map(journal => {
                              return (
                              <div key={journal._id}>
-                                 <div onClick={() => this.setState({journal: journal, journalShow: "journal_goal_show"})}>
+                                 <div onClick={() => this.handleButton(journal)}>
                                      {journal.createdAt.slice(0, 10)}{" "}
                                      {journal.success === true ? "Step Success" : "Step Missed"}
                                  </div>
                              </div>)
                         })}
                   </ul>
-                  <button className="add_journal_button" onClick={() => this.state.journalForm === "journal_form_hidden" ? this.setState({ journalForm: "journal_form_show" }) : this.setState({ journalForm: "journal_form_hidden" })}>Add New Journal</button>
+                  <button className="add_journal_button" onClick={() => this.handleButton("create")}>Add New Journal</button>
                   </div>
                   <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                        <div className="journal_radio">
