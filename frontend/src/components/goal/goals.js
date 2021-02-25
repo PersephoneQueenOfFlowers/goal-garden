@@ -45,22 +45,53 @@ class Goal extends React.Component {
         <div>
           <h2>All Your Goals</h2>
           {goals}
-          <form onSubmit={this.createGoal} className={this.state.formClass}>
-            <label>Goal Title:
-              <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
-            </label>
-            <label>Goal Description:
-              <textarea value={this.state.body} onChange={this.handleChange("body")}/>
-            </label>
-            <label>How Long do you want to keep this goal going for?
-              <input type="date" value={this.state.date} onChange={this.handleChange("date")}/>
-            </label>
-            <button type="submit">Create New Goal!</button>
-          </form>
-          <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden"})}>Add a New Goal</button>
-          {this.props.errors.map(error => {
-            return (<div>{error}</div>)
-          })}
+          <div className="goal-form-container">
+              <form onSubmit={this.createGoal} className={this.state.formClass}>
+                <div className="goal-form">
+                  <div>
+                      <h2>Create a goal</h2>
+                  </div>
+                  <div>
+                      <label>Title
+                        <div>
+                          <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
+                        </div>
+                      </label>
+                  </div>
+                  <div>
+                      <label>Description
+                        <div>
+                          <textarea value={this.state.body} onChange={this.handleChange("body")}/>
+                        </div>
+                      </label>
+                  </div>
+                  <div>
+                      <label>How Long do you want to keep this goal going for?
+                        <div>
+                          <input type="date" value={this.state.date} onChange={this.handleChange("date")}/>
+                        </div>
+                      </label>
+                  </div>
+                  <div>
+                      <label>How often?
+                            <select value={this.state.interval} onChange={this.handleChange}>
+                              <option value="grapefruit">Grapefruit</option>
+                              <option value="lime">Lime</option>
+                              <option value="coconut">Coconut</option>
+                              <option value="mango">Mango</option>
+                            </select>
+                      </label>
+                  </div>
+                  <button type="submit">Create New Goal!</button>
+                </div>
+              </form>
+              <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden"})}>Add a New Goal</button>
+              {this.props.errors.map(error => {
+                return (<div>{error}</div>)
+              })}
+                
+          </div>
+
         </div>
       );
     }
