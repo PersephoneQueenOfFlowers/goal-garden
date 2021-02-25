@@ -91,9 +91,9 @@ class LoginForm extends React.Component {
             <div className="login-errors">
               {this.state.errors.password}
             </div>
-            <button type="submit" className="login-button">Submit</button>
+            <button type="submit" className="login-button">Sign in</button>
             <div>
-              <p>Dont have an account? <Link to="/signup">Sign up</Link></p>
+              <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
             </div>
           </div>
         </form>
