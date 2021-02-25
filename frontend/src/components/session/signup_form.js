@@ -40,44 +40,70 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history); 
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return(
+  //     <ul>
+  //       {Object.keys(this.state.errors).map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {this.state.errors[error]}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit} className="signup-form">
+        <form onSubmit={this.handleSubmit} >
           <div className="signup-form">
-            <br/>
-              <input type="text"
-                value={this.state.firstName}
-                onChange={this.update('firstName')}
-                placeholder="First name"
-              />
-            <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+            <div>
+              <h2>Create an account</h2>
+            </div>
+            <div>
+              <label>First name
+                <div>
+                  <input type="text"
+                    value={this.state.firstName}
+                    onChange={this.update('firstName')}
+                    autoFocus="autofocus"
+                  />
+                </div>
+              </label>
+            </div>
+             <div className="login-errors">
+              {this.state.errors.firstName}
+            </div>
+            <div>
+              <label>Email address
+                  <div>
+                      <input type="text"
+                        value={this.state.email}
+                        onChange={this.update('email')}
+                      />
+                  </div>
+              </label>
+            </div>
+            <div className="login-errors">
+              {this.state.errors.email}
+            </div>
+            <div>
+                  <label>Password
+                      <div>
+                          <input type="password"
+                            value={this.state.password}
+                            onChange={this.update('password')}
+                          />
+                    
+                      </div>
+                  </label>
+            </div>
+            <div className="login-errors">
+              {this.state.errors.password}
+            </div>
+          
+            <button type="submit" className="signup-button">Submit</button>
+            
           </div>
         </form>
       </div>
