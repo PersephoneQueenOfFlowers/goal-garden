@@ -80,10 +80,10 @@ router.patch("/:id",
     }
 
     Journal
-      .findOne({ 
-        _id: req.params.id
-      })
-      .then(journal => {
+    .findOne({ 
+    _id: req.params.id
+    })
+    .then(journal => {
 
         //for now make it so that journals cannot be moved from one goal
         //to another because otherwise we would need to verify that
@@ -107,23 +107,40 @@ router.patch("/:id",
         } else {
             res.status(400).json({ journalError: "Journal cannot be edited"});
         }
-      })
-      .catch(err => res.status(400).json({ noJournalFound: "No Journal Found" }));
+    })
+    .catch(err => res.status(400).json({ noJournalFound: "No Journal Found" }));
 });
 
 router.delete("/:id",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         Journal
-            .findByIdAndRemove(req.params.id, (err, deletedJournal) => {
-                if (err) {
-                    res.status(500);
-                } else if (!deletedJournal) {
-                    res.status(404);
-                } else {
-                    res.json(deletedJournal)
-                }
+            .findById(req.params.id)
+            .then(journal => {
+                Goal.findOne({
+                    user: req.user.id,
+                    _id: journal.goal
+                })
+                .then(goal => {
+                    // if the goal exists, but belongs to another person,
+                    // Goal.findOne returns null -- which is not a failure!
+                    // so it was still removing the goals -- so need to make sure the returned goal
+                    // isn't null -- otherwise shouldn't have access
+                    if (!goal) return res.status(400).json({ unAuthorized: "Not Your Journal!"})
+                    Journal
+                    .findByIdAndRemove(req.params.id, (err, deletedJournal) => {
+                        if (err) {
+                            res.status(500);
+                        } else if (!deletedJournal) {
+                            res.status(404);
+                        } else {
+                            res.json(deletedJournal)
+                        }
+                    })
+                })
+                .catch(() => res.status(400).json({ unAuthorized: "Not Your Journal!"}))
             })
+            .catch(() => res.status(400).json({ journalError: "No Journal Found"}));
     });
 
 router.delete("/goal/:goalId",
