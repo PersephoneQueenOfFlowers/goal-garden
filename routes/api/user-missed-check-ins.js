@@ -43,14 +43,27 @@ module.exports = (userId, res) => {
               lastDueDate.setDate(lastDueDate.getDate() - goal.checkInterval);
             }
 
-            let newJournal;
             // step 3 -- creating journals from latestDate until now -- 
-            for (missedDate of missingDueDates){
+            // go through the array backwards -> that way able to keep
+            // goal state updated
+            //  +1 on goalState if (success and goalstate between 0 and 2 incl) or (failure and goalState between 3 and 5 incl)
+            //  -1 on goalState if (failure and goalState between 1 and 2 incl) or (success and goalState between 4 and 6 incl)
+            
+            let newJournal;
+            let goalState = journal ? journal.goalState : 0;
+            const goalStateUpdate = {0:0, 1:0, 2:1, 3:4, 4:5, 5:6, 6:6};
+
+            for (missedDate of missingDueDates.reverse()) {
+              
+              goalState = goalStateUpdate[goalState];
+
               newJournal = new Journal({
                 goal: goal.id,
                 body: "Missed check-in :(",
-                createdAt: missedDate
-              })
+                createdAt: missedDate,
+                goalState: goalState
+              });
+
               newJournal
                 .save()
                 .then()

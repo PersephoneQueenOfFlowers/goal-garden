@@ -96,11 +96,16 @@ router.delete("/:id",
             })
     });
 
-router.patch("/:id", 
+router.delete("/goal/:goalId",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        const updateObject = req.body;
-        const id = req.params.id;
-    })
+        Journal
+            .deleteMany({
+                goal: req.params.goalId
+            })
+            .then(res.json( { "msg": "done" }));
+    }
+);
+
 
 module.exports = router;
