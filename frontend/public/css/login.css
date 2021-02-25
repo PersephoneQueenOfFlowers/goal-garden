@@ -33,6 +33,7 @@
   height: 24px;
   padding: 10px 16px;
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   background: #fffd54;
   color: #acc95c;
@@ -45,6 +46,10 @@
   text-shadow: -1px -1px #ffde1c;
   font-weight: normal;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.login-form p {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
 
 .login-button:hover {
   text-decoration: underline; }

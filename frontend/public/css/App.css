@@ -268,12 +268,12 @@ body {
 
 .signup-form {
   border: 2px solid green;
-  height: 460px;
+  height: 480px;
   padding: 20px;
   border-radius: 15px; }
   .signup-form h2 {
     font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 18px; }
@@ -295,6 +295,7 @@ body {
   height: 24px;
   padding: 10px 16px;
   margin-top: 15px;
+  margin-bottom: 20px;
   text-align: center;
   background: #fffd54;
   color: #acc95c;
@@ -307,6 +308,10 @@ body {
   text-shadow: -1px -1px #ffde1c;
   font-weight: normal;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.signup-form p {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
 
 .signup-button:hover {
   text-decoration: underline; }
@@ -346,6 +351,7 @@ body {
   height: 24px;
   padding: 10px 16px;
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   background: #fffd54;
   color: #acc95c;
@@ -358,6 +364,10 @@ body {
   text-shadow: -1px -1px #ffde1c;
   font-weight: normal;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.login-form p {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
 
 .login-button:hover {
   text-decoration: underline; }
