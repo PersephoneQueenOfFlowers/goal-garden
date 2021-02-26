@@ -218,3 +218,19 @@
     justify-content: center;
     align-items: center;
 }
+
+#goal_show_left{
+    margin-right: 110px;
+}
+
+#goal_show_right{
+    margin-left: 110px;
+    min-width: 360px;
+}
+
+.back_link{
+    position: relative;
+    bottom: 45px;
+    color: #ADC95C;
+    width: 140px;
+}

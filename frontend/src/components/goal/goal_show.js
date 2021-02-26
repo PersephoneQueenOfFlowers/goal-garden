@@ -16,7 +16,7 @@ class GoalShow extends React.Component{
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden"}
         this.addOrLater = "Add New Journal"
-        this.growth = 6;
+        this.growth = 3;
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
@@ -78,15 +78,16 @@ class GoalShow extends React.Component{
             <div className="flower_picture_box">
                 <div id={`growth${this.growth}`} className="flower_picture"></div>
             </div>
-              <div className="left">
+              <div className="left" id="goal_show_left">
                 <div className="background-container">
+                  <Link to="/goals"className="back_link">Back to All Goals</Link>
                 <h3>
                     <h2>Goal Details </h2>
                 </h3>
                   <p className="goal_description">{goal.body}</p>
                 </div>
               </div>
-              <div className="right">
+              <div className="right" id="goal_show_right">
                 <div className="goals-container">
                   <div className="journal_right">
                   <h3>Journals</h3>
