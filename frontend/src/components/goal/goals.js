@@ -31,11 +31,17 @@ class Goal extends React.Component {
                             title: this.state.title,
                             expirationDate: this.state.date,
                             checkInterval: this.state.interval})
-    this.setState({ title: "", body: "", 
-      date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden"})
+
     setTimeout(() => {
-      this.props.fetchGoals();
-    }, 300)
+      if(this.props.errors.length === 0){
+        this.setState({ title: "", body: "", 
+          date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden"})
+      }
+    }, 300)      
+                     
+    // setTimeout(() => {
+    //   this.props.fetchGoals();
+    // }, 300)
   }
 
   render() {
@@ -74,6 +80,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.props.errors[0]}</div>
                             <div>
                                 <label>Description
                                   <div>
@@ -81,6 +88,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.props.errors[1]}</div>
                             <div>
                                 <label>How Long do you want to keep this goal going for?
                                   <div>
@@ -88,6 +96,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.props.errors[2]}</div>
                             <div>
                                 <label>How often does this goal occur?(in days)
                                   <div>
@@ -95,14 +104,15 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.props.errors[3]}</div>
                                 <button type="submit" className="button">Create New Goal!</button>
                           </div>
                         </form>
-                        {
+                        {/* {
                           this.props.errors.map(error => {
                             return (<div>{error}</div>)
                           })
-                        }
+                        } */}
                       </div>
                     </div>
                 </div>
