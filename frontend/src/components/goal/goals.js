@@ -6,10 +6,9 @@ import Hero from '../home/hero';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_show"}
-
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_hidden"}
     this.createGoal = this.createGoal.bind(this);
+    this.toggleButton = this.toggleButton.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +19,10 @@ class Goal extends React.Component {
     return(e => {
       this.setState({[type]: e.currentTarget.value})
     })
+  }
+  toggleButton(){
+    this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })
+    
   }
 
   createGoal(e){
@@ -44,6 +47,7 @@ class Goal extends React.Component {
             )
         });
     const headerMsg = goals.length === 0 ? "You have no goals." : "All Goals";
+    const buttonClss = this.state.formClass === "add_goal_hidden" ? "show-button" : "hide-button";
       return (
           <div className="body home goal">
             <Hero />
@@ -55,7 +59,7 @@ class Goal extends React.Component {
                   <h2>{headerMsg}</h2>
                   </h3>
                     {goals}
-                    <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })}>Add a New Goal</button>
+                    <button onClick={this.toggleButton} className={buttonClss}>Add a New Goal</button>
                     <div className="form-outer-container">
                       <div className="goals-container form-container">
                         <form onSubmit={this.createGoal} className={this.state.formClass}>
@@ -86,7 +90,9 @@ class Goal extends React.Component {
                             </div>
                             <div>
                                 <label>How often does this goal occur?(in days)
-                                  <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  <div>
+                                    <input type="number" className="num-input" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  </div>
                                 </label>
                             </div>
                                 <button type="submit" className="button">Create New Goal!</button>
