@@ -10,7 +10,6 @@ module.exports = (data) => {
         "body", "title", "expirationDate", "checkInterval",
         //  "avatar", "active", "count", "streak"
     ];
-
     for (prop of goalProps) {
       data[prop] = validText(data[prop]) ? data[prop] : "";
     }
