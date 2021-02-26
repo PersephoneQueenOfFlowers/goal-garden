@@ -72,7 +72,7 @@ class SignupForm extends React.Component {
                 </div>
               </label>
             </div>
-             <div className="login-errors">
+             <div className="errors">
               {this.state.errors.firstName}
             </div>
             <div>
@@ -85,7 +85,7 @@ class SignupForm extends React.Component {
                   </div>
               </label>
             </div>
-            <div className="login-errors">
+            <div className="errors">
               {this.state.errors.email}
             </div>
             <div>
@@ -99,7 +99,7 @@ class SignupForm extends React.Component {
                       </div>
                   </label>
             </div>
-            <div className="login-errors">
+            <div className="errors">
               {this.state.errors.password}
             </div>
           
