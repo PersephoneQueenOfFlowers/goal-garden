@@ -559,10 +559,12 @@ body {
 .journal_form_hidden {
   display: none; }
 
+.journal_right {
+  display: flex;
+  flex-direction: row; }
+
 #journal_form_show, #journal_goal_show {
-  position: absolute;
-  right: 639px;
-  top: 200px; }
+  margin-top: 157px; }
 
 #journal_form_hidden, #journal_goal_hidden {
   display: none; }
@@ -633,11 +635,9 @@ body {
   align-items: center; }
 
 #goal_show_left {
-  margin-right: 110px;
   min-width: 360px; }
 
 #goal_show_right {
-  margin-left: 110px;
   min-width: 360px; }
 
 .back_link {
