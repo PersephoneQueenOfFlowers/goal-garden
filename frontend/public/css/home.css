@@ -21,7 +21,6 @@
       .middle img {
         margin-top: -16%; } }
   .middle .left, .middle .right {
-    flex: 20%;
     margin-top: 10%; }
     .middle .left .goal-list li, .middle .left .background-container li, .middle .right .goal-list li, .middle .right .background-container li {
       list-style: none; }

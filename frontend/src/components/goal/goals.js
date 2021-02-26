@@ -7,9 +7,10 @@ class Goal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "",formClass: "add_goal_show"}
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_show", addGoalButton: "add new goal"}
 
     this.createGoal = this.createGoal.bind(this);
+    this.showGoalForm = this.showGoalForm.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,19 @@ class Goal extends React.Component {
     }, 300)
   }
 
+  showGoalForm(e){ 
+    e.preventDefault();
+    this.state.formClass === "add_goal_hidden" ? (
+      this.setState({ formClass: "add_goal_show",
+                      addGoalButton: "..or maybe not"})
+      ) : (
+        this.setState({ 
+                    formClass: "add_goal_hidden",
+                    addGoalButton: "add new goal"
+                  })
+      )
+  }
+
   render() {
     const goals = this.props.goals.map(goal => {
             return (
@@ -51,12 +65,15 @@ class Goal extends React.Component {
               <img src='./css/images/grass-border.png' alt="" />
               <div className="left">
                 <div className="background-container">
-                  <h3>
-                  <h2>{headerMsg}</h2>
-                  </h3>
-                    {goals}
-                    <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })}>Add a New Goal</button>
-                    <div className="form-outer-container">
+                    <div className="present-goals-container">
+                     
+                      <h4>{headerMsg}</h4>
+                     
+                        {goals}
+                  <button className={this.state.addGoalButton} onClick={(e) => this.showGoalForm(e)}>{this.state.addGoalButton}</button>
+                    </div>
+                    <div className="new-goal-container">
+                      <div className="form-outer-container">
                       <div className="goals-container form-container">
                         <form onSubmit={this.createGoal} className={this.state.formClass}>
                           <div className="form">
@@ -86,7 +103,9 @@ class Goal extends React.Component {
                             </div>
                             <div>
                                 <label>How often does this goal occur?(in days)
-                                  <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  <div>
+                                    <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
+                                  </div>
                                 </label>
                             </div>
                                 <button type="submit" className="button">Create New Goal!</button>
@@ -99,6 +118,7 @@ class Goal extends React.Component {
                         }
                       </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </section>         

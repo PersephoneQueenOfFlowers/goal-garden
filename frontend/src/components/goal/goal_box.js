@@ -17,7 +17,7 @@ class GoalBox extends React.Component {
         <div className="goal_box_container">
           <div>
             <Link to={`/goals/${goal._id}`}>{goal.title}</Link>
-            <button type="button" onClick={this.handleClick}>Delete Goal</button>
+            <button type="button" onClick={this.handleClick}>Delete</button>
           </div>
         </div>
     );

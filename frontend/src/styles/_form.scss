@@ -7,7 +7,7 @@
 }
 .form{
     border: 2px dashed #acc95c;
-    height: 440px;
+    min-height: 440px;
     padding: 20px;
     border-radius: 15px;
     h2{
@@ -18,9 +18,8 @@
         font-size: 18px;
     }
 }
-.add_goal_show .form{
-     border: 1px solid red;   
-     height: 550px;
+.add_goal_show .form{  
+     min-height: 550px;
      h2{
         margin-top: 10px;
         margin-bottom: 10px;
@@ -47,8 +46,8 @@
     margin-top: 5px;
 }
 .button {
-    width: 225px;
-    height: 24px;
+    // width: 225px;
+    // height: 24px;
     padding: 10px 16px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -71,7 +70,7 @@
 }
 .button:hover{
     text-decoration: none;
-    color: #014421;
+    color: #228c22;
 }
 .errors{
     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
