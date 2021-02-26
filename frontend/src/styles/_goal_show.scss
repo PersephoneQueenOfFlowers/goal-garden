@@ -106,6 +106,12 @@
     display: none;
 }
 
+.journal_right{
+    display: flex;
+    flex-direction: row;
+    // border: 1px solid red;
+}
+
 // .journal_goal_show{
 //     position: absolute;
 //     right: 639px;
@@ -128,10 +134,11 @@
 
 
 #journal_form_show, #journal_goal_show{
-    position: absolute;
-    right: 639px;
-    top: 200px;
-    // border: 1px solid red;
+    margin-top: 157px;
+//     position: absolute;
+//     right: 639px;
+//     top: 200px;
+//     // border: 1px solid red;
 }
 
 #journal_form_hidden, #journal_goal_hidden{
@@ -222,12 +229,12 @@
 }
 
 #goal_show_left{
-    margin-right: 110px;
+    // margin-right: 110px;
     min-width: 360px;
 }
 
 #goal_show_right{
-    margin-left: 110px;
+    // margin-left: 110px;
     min-width: 360px;
 }
 
