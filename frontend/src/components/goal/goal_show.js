@@ -1,8 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import JournalShowContainer from '../journals/journal_show_container'
+import JournalShowContainer from '../journals/journal_show_container';
 import Hero from '../home/hero';
+import { getMotivationalMsg } from '../../reducers/selectors';
 
 class GoalShow extends React.Component{
     constructor(props){
@@ -76,7 +77,7 @@ class GoalShow extends React.Component{
         if(journals !== undefined){
             journalsArr = Object.values(journals)
         }
-        debugger
+        // debugger
         return(
           <div>
             <Hero pageClass={"show"} header={goal.title}/>
@@ -92,6 +93,7 @@ class GoalShow extends React.Component{
                     <h2>Goal Details </h2>
                 </h3>
                   <p className="goal_description">{goal.body}</p>
+                  { getMotivationalMsg() }
                 </div>
               </div>
               <div  id={this.state.journalShow}>
