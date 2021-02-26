@@ -15,3 +15,7 @@ export const createJournal = data => {
 export const deleteJournal = journalId => {
     return axios.delete(`/api/journals/${journalId}`)
 }
+
+export const updateJournal = data => {
+    return axios.patch(`/api/journals/${data._id, data}`)
+}

@@ -5,6 +5,7 @@ class JournalShowComponent extends React.Component {
         super(props)
         this.state = {body: this.props.journal.body}
         this.handleDelete = this.handleDelete.bind(this);
+        this.editJournal = this.editJournal.bind(this);
     }
 
     handleDelete(){
@@ -13,7 +14,7 @@ class JournalShowComponent extends React.Component {
 
     handleChange(){
         return(e => {
-            debugger
+            let value = e.currentTarget.value
             this.setState({body: e.currentTarget.value})
         })
     }
@@ -24,15 +25,20 @@ class JournalShowComponent extends React.Component {
         }
     }
 
+    editJournal(){
+        debugger
+        this.props.updateJournal({_id: this.props.journal._id, body: this.state.body})
+    }
+
     render(){
         if (this.props.journal === undefined) return null
         let success = ""
         let influence = ""
         let rewards = ""
         let body = ""
-        debugger
+        let edit= ""
         const  { journal } = this.props 
-        if(!this.state.body && journal.body){
+        if(this.state.body === undefined && journal.body){
             this.setState({body: journal.body})
         }
         if(journal.success === true){
@@ -40,11 +46,13 @@ class JournalShowComponent extends React.Component {
             influence = "Cues:"
             rewards = "rewards_true"
             body = (<div>{journal.body}</div>)
+            edit = "journal_edit_hidden"
         }else{
             success = "Step missed"
             influence = "Distractions:"
             rewards = "rewards_false"
             body = (<textarea onChange={this.handleChange()} value={this.state.body}/>)
+            edit = "journal_edit_show"
         }
         
         return(
@@ -78,6 +86,7 @@ class JournalShowComponent extends React.Component {
                         })}</div>
                         </div>
                     </div>
+                    <button onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
                     {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
                 </div>
             </div>
