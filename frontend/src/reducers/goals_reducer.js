@@ -12,6 +12,7 @@ import { RECEIVE_GOALS, RECEIVE_GOAL, REMOVE_GOAL } from '../actions/goal_action
         }
         return newState;
       case RECEIVE_GOAL:
+  
         newState[action.goal.data._id] = action.goal.data; 
         return newState;
       case REMOVE_GOAL:

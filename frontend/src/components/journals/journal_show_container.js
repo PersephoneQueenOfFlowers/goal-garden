@@ -5,14 +5,13 @@ import JournalShowComponent from "./journal_show_component"
 
 const mapStateToProps = (state, ownProps) => {
     return{
-        journal: state.journal[ownProps.match.params.journalId]
+        
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
-        fetchJournal: journalId => dispatch(fetchJournal(journalId)),
-        deleteJournal: journalId => dispatch(deleteJournal(journalId))
+        // deleteJournal: journalId => dispatch(deleteJournal(journalId))
     }
 }
 
