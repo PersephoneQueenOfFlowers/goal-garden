@@ -100,6 +100,44 @@ class GoalShow extends React.Component{
                   {<JournalShowContainer journal={this.state.journal} />}
                 </div>
               </div>
+              <div id={this.state.journalForm}>
+                <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
+                  <div className="journal_radio">
+                    <label>Did achieve your goal step?</label>
+                    <div className="journal_radio_buttons">
+                      <p>Yes I did!
+                                      <input type="radio" name="success" value="true" checked={this.state.success} onClick={() => this.setState({ success: true })} />
+                      </p>
+                      <p>No, but I will next time!
+                                      <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })} />
+                      </p>
+                    </div>
+                  </div>
+                  <div className="journal_text_area">
+                    <label className="">Journal about your Goal!
+                              </label>
+                    <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")} />
+                    <div className={this.state.errors}>{this.props.errors[0]}</div>
+                  </div>
+                  <div className="journal_text_area">
+                    <label>Add any highlights:
+                              </label>
+                    <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")} />
+                  </div>
+                  <div className="journal_text_area">
+                    <label>Add any Cues or distractions:</label>
+                    <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")} />
+                  </div>
+                  <div className="journal_text_area">
+                    <label>Add any rewards you gave yourself:</label>
+                    <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
+                    <div className="form_journal_button_div">
+                      <button className="add_journal_button" type="submit">Create New Journal</button>
+                    </div>
+                  </div>
+                </form>
+                <div className="spacer"></div>
+              </div>
               <div className="right" id="goal_show_right">
                 <div className="goals-container">
                   <div className="journal_right">
@@ -116,44 +154,6 @@ class GoalShow extends React.Component{
                         })}
                   </ul>
                   <button className="add_journal_button" onClick={() => this.handleButton("create")}>{this.addOrLater}</button>
-                  </div>
-                  <div id={this.state.journalForm}>
-                      <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
-                          <div className="journal_radio">
-                              <label>Did achieve your goal step?</label>
-                              <div className="journal_radio_buttons">
-                                    <p>Yes I did!
-                                      <input type="radio" name="success" value="true" checked={this.state.success} onClick={() => this.setState({success: true}) }/>
-                                    </p>
-                                  <p>No, but I will next time!
-                                      <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
-                                  </p>
-                              </div>
-                          </div>
-                          <div className="journal_text_area">
-                              <label className="">Journal about your Goal!
-                              </label>
-                              <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
-                              <div className={this.state.errors}>{this.props.errors[0]}</div>
-                          </div>
-                          <div className="journal_text_area">
-                              <label>Add any highlights:
-                              </label>
-                              <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")}/>
-                          </div>
-                          <div className="journal_text_area">
-                              <label>Add any Cues or distractions:</label>
-                              <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
-                          </div>
-                          <div className="journal_text_area">
-                          <label>Add any rewards you gave yourself:</label>
-                          <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
-                          <div className="form_journal_button_div">
-                              <button className="add_journal_button" type="submit">Create New Journal</button>
-                          </div>
-                          </div>
-                      </form>
-                    <div className="spacer"></div>
                   </div>
                 </div>
               </div>
