@@ -27,6 +27,11 @@ const GoalSchema = new Schema ({
     max: 365,
     // required: true
   },
+
+  growthNumber: {
+    type: Number,
+    default: 0
+  }
   // active: {
   //   type: Boolean,
   //   required: true
