@@ -33,13 +33,13 @@ module.exports = (userId) => {
             
             const lastDueDate = new Date(goalCreationDate);
             lastDueDate.setDate(lastDueDate.getDate() + dueDatesSinceGoalCreation * goal.checkInterval);
-
+            let dueDate = new Date(lastDueDate);
             
             const missingDueDates = [];
             
-            while (lastDueDate - lastCheckin > millisecondsPerCheckin){
-              missingDueDates.push(lastDueDate.toISOString());
-              lastDueDate.setDate(lastDueDate.getDate() - goal.checkInterval);
+            while (dueDate - lastCheckin > millisecondsPerCheckin){
+              missingDueDates.push(dueDate.toISOString());
+              dueDate.setDate(dueDate.getDate() - goal.checkInterval);
             }
 
             // step 3 -- creating journals from latestDate until now -- 
@@ -65,7 +65,13 @@ module.exports = (userId) => {
 
               newJournal
                 .save()
-                .then()
+                .then(journal => {
+                  if (journal.createdAt.getTime() === lastDueDate.getTime()){
+                    goal.growthNumber = journal.goalState;
+                    goal.save()
+                    .then();
+                  }
+                })
                 .catch(err => console.log(err));
             }
           })

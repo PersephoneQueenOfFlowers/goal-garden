@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     goal: state.goals[ownProps.match.params.goalId],
     journals: state.journal[ownProps.match.params.goalId],
+    errors: state.errors.journal,
   };
 };
 

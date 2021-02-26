@@ -246,7 +246,7 @@ body {
   margin-bottom: 10px; }
 
 .hero {
-  background-image: url("./images/garden-licensed-bg.png");
+  background-image: url("./images/garden.png");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 300px;
@@ -267,7 +267,18 @@ body {
     color: #142d20;
     text-align: center; }
     .hero .hero-inner-container h1 {
-      margin-top: -5px; }
+      margin-top: -5px;
+      font-family: 'Stick', sans-serif; }
+    .hero .hero-inner-container.show {
+      flex-direction: column; }
+      .hero .hero-inner-container.show h1 {
+        margin-top: -200px; }
+
+.header-greeting .header-name {
+  font-family: 'Stick', sans-serif; }
+
+.goal .hero-inner-container h1 {
+  margin-top: -100px; }
 
 .main-container, .header-greeting {
   top: 20px; }
@@ -318,6 +329,8 @@ body {
         margin-top: -16%; } }
   .middle .left, .middle .right {
     margin-top: 10%; }
+    .middle .left.hide, .middle .right.hide {
+      display: none; }
     .middle .left .goal-list li, .middle .left .background-container li, .middle .right .goal-list li, .middle .right .background-container li {
       list-style: none; }
       .middle .left .goal-list li:before, .middle .left .background-container li:before, .middle .right .goal-list li:before, .middle .right .background-container li:before {
@@ -546,10 +559,15 @@ body {
 .journal_form_hidden {
   display: none; }
 
-.journal_form_show, .journal_goal_show {
+#journal_form_show, #journal_goal_show {
   position: absolute;
   right: 639px;
-  top: 200px;
+  top: 200px; }
+
+#journal_form_hidden, #journal_goal_hidden {
+  display: none; }
+
+.journal_form_show, .journal_goal_show {
   border: 2px solid green;
   border-radius: 10px;
   display: flex;
@@ -560,7 +578,12 @@ body {
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 28px;
-  background: white; }
+  background: white;
+  max-height: 660px;
+  overflow: scroll; }
+
+.spacer {
+  height: 75px; }
 
 .journal_radio {
   display: flex;
@@ -607,6 +630,25 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
+
+#goal_show_left {
+  margin-right: 110px; }
+
+#goal_show_right {
+  margin-left: 110px;
+  min-width: 360px; }
+
+.back_link {
+  position: relative;
+  bottom: 45px;
+  color: #ADC95C;
+  width: 140px; }
+
+.journal_errors_hidden {
+  display: none; }
+
+.journal_errors_show {
+  color: red; }
 
 .journal_header {
   font-size: 20px;

@@ -14,9 +14,10 @@ class GoalShow extends React.Component{
                         cues: "",
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
-                        journalShow: "journal_goal_hidden"}
+                        journalShow: "journal_goal_hidden",
+                        errors: "journal_errors_hidden"}
         this.addOrLater = "Add New Journal"
-        this.growth = 6;
+        this.growth = 3;
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
@@ -34,11 +35,16 @@ class GoalShow extends React.Component{
                                 rewards: this.state.rewards,
                                 goal: this.props.match.params.goalId}
                             )
-
-        this.setState({success: false, body: "", highlights: "", cues: "", rewards: ""})
         setTimeout(() => {
+          if(this.props.errors.length === 0){
+            this.setState({ success: false, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
             this.props.fetchJournals(this.props.match.params.goalId)
+          }else{
+            this.setState({errors: "journal_errors_show"})
+          }
+          
         }, 300)
+
     }
 
     handlechange(type){
@@ -70,30 +76,33 @@ class GoalShow extends React.Component{
             journalsArr = Object.values(journals)
         }
         return(
-      
           <div>
-          <Hero header={"Current Goal: " + goal.title}/>
+            <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
               <img src='./css/images/grass-border.png' alt=""/>
             <div className="flower_picture_box">
                 <div id={`growth${this.growth}`} className="flower_picture"></div>
             </div>
-              <div className="left">
+              <div className="left" id="goal_show_left">
                 <div className="background-container">
+                  <Link to="/goals"className="back_link">Back to All Goals</Link>
                 <h3>
                     <h2>Goal Details </h2>
                 </h3>
                   <p className="goal_description">{goal.body}</p>
                 </div>
               </div>
-              <div className="right">
+              <div className="right" id="goal_show_right">
                 <div className="goals-container">
                   <div className="journal_right">
                   <h3>Journals</h3>
-                    <div className={this.state.journalShow}>
+                  <div id={this.state.journalShow}>
+                      <div className={this.state.journalShow}>
                         <button onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button>
                         {<JournalShowContainer journal={this.state.journal} />}
-                    </div>
+                      </div>
+                      <div className="spacer"></div>
+                  </div>
                   <ul className="goal-list">
                          {journalsArr.map(journal => {
                              return (
@@ -107,40 +116,44 @@ class GoalShow extends React.Component{
                   </ul>
                   <button className="add_journal_button" onClick={() => this.handleButton("create")}>{this.addOrLater}</button>
                   </div>
-                  <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
-                       <div className="journal_radio">
-                           <label>Did achieve your goal step?</label>
-                           <div className="journal_radio_buttons">
-                                <p>Yes I did!
-                                   <input type="radio" name="success" value="true" onClick={() => this.setState({success: true})}/>
-                                </p>
-                               <p>No, but I will next time!
-                                   <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
-                               </p>
-                           </div>
-                       </div>
-                       <div className="journal_text_area">
-                           <label className="">Journal about your Goal!
-                           </label>
-                           <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
-                       </div>
-                       <div className="journal_text_area">
-                           <label>Add any highlights:
-                           </label>
-                           <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")}/>
-                       </div>
-                       <div className="journal_text_area">
-                           <label>Add any Cues or distractions:</label>
-                           <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
-                       </div>
-                       <div className="journal_text_area">
-                           <label>Add any rewards you gave yourself:</label>
-                           <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
-                           <div className="journal_button_div">
-                               <button className="add_journal_button" type="submit">Create New Journal</button>
-                           </div>
-                       </div>
-                   </form>
+                  <div id={this.state.journalForm}>
+                      <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
+                          <div className="journal_radio">
+                              <label>Did achieve your goal step?</label>
+                              <div className="journal_radio_buttons">
+                                    <p>Yes I did!
+                                      <input type="radio" name="success" value="true" checked="checked" onClick={() => this.setState({success: true})}/>
+                                    </p>
+                                  <p>No, but I will next time!
+                                      <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
+                                  </p>
+                              </div>
+                          </div>
+                          <div className="journal_text_area">
+                              <label className="">Journal about your Goal!
+                              </label>
+                              <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
+                              <div className={this.state.errors}>{this.props.errors[0]}</div>
+                          </div>
+                          <div className="journal_text_area">
+                              <label>Add any highlights:
+                              </label>
+                              <input type="text" id="journal_input" value={this.state.highlights} onChange={this.handlechange("highlights")}/>
+                          </div>
+                          <div className="journal_text_area">
+                              <label>Add any Cues or distractions:</label>
+                              <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
+                          </div>
+                          <div className="journal_text_area">
+                              <label>Add any rewards you gave yourself:</label>
+                              <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
+                              <div className="journal_button_div">
+                                  <button className="add_journal_button" type="submit">Create New Journal</button>
+                              </div>
+                          </div>
+                      </form>
+                    <div className="spacer"></div>
+                  </div>
                 </div>
               </div>
             </section>

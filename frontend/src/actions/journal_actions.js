@@ -2,6 +2,7 @@ import * as APIUtil from "../util/journals_api_util.js";
 export const RECEIVE_GOALS_JOURNALS = "RECEIVE_JOURNALS";
 export const RECEIVE_JOURNAL = "RECEIVE_JOURNAL";
 export const REMOVE_JOURNAL = "REMOVE_JOURNAL";
+export const RECEIVE_JOURNAL_ERRROS = "RECEIVE_JOURNAL_ERRORS";
 
 export const receiveGoalsJournals = journals => {
     return{
@@ -24,6 +25,14 @@ export const removeJournal = journalId => {
     };
 };
 
+export const receiveJournalErrors = errors => {
+    return{
+        type: RECEIVE_JOURNAL_ERRROS,
+        errors
+    };
+};
+
+
 export const fetchJournals = (goalId) => dispatch => (
     APIUtil.getGoalsJournals(goalId)
         .then(journals =>dispatch(receiveGoalsJournals(journals)))
@@ -39,7 +48,8 @@ export const fetchJournal = (journalId) => dispatch => (
 export const createJournal = (journal) => dispatch => (
     APIUtil.createJournal(journal)
         .then(journal => dispatch(receiveJournal(journal)))
-        .catch(err => console.log(err))
+        .catch(err => dispatch(receiveJournalErrors(err.response.data)))
+
 );
 
 export const deleteJournal = (journalId) => dispatch => (

@@ -3,21 +3,21 @@ const validText = require('./valid-text');
 module.exports = (data) => {
     let errors = {};
 
-    journalProps = [
-      "goal", "highlights", "body", "success",
-      "media", "goalState", "cues", "rewards"
-    ];
+    // journalProps = [
+    //   "goal", "highlights", "body", "success",
+    //   "media", "goalState", "cues", "rewards"
+    // ];
 
-    presentProps = {}
+    // presentProps = {}
 
-    for (prop of journalProps) {
-        if(data[prop] === undefined){
-            presentProps[prop] = false;
-        } else{
-            if(!validText(data[prop])) data[prop] = "";
-            presentProps[prop] = true;
-        }
-    }
+    // for (prop of journalProps) {
+    //     if(data[prop] === undefined){
+    //         presentProps[prop] = false;
+    //     } else{
+    //         if(!validText(data[prop])) data[prop] = "";
+    //         presentProps[prop] = true;
+    //     }
+    // }
     // Validator Methods -- https://www.npmjs.com/package/validator
 
     // 
@@ -38,10 +38,14 @@ module.exports = (data) => {
 
 
     // 
-    if (presentProps["body"]){
-        if(Validator.isEmpty(data.body)) {
-            errors.body = 'Body field is rquired';
-        }
+    // if (presentProps["body"]){
+    //     if(Validator.isEmpty(data.body)) {
+    //         errors.body = 'Body field is rquired';
+    //     }
+    // }
+
+    if(Validator.isEmpty(data.body)) {
+        errors.body = 'Body field is rquired';
     }
     
     return {
