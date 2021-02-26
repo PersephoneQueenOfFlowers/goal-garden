@@ -490,10 +490,15 @@ body {
 .journal_form_hidden {
   display: none; }
 
-.journal_form_show, .journal_goal_show {
+#journal_form_show, #journal_goal_show {
   position: absolute;
   right: 639px;
-  top: 200px;
+  top: 200px; }
+
+#journal_form_hidden, #journal_goal_hidden {
+  display: none; }
+
+.journal_form_show, .journal_goal_show {
   border: 2px solid green;
   border-radius: 10px;
   display: flex;
@@ -508,10 +513,8 @@ body {
   max-height: 660px;
   overflow: scroll; }
 
-#journal_goal_show {
-  position: absolute;
-  right: 639px;
-  top: 200px; }
+.spacer {
+  height: 75px; }
 
 .journal_radio {
   display: flex;
