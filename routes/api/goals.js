@@ -49,7 +49,10 @@ router.get("/:id",
         user: req.user.id,
         _id: req.params.id
       })
-      .then(goal => res.json(goal))
+      .then(goal => {
+        if (!goal) return res.status(400).json({ unAuthorized: "Not Your Goal!"});
+        res.json(goal)
+      })
       .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
 
@@ -66,8 +69,8 @@ router.post("/",
         return res.status(400).json(errors);
       }
 
-      const createdDay = new Date();
-      createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+      // const createdDay = new Date();
+      // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
 
       const newGoal = new Goal ({
         user: req.user.id,
@@ -79,7 +82,7 @@ router.post("/",
         // active: req.body.active,
         // count: req.body.count,
         // streak: req.body.streak
-        createdAt: createdDay
+        // createdAt: createdDay
       });
      
 
@@ -123,7 +126,7 @@ router.patch("/:id",
         _id: req.params.id
       })
       .then(goal => {
-
+        if (!goal) return res.status(400).json({ unAuthorized: "Not Your Goal!"});
         goalProps = [
           "body", "title", "expirationDate", "checkInterval",
         // "avatar", "active", "count", "streak"
@@ -158,19 +161,8 @@ router.delete("/:id",
       })
       .then(goal => {
         res.json(goal);
-        res.redirect("/");
       })
       .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
-    // Goal
-    //   .findByIdAndRemove(req.params.id, (err, deletedGoal) => {
-    //     if (err){
-    //       res.status(500);
-    //     } else if (!deletedGoal){
-    //       res.status(404);
-    //     }
-    //     res.redirect("/")
-    //   })
-    //   .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
       
 });
 

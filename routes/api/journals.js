@@ -9,15 +9,36 @@ const Goal = require('../../models/Goal');
 const validateJournalInput = require("../../validation/journal");
 const validateJournalUpdate = require("../../validation/journal-update");
 
-router.get('/goal/:goalId', (req, res) => {
-    Journal.find({ goal: req.params.goalId })
-    .then(journals => res.json(journals))
-    .catch(err => res.status(404).json({ nojournalsfound: 'No Journals found'}));
+router.get('/goal/:goalId', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Goal
+    .findOne({
+        user: req.user.id,
+        _id: req.params.goalId
+    })
+    .then(goal => {
+        if (!goal) return res.status(400).json({ unAuthorized: "Not Your Goal!"});
+
+        Journal.find({ goal: req.params.goalId })
+        .then(journals => res.json(journals))
+        .catch(err => res.status(404).json({ nojournalsfound: 'No Journals found'}));
+    })
+    .catch(() => res.status(404).json({ "goalError": "No Goal Found" }));
 });
 
-router.get('/:id', (req, res) => {
-    Journal.findById(req.params.id)
-    .then(journal => res.json(journal))
+router.get('/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Journal
+    .findById(req.params.id)
+    .then(journal => {
+        Goal.findOne({
+            user: req.user.id,
+            _id: journal.goal
+        })
+        .then(goal => {
+            if (!goal) return res.status(400).json({ unAuthorized: "Not Your Journal!"});
+            res.json(journal);
+        })
+        .catch(() => res.status(404).json({noGoalFound: "No Goal Found"}));
+    })
     .catch(err => res.status(404).json({nojournalfound: 'No journal found'}));
 });
 
@@ -33,8 +54,8 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         _id: req.params.goalId
     })
     .then(goal => {
-        const createdDay = new Date();
-        createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+        // const createdDay = new Date();
+        // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
     
         const failGoalStateUpdate = {0:0, 1:0, 2:1, 3:4, 4:5, 5:6, 6:6};
         const succeedGoalStateUpdate = {0:1, 1:2, 2:3, 3:3, 4:3, 5:4, 6:5};
@@ -55,7 +76,7 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
             goalState: goalState,
             cues: req.body.cues,
             rewards: req.body.rewards,
-            createdAt: createdDay
+            // createdAt: createdDay
         });
     
         newJournal
@@ -80,35 +101,28 @@ router.patch("/:id",
     }
 
     Journal
-    .findOne({ 
-    _id: req.params.id
-    })
+    .findById(req.params.id)
     .then(journal => {
-
-        //for now make it so that journals cannot be moved from one goal
-        //to another because otherwise we would need to verify that
-        //the other goal belongs to current user
-        // and would then mess up the goal progress and whatnot.
-        
-        if(!journal.success) {
-            // journalProps = [  
-            //     //"goal", 
-            //     "body", "success", "highlights", "media", "goalState", "cues", "rewards"
-            // ];
+        Goal.findOne({
+            user: req.user.id,
+            _id: journal.goal
+        })
+        .then(goal => {
+            if (!goal) return res.status(400).json({ unAuthorized: "Not Your Journal!"});
+            if(!journal.success) {
     
-            // for (prop of journalProps) {
-            //   journal[prop] = req.body[prop] || journal[prop];
-            // }
-
-            journal.body = req.body.body
-          
-            journal.save()
-            .then(journal => res.json(journal));
-        } else {
-            res.status(400).json({ journalError: "Journal cannot be edited"});
-        }
+                journal.body = req.body.body
+              
+                journal.save()
+                .then(journal => res.json(journal));
+            } else {
+                res.status(400).json({ journalError: "Journal cannot be edited"});
+            }
+        })
+        .catch(() => res.status(404).json({noGoalFound: "No Goal Found"}));
     })
-    .catch(err => res.status(400).json({ noJournalFound: "No Journal Found" }));
+    .catch(err => res.status(404).json({nojournalfound: 'No journal found'}));
+
 });
 
 router.delete("/:id",
@@ -146,11 +160,21 @@ router.delete("/:id",
 router.delete("/goal/:goalId",
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        Journal
-            .deleteMany({
+
+        Goal
+        .findOne({
+            user: req.user.id,
+            _id: req.params.goalId
+        })
+        .then(goal => {
+            if (!goal) return res.status(400).json({ unAuthorized: "Not Your Goal!"});
+
+            Journal.deleteMany({
                 goal: req.params.goalId
             })
             .then(res.json( { "msg": "done" }));
+        })
+        .catch(() => res.status(404).json({ "goalError": "No Goal Found" }));
     }
 );
 
