@@ -16,7 +16,8 @@ class GoalShow extends React.Component{
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden",
-                        errors: "journal_errors_hidden"}
+                        errors: "journal_errors_hidden",
+                        motivationalMsg: "motivational_msg_hidden"}
         this.addOrLater = "Add New Journal"
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
@@ -40,6 +41,7 @@ class GoalShow extends React.Component{
             this.setState({ success: true, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
             this.props.fetchJournals(this.props.match.params.goalId)
             this.props.fetchGoal(this.props.match.params.goalId);
+            this.setState({motivationalMsg: "motivational_msg_show"});
             this.addOrLater = "Add New Journal"
           }else{
             this.setState({errors: "journal_errors_show"})
@@ -58,14 +60,14 @@ class GoalShow extends React.Component{
     handleButton(type){
       if (type === "create"){
         if (this.state.journalForm === "journal_form_hidden"){
-          this.setState({ journalForm: "journal_form_show", journalShow: "journal_goal_hidden"})
+          this.setState({ journalForm: "journal_form_show", journalShow: "journal_goal_hidden", motivationalMsg: "motivational_msg_hidden"})
           this.addOrLater = "Write one Later"
         }else{
-          this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_hidden" })
+          this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_hidden", motivationalMsg: "motivational_msg_hidden" })
           this.addOrLater = "Add New Journal"
         }
       }else{
-        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type})
+        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type, motivationalMsg: "motivational_msg_hidden"})
         this.addOrLater = "Add New Journal"
       }
     }
@@ -93,7 +95,11 @@ class GoalShow extends React.Component{
                     <h2>Goal Details </h2>
                 </h3>
                   <p className="goal_description">{goal.body}</p>
-                  { getMotivationalMsg() }
+                </div>
+              </div>
+              <div id={this.state.motivationalMsg}>
+                <div className={this.state.motivationalMsg}>
+                  <div className="msg_box">{getMotivationalMsg()}</div>
                 </div>
               </div>
               <div  id={this.state.journalShow}>

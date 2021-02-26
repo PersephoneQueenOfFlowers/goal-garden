@@ -571,13 +571,13 @@ body {
   display: flex;
   flex-direction: row; }
 
-#journal_form_show, #journal_goal_show {
+#journal_form_show, #journal_goal_show, #motivational_msg_show {
   margin-top: 157px; }
 
-#journal_form_hidden, #journal_goal_hidden {
+#journal_form_hidden, #journal_goal_hidden, #motivational_msg_hidden {
   display: none; }
 
-.journal_form_show, .journal_goal_show {
+.journal_form_show, .journal_goal_show, .motivational_msg_show {
   border: 2px solid green;
   border-radius: 10px;
   display: flex;
@@ -591,6 +591,13 @@ body {
   background: white;
   max-height: 660px;
   overflow: scroll; }
+
+.motivational_msg_show {
+  justify-content: center;
+  margin-bottom: 10px; }
+
+.msg_box {
+  margin-bottom: 25px; }
 
 .spacer {
   height: 75px; }
