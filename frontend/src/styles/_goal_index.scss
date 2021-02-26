@@ -30,17 +30,20 @@
       h4 {
         padding: 10px 0;
       }
-      .hide {
-        display:none;
+      .goal-show{
+        color:#b95cc9;
+        &:hover{
+          color:#9336a3;
+        }
       }
     }
     .goal_box_container{
       box-sizing: border-box;
       padding: 5px 0;
       a {
-        color: #acc95c;
+        color: #7da336;
         &:hover {
-          color:#228c22;
+          color:#5ca3c9;
           text-decoration:none;
         }
       }
@@ -49,7 +52,7 @@
         font-size: .75rem;
         color: lightgrey;
         &:hover {
-          color: red;
+          color:#c9825c;
         }
       }
     }

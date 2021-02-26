@@ -421,22 +421,24 @@ body {
       padding-right: 20px; }
       .goal .middle .left .background-container .present-goals-container h4 {
         padding: 10px 0; }
-      .goal .middle .left .background-container .present-goals-container .hide {
-        display: none; }
+      .goal .middle .left .background-container .present-goals-container .goal-show {
+        color: #b95cc9; }
+        .goal .middle .left .background-container .present-goals-container .goal-show:hover {
+          color: #9336a3; }
     .goal .middle .left .background-container .goal_box_container {
       box-sizing: border-box;
       padding: 5px 0; }
       .goal .middle .left .background-container .goal_box_container a {
-        color: #acc95c; }
+        color: #7da336; }
         .goal .middle .left .background-container .goal_box_container a:hover {
-          color: #228c22;
+          color: #5ca3c9;
           text-decoration: none; }
       .goal .middle .left .background-container .goal_box_container button {
         padding-left: 8px;
         font-size: .75rem;
         color: lightgrey; }
         .goal .middle .left .background-container .goal_box_container button:hover {
-          color: red; }
+          color: #c9825c; }
 
 .App {
   text-align: center; }

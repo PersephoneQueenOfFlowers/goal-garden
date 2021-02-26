@@ -40,7 +40,7 @@ class Goal extends React.Component {
     e.preventDefault();
     this.state.formClass === "add_goal_hidden" ? (
       this.setState({ formClass: "add_goal_show",
-                      addGoalButton: "..or maybe not"})
+                      addGoalButton: "..or maybe not today"})
       ) : (
         this.setState({ 
                     formClass: "add_goal_hidden",
@@ -66,11 +66,9 @@ class Goal extends React.Component {
               <div className="left">
                 <div className="background-container">
                     <div className="present-goals-container">
-                     
                       <h4>{headerMsg}</h4>
-                     
                         {goals}
-                  <button className={this.state.addGoalButton} onClick={(e) => this.showGoalForm(e)}>{this.state.addGoalButton}</button>
+                      <button className='goal-show' onClick={(e) => this.showGoalForm(e)}>{this.state.addGoalButton}</button>
                     </div>
                     <div className="new-goal-container">
                       <div className="form-outer-container">
