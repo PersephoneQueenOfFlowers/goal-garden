@@ -64,14 +64,10 @@ router.post("/",
       if (!isValid) {
         return res.status(400).json(errors);
       }
-<<<<<<< HEAD
-      
-=======
 
       const createdDay = new Date();
       createdDay.setDate(createdDay.getDate() - Number(req.body.days));
 
->>>>>>> master
       const newGoal = new Goal ({
         user: req.user.id,
         body: req.body.body,
