@@ -65,8 +65,6 @@ router.post("/",
         return res.status(400).json(errors);
       }
 
-      const createdDay = new Date();
-      createdDay.setDate(createdDay.getDate() - Number(req.body.days));
 
       const newGoal = new Goal ({
         user: req.user.id,
@@ -78,7 +76,6 @@ router.post("/",
         // active: req.body.active,
         // count: req.body.count,
         // streak: req.body.streak
-        createdAt: createdDay
       });
      
 
