@@ -8,7 +8,7 @@ class GoalShow extends React.Component{
     constructor(props){
         super(props);
         this.state = {journalForm: "journal_form_hidden",
-                        success: false,
+                        success: true,
                         body: "",
                         highlights: "",
                         cues: "",
@@ -17,7 +17,6 @@ class GoalShow extends React.Component{
                         journalShow: "journal_goal_hidden",
                         errors: "journal_errors_hidden"}
         this.addOrLater = "Add New Journal"
-        this.growth = 3;
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
@@ -37,8 +36,10 @@ class GoalShow extends React.Component{
                             )
         setTimeout(() => {
           if(this.props.errors.length === 0){
-            this.setState({ success: false, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
+            this.setState({ success: true, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
             this.props.fetchJournals(this.props.match.params.goalId)
+            this.props.fetchGoal(this.props.match.params.goalId);
+            this.addOrLater = "Add New Journal"
           }else{
             this.setState({errors: "journal_errors_show"})
           }
@@ -75,13 +76,14 @@ class GoalShow extends React.Component{
         if(journals !== undefined){
             journalsArr = Object.values(journals)
         }
+        debugger
         return(
           <div>
             <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
               <img src='./css/images/grass-border.png' alt=""/>
             <div className="flower_picture_box">
-                <div id={`growth${this.growth}`} className="flower_picture"></div>
+                <div id={`growth${this.props.goal.growthNumber}`} className="flower_picture"></div>
             </div>
               <div className="left" id="goal_show_left">
                 <div className="background-container">
@@ -145,11 +147,11 @@ class GoalShow extends React.Component{
                               <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
                           </div>
                           <div className="journal_text_area">
-                              <label>Add any rewards you gave yourself:</label>
-                              <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
-                              <div className="journal_button_div">
-                                  <button className="add_journal_button" type="submit">Create New Journal</button>
-                              </div>
+                          <label>Add any rewards you gave yourself:</label>
+                          <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
+                          <div className="form_journal_button_div">
+                              <button className="add_journal_button" type="submit">Create New Journal</button>
+                          </div>
                           </div>
                       </form>
                     <div className="spacer"></div>

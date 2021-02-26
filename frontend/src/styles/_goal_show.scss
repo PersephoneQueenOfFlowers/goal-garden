@@ -6,7 +6,7 @@
     // background-position-y: 10px;
     // border: 1px solid red;
     position: absolute;
-    bottom: 470px;
+    top: -280px;
     width: 200px;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@
 
 #growth0{
     background-position-x: 10px;
-    width: 147px;
+    width: 140px;
     // border: 1px solid blue;
 }
 
@@ -202,11 +202,13 @@
     display: none
 }
 
-.journal_button_div{
+.form_journal_button_div{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+
 
 .goal_description{
     overflow-wrap: break-word;
@@ -221,6 +223,7 @@
 
 #goal_show_left{
     margin-right: 110px;
+    min-width: 360px;
 }
 
 #goal_show_right{
