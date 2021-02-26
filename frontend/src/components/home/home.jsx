@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 const goals = {
   clean: {
     body: "clean out the garage",
+    description: "This has been coming for years. Rags, clothes, old truck, tool area, storage, the floor; it's all gotta get done",
     journals: [
       "First, I'll get all the old rags and clothes, recycle and donate them.",
       "then I have to either fix the old truck sitting there, or get rid of it",
@@ -15,31 +16,36 @@ const goals = {
   },
   build: {
     body: "build a new dog house",
+    description: "Poor Spot has been sleeping under the porch for 6 months now and winter's coming soon. He's kinda stinky",
     journals: [
-      "First, I'll need to go on youtube and find the tutorial that makes the most sense, watch that and take some next steps notes.",
-      "Make a materials, list, then get out to the lumber store and buy all the materials",
-      "Plan for a day when it's dry out and get the thing built"
+      "First, I went on youtube and found a great tutorial that makes the most sense, watched that and took some notes.",
+      "Made a materials, list, then went out to the lumber store and bought all the materials",
+      "Found a day on the calendar when it's dry out and got the thing built!!"
     ]
   },
   go: {
-    body: "go shopping",
+    body: "go clothes shopping",
+    description: "for all the winter clothes shopping, I'll need to pick up duck boots, warm clothes, longjohns, and new X-country skis",
     journals: [
-      "Get some food"
+      "got winter boots"
     ]
   },
   start: {
     body: "start on the novel",
-    journals: ["decide on a topic",
-      "make an outline",
-      "write a two-page version and see if I want to do more"
+    description: "this is a big one: been thinking about for years, and just procrastinating! It's definitely going to take some research, maybe a year's worth, then I'll get going on the steps. ",
+    journals: [
+      "decided on a topic",
+      "made an outline",
+      "wrote a two-page version and see if I want to do more"
     ]
   },
   paint: {
     body: "paint the kitchen",
+    description: "the kitchen is the heart of the home. It's where everyone gathers and a place that imprints on us our mood for the day. Let's give it a color upgrade!",
     journals: [
-      "Decide on a color, get a consultation if I can't make up my mind",
-      "Make a materials list, then get out to the paint store and buy all the materials",
-      "Plan for a day when it's dry so the paint dries and get the thing painted"
+      "Decided on a color, got a consultation since couldn't decide. Now, I'm psyched!",
+      "Made a materials list, then headed to the paint store to buy all the materials",
+      "Waiting for a day when it's dry so the paint dries and get the thing painted. Weather report says Sunday!"
     ]
   }
 };
@@ -48,11 +54,23 @@ class MyVerticallyCenteredModal extends React.Component {
   constructor(props){
     super(props)
     this.props = props
-    this.state = {};
-    this.state.goals = goals;
-    this.state.key = this.props.modalkey;
-    this.state.goal = this.state.goals[this.props.modalkey];
-    this.state.journal_entry = "";
+    this.state = {
+      journalForm: "journal_form_hidden",
+      success: true,
+      body: "",
+      highlights: "",
+      cues: "",
+      rewards: "",
+      journal: { createdAt: "", body: "", highlights: "", cues: [], rewards: [] },
+      journalShow: "journal_goal_hidden",
+      errors: "journal_errors_hidden",
+      goals: goals,
+      key: this.props.modalkey,
+      goal: goals[this.props.modalkey],
+      journal_entry: ""
+    }
+    this.addOrLater = "Add New Journal";
+    this.handleButton = this.handleButton.bind(this);
   }
 
   componentDidUpdate(){
@@ -69,7 +87,8 @@ class MyVerticallyCenteredModal extends React.Component {
     e.preventDefault();
     const curr_goal = this.state.goals[this.state.key];
     curr_goal.journals.push(this.state.journal_entry);
-    this.setState({ journal_entry: "" });
+    this.setState({ journal_entry: "", journalForm: "journal_form_hidden" });
+    this.addOrLater = "Add New Journal";
   }
 
   updateField(field){
@@ -78,7 +97,29 @@ class MyVerticallyCenteredModal extends React.Component {
     }
   }
 
+  handlechange(type) {
+    return (e => {
+      this.setState({ [type]: e.currentTarget.value })
+    })
+  }
+
+  handleButton(type) {
+    if (type === "create") {
+      if (this.state.journalForm === "journal_form_hidden") {
+        this.setState({ journalForm: "journal_form_show", journalShow: "journal_goal_hidden" })
+        this.addOrLater = "Write one Later"
+      } else {
+        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_hidden" })
+        this.addOrLater = "Add New Journal"
+      }
+    } else {
+      this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type })
+      this.addOrLater = "Add New Journal"
+    }
+  }
+
   render(){
+    if(!this.state.goals){ return null}
     return (
       <Modal
         {...this.props}
@@ -88,29 +129,56 @@ class MyVerticallyCenteredModal extends React.Component {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Current Goal
+          <h4>{this.state.goal.body}</h4>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>  
-
-          <h4>{this.state.goal.body}</h4>
-          {this.state.goal.journals.map(function (journal, idx) {
-            return <p key={idx}>{journal}</p>;
-          })}
-        
-            <form>
-              <input 
-                type="textarea" 
-                value={this.state.journal_entry}
-                onChange={this.updateField("journal_entry")}
-              />
-              <input 
-                type="button" 
-                value="add journal"
-                onClick={(e) => this.addJournal(e)}  
-              />
-            </form>
-    
+          <div className="left">
+            {this.state.goal.journals.map(function (journal, idx) {
+              return <p key={idx}>{journal}</p>;
+            })}
+            <button className="add_journal_button" onClick={() => this.handleButton("create")}>{this.addOrLater}</button>
+          </div>
+          <div className="right">
+          <form id={this.state.journalForm} onSubmit={(e) => this.addJournal(e)} className={this.state.journalForm}>
+              <div className="journal_radio">
+                  <label>Did achieve your goal step?</label>
+                  <div className="journal_radio_buttons">
+                        <p>Yes I did!
+                          <input type="radio" name="success" value="true" checked={this.state.success} onClick={() => this.setState({success: true}) }/>
+                        </p>
+                      <p>No, but I will next time!
+                          <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
+                      </p>
+                  </div>
+              </div>
+              <div className="journal_text_area">
+                  <label className="">Journal about your Goal!
+                  </label>
+                <textarea className="journal_text_area_input" id="journal_input" value={this.state.journal_entry} onChange={this.updateField("journal_entry")} /> 
+              </div>
+              <div className="journal_text_area">
+                  <label>Add any highlights:
+                  </label>
+                  <input
+                    type="textarea"
+                    value={this.state.highlights}
+                    onChange={this.handlechange("highlights")}
+                  />
+              </div>
+              <div className="journal_text_area">
+                  <label>Add any Cues or distractions:</label>
+                  <input type="text" id="journal_input" value={this.state.cues} onChange={this.handlechange("cues")}/>
+              </div>
+              <div className="journal_text_area">
+              <label>Add any rewards you gave yourself:</label>
+              <input type="text" id="journal_input" value={this.state.rewards} onChange={this.handlechange("rewards")} />
+              <div className="form_journal_button_div">
+                  <button className="add_journal_button" type="submit">Create New Journal</button>
+              </div>
+              </div>
+          </form>            
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <button onClick={this.props.onHide}>Close</button>
