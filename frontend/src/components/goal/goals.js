@@ -7,7 +7,7 @@ class Goal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_show", addGoalButton: "add new goal"}
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []}
 
     this.createGoal = this.createGoal.bind(this);
     this.showGoalForm = this.showGoalForm.bind(this);
@@ -16,16 +16,18 @@ class Goal extends React.Component {
   componentDidMount() {
     this.props.fetchGoals();
   }
+  componentWillReceiveProps(nextProps) {
+
+    this.setState({errors: nextProps.errors})
+  }
 
   handleChange(type){
     return(e => {
       this.setState({[type]: e.currentTarget.value})
     })
   }
-  toggleButton(){
-    this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })
-    
-  }
+
+
 
   createGoal(e){
     e.preventDefault();
@@ -33,11 +35,14 @@ class Goal extends React.Component {
                             title: this.state.title,
                             expirationDate: this.state.date,
                             checkInterval: this.state.interval})
-    this.setState({ title: "", body: "", 
-      date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden"})
+
     setTimeout(() => {
-      this.props.fetchGoals();
-    }, 300)
+      if(this.props.errors.length === 0){
+        this.setState({ title: "", body: "", 
+          date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal"})
+      }
+    }, 300)      
+                     
   }
 
   showGoalForm(e){ 
@@ -51,6 +56,7 @@ class Goal extends React.Component {
                     addGoalButton: "add new goal"
                   })
       )
+    this.setState({errors: []});
   }
 
   render() {
@@ -62,7 +68,7 @@ class Goal extends React.Component {
             )
         });
     const headerMsg = goals.length === 0 ? "You have no goals." : "All Goals";
-    const buttonClss = this.state.formClass === "add_goal_hidden" ? "show-button" : "hide-button";
+    
       return (
           <div className="body home goal">
             <Hero />
@@ -90,6 +96,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.state.errors[0]}</div>
                             <div>
                                 <label>Description
                                   <div>
@@ -97,6 +104,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.state.errors[1]}</div>
                             <div>
                                 <label>How Long do you want to keep this goal going for?
                                   <div>
@@ -104,6 +112,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.state.errors[2]}</div>
                             <div>
                                 <label>How often does this goal occur?(in days)
                                   <div>
@@ -111,14 +120,11 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
+                            <div className="errors">{this.state.errors[3]}</div>
                                 <button type="submit" className="button">Create New Goal!</button>
                           </div>
                         </form>
-                        {
-                          this.props.errors.map(error => {
-                            return (<div>{error}</div>)
-                          })
-                        }
+              
                       </div>
                     </div>
                   </div>
@@ -132,23 +138,4 @@ class Goal extends React.Component {
 
 export default withRouter(Goal);
 
-{/* <h2>All Your Goals</h2>
-{ goals }
-          <form onSubmit={this.createGoal} className={this.state.formClass}>
-            <label>Goal Title:
-              <input type="text" value={this.state.title} onChange={this.handleChange("title")}/>
-            </label>
-            <label>Goal Description:
-              <textarea value={this.state.body} onChange={this.handleChange("body")}/>
-            </label>
-            <label>How Long do you want to keep this goal going for?
-              <input type="date" value={this.state.date} onChange={this.handleChange("date")}/>
-            </label>
-            <button type="submit">Create New Goal!</button>
-          </form>
-          <button onClick={() => this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden"})}>Add a New Goal</button>
-{
-  this.props.errors.map(error => {
-    return (<div>{error}</div>)
-  })
-} */}
+
