@@ -98,7 +98,7 @@ class GoalShow extends React.Component{
                   <h3>Journals</h3>
                   <div id={this.state.journalShow}>
                       <div className={this.state.journalShow}>
-                        <button onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button>
+                        <div className="journal_button_div"><button id="journal_button" onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button></div>
                         {<JournalShowContainer journal={this.state.journal} />}
                       </div>
                       <div className="spacer"></div>
