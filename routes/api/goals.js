@@ -6,8 +6,9 @@ const passport = require('passport');
 
 //router
 const router = express.Router();
-//model
+//models
 const Goal = require('../../models/Goal');
+const Journal = require('../../models/Journal');
 //keys
 const keys = require('../../config/keys');
 
@@ -69,8 +70,11 @@ router.post("/",
         return res.status(400).json(errors);
       }
 
-      // const createdDay = new Date();
-      // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+      const createdDay = new Date();
+      createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+      const exprDate = new Date(createdDay);
+      exprDate.setDate(exprDate.getDate() + 2);
+
       Goal.findOne({
         user: req.user.id,
         title: req.body.title
@@ -80,13 +84,13 @@ router.post("/",
           user: req.user.id,
           body: req.body.body,
           title: req.body.title,
-          expirationDate: req.body.expirationDate,
+          expirationDate: exprDate,
           checkInterval: req.body.checkInterval,
           // avatar: req.body.avatar,
           // active: req.body.active,
           // count: req.body.count,
           // streak: req.body.streak
-          // createdAt: createdDay
+          createdAt: createdDay
         });
        
   
@@ -99,7 +103,19 @@ router.post("/",
   
         newGoal
           .save()
-          .then(goal => res.json(goal));
+          .then(goal => {
+
+            newJournal = new Journal({
+              success: true,
+              goal: goal.id,
+              body: "Created a new goal! Every journey starts with a single step!",
+              createdAt: goal.createdAt,
+              goalState: 0
+            });
+            
+            newJournal.save()
+            .then(() => res.json(goal));
+          });
 
       });
 
