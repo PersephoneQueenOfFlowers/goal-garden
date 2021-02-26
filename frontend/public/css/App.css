@@ -105,10 +105,21 @@ body {
   font-family: 'beauty-moments';
   src: local("beauty-moments"), url(./fonts/beauty-mountains.ttf) format("ttf"); }
 
-body {
-  background-image: url(./images/form-page-bg-big-sky.png);
-  background-size: cover;
-  background-repeat: no-repeat; }
+.login-signup, .header-greeting {
+  display: flex;
+  position: absolute;
+  margin-top: -5px;
+  background: transparent;
+  right: 20px;
+  align-items: center; }
+  .login-signup .button, .header-greeting .button {
+    width: 80px;
+    padding: 10px 6px;
+    margin: 14px 10px; }
+
+.goal .hero-inner-container {
+  flex-direction: column;
+  align-items: center; }
 
 .main-container {
   display: grid;
@@ -135,6 +146,84 @@ body {
         .main-container .home .hero .hero-inner-container p {
           text-align: center; }
 
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px; }
+
+.form {
+  border: 2px dashed #acc95c;
+  height: 440px;
+  padding: 20px;
+  border-radius: 15px; }
+  .form h2 {
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 18px; }
+
+.add_goal_show .form {
+  border: 1px solid red;
+  height: 550px; }
+  .add_goal_show .form h2 {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+
+.form input {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  width: 250px;
+  height: 32px;
+  padding-left: 8px;
+  margin-top: 5px; }
+
+.form textarea {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  padding-left: 8px;
+  margin-top: 5px;
+  width: 250px;
+  height: 50px; }
+
+.form label {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 5px; }
+
+.button {
+  width: 225px;
+  height: 24px;
+  padding: 10px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #fffd54;
+  color: #acc95c;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #acc95c;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+  text-shadow: -1px -1px #ffde1c;
+  font-weight: normal;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.form p {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px; }
+
+.button:hover {
+  text-decoration: none;
+  color: #014421; }
+
+.errors {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #ae4949;
+  margin-bottom: 10px; }
+
 .hero {
   background-image: url("./images/garden-licensed-bg.png");
   background-repeat: no-repeat;
@@ -154,15 +243,18 @@ body {
     opacity: 1;
     background-position: 160px 161px;
     font-size: 1.5rem;
-    color: #142d20; }
+    color: #142d20;
+    text-align: center; }
     .hero .hero-inner-container h1 {
       margin-top: -5px; }
 
-.main-container .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; }
-  .main-container .nav .button {
+.main-container, .header-greeting {
+  top: 20px; }
+  .main-container .nav, .header-greeting .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .main-container .button, .main-container .logout-btn, .header-greeting .button, .header-greeting .logout-btn {
     padding: 10px 16px;
     margin: 10px;
     background: #fffd54;
@@ -175,6 +267,11 @@ body {
     box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
     text-shadow: -1px -1px #ffde1c;
     font-weight: normal; }
+    .main-container .button:hover, .main-container .logout-btn:hover, .header-greeting .button:hover, .header-greeting .logout-btn:hover {
+      color: #228c22; }
+
+.login-signup .button:hover {
+  color: #228c22; }
 
 .middle {
   display: flex;
@@ -253,7 +350,7 @@ body {
   height: 700px; }
 
 .signup-form {
-  border: 2px solid green;
+  border: 2px dashed #acc95c;
   height: 480px;
   padding: 20px;
   border-radius: 15px; }
@@ -301,68 +398,6 @@ body {
 
 .signup-button:hover {
   text-decoration: underline; }
-
-.login-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 700px; }
-
-.login-form {
-  border: 2px solid green;
-  height: 440px;
-  padding: 20px;
-  border-radius: 15px; }
-  .login-form h2 {
-    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 18px; }
-
-.login-form input {
-  border: 1px solid #acc95c;
-  border-radius: 3px;
-  width: 250px;
-  height: 32px;
-  padding-left: 8px;
-  margin-top: 5px; }
-
-.login-form label {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin-top: 5px; }
-
-.login-button {
-  width: 225px;
-  height: 24px;
-  padding: 10px 16px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  background: #fffd54;
-  color: #acc95c;
-  font-size: 21px;
-  font-weight: bold;
-  line-height: 1.3em;
-  border: 2px dashed #acc95c;
-  border-radius: 10px;
-  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
-  text-shadow: -1px -1px #ffde1c;
-  font-weight: normal;
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-
-.login-form p {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px; }
-
-.login-button:hover {
-  text-decoration: underline; }
-
-.login-errors {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  color: #ae4949;
-  margin-bottom: 10px; }
 
 .add_goal_hidden {
   display: none; }
