@@ -32,6 +32,7 @@ router.get("/",
   // res.json({ msg: "This is the goal route" });
    Goal
     .find({ user: req.user.id })
+    .sort('-createdAt')
     .then(goals => res.json(goals))
     .catch(err => res.status(400).json(err));
 });
