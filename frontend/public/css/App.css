@@ -376,6 +376,16 @@ body {
       background-image: none;
       width: 10%; }
 
+.modal .modal-body {
+  display: flex; }
+  .modal .modal-body .right .hidden {
+    display: none; }
+  .modal .modal-body #journal_form_show, .modal .modal-body #journal_goal_show {
+    position: relative;
+    right: 0;
+    top: 0;
+    border: 2px dashed #acc95c; }
+
 .signup-form-container {
   display: flex;
   justify-content: center;
