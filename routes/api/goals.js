@@ -70,31 +70,63 @@ router.post("/",
 
       // const createdDay = new Date();
       // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
-
-      const newGoal = new Goal ({
+      Goal.findOne({
         user: req.user.id,
-        body: req.body.body,
-        title: req.body.title,
-        expirationDate: req.body.expirationDate,
-        checkInterval: req.body.checkInterval,
-        // avatar: req.body.avatar,
-        // active: req.body.active,
-        // count: req.body.count,
-        // streak: req.body.streak
-        // createdAt: createdDay
-      });
-     
+        title: req.body.title
+      }).then(goal => {
+        if (goal) return res.status(400).json({ GoalError: "Goals must have unique titles!"});
+        const newGoal = new Goal ({
+          user: req.user.id,
+          body: req.body.body,
+          title: req.body.title,
+          expirationDate: req.body.expirationDate,
+          checkInterval: req.body.checkInterval,
+          // avatar: req.body.avatar,
+          // active: req.body.active,
+          // count: req.body.count,
+          // streak: req.body.streak
+          // createdAt: createdDay
+        });
+       
+  
+        //might have to move keys with default
+        //values outside of the newGoal 
+        //and only set with if statements, like
+        // if (req.body.streak) newGoal[streak] = req.body.streak;
+        //
+        // need to look into how Mongoose default values work
+  
+        newGoal
+          .save()
+          .then(goal => res.json(goal));
 
-      //might have to move keys with default
-      //values outside of the newGoal 
-      //and only set with if statements, like
-      // if (req.body.streak) newGoal[streak] = req.body.streak;
-      //
-      // need to look into how Mongoose default values work
-
-      newGoal
-        .save()
-        .then(goal => res.json(goal));
+      }).catch(() => {
+        return res.status(200).json({goal: "In goal post catch"})
+        // const newGoal = new Goal ({
+        //   user: req.user.id,
+        //   body: req.body.body,
+        //   title: req.body.title,
+        //   expirationDate: req.body.expirationDate,
+        //   checkInterval: req.body.checkInterval,
+        //   // avatar: req.body.avatar,
+        //   // active: req.body.active,
+        //   // count: req.body.count,
+        //   // streak: req.body.streak
+        //   // createdAt: createdDay
+        // });
+       
+  
+        // //might have to move keys with default
+        // //values outside of the newGoal 
+        // //and only set with if statements, like
+        // // if (req.body.streak) newGoal[streak] = req.body.streak;
+        // //
+        // // need to look into how Mongoose default values work
+  
+        // newGoal
+        //   .save()
+        //   .then(goal => res.json(goal));
+      })
 
 });
 
