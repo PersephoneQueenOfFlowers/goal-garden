@@ -245,3 +245,8 @@
 .journal_errors_show{
     color: red;
 }
+
+.journal_list_item:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

@@ -109,7 +109,7 @@ class GoalShow extends React.Component{
                          {journalsArr.map(journal => {
                              return (
                              <div key={journal._id}>
-                                 <div onClick={() => this.handleButton(journal)}>
+                                 <div onClick={() => this.handleButton(journal)} className="journal_list_item">
                                      {journal.createdAt.slice(0, 10)}{" "}
                                      {journal.success === true ? "Step Success" : "Step Missed"}
                                  </div>
