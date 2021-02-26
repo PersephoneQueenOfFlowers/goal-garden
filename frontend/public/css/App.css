@@ -504,7 +504,14 @@ body {
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 28px;
-  background: white; }
+  background: white;
+  max-height: 660px;
+  overflow: scroll; }
+
+#journal_goal_show {
+  position: absolute;
+  right: 639px;
+  top: 200px; }
 
 .journal_radio {
   display: flex;

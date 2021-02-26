@@ -121,8 +121,19 @@
     padding-right: 28px;
     padding-top: 28px;
     background: white;
+    max-height: 660px;
+    overflow: scroll;
     // justify-content: flex-start;
 }
+
+
+#journal_goal_show{
+    position: absolute;
+    right: 639px;
+    top: 200px;
+}
+
+.journal_goal_show{}
 
 .journal_radio{
     display: flex;

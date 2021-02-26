@@ -107,6 +107,7 @@ class GoalShow extends React.Component{
                   </ul>
                   <button className="add_journal_button" onClick={() => this.handleButton("create")}>{this.addOrLater}</button>
                   </div>
+                  <div id={this.state.journalForm}>
                   <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
                        <div className="journal_radio">
                            <label>Did achieve your goal step?</label>
@@ -141,6 +142,7 @@ class GoalShow extends React.Component{
                            </div>
                        </div>
                    </form>
+                  </div>
                 </div>
               </div>
             </section>
