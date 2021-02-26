@@ -14,9 +14,10 @@ class GoalShow extends React.Component{
                         cues: "",
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
-                        journalShow: "journal_goal_hidden"}
+                        journalShow: "journal_goal_hidden",
+                        errors: "journal_errors_hidden"}
         this.addOrLater = "Add New Journal"
-        this.growth = 6;
+        this.growth = 3;
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
@@ -34,11 +35,16 @@ class GoalShow extends React.Component{
                                 rewards: this.state.rewards,
                                 goal: this.props.match.params.goalId}
                             )
-
-        this.setState({success: false, body: "", highlights: "", cues: "", rewards: ""})
         setTimeout(() => {
+          if(this.props.errors.length === 0){
+            this.setState({ success: false, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
             this.props.fetchJournals(this.props.match.params.goalId)
+          }else{
+            this.setState({errors: "journal_errors_show"})
+          }
+          
         }, 300)
+
     }
 
     handlechange(type){
@@ -70,7 +76,6 @@ class GoalShow extends React.Component{
             journalsArr = Object.values(journals)
         }
         return(
-      
           <div>
             <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
@@ -78,21 +83,22 @@ class GoalShow extends React.Component{
             <div className="flower_picture_box">
                 <div id={`growth${this.growth}`} className="flower_picture"></div>
             </div>
-              <div className="left">
+              <div className="left" id="goal_show_left">
                 <div className="background-container">
+                  <Link to="/goals"className="back_link">Back to All Goals</Link>
                 <h3>
                     <h2>Goal Details </h2>
                 </h3>
                   <p className="goal_description">{goal.body}</p>
                 </div>
               </div>
-              <div className="right">
+              <div className="right" id="goal_show_right">
                 <div className="goals-container">
                   <div className="journal_right">
                   <h3>Journals</h3>
                   <div id={this.state.journalShow}>
                       <div className={this.state.journalShow}>
-                        <button onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button>
+                        <div className="journal_button_div"><button id="journal_button" onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button></div>
                         {<JournalShowContainer journal={this.state.journal} />}
                       </div>
                       <div className="spacer"></div>
@@ -116,7 +122,7 @@ class GoalShow extends React.Component{
                               <label>Did achieve your goal step?</label>
                               <div className="journal_radio_buttons">
                                     <p>Yes I did!
-                                      <input type="radio" name="success" value="true" onClick={() => this.setState({success: true})}/>
+                                      <input type="radio" name="success" value="true" defaultChecked="checked" onClick={() => this.setState({success: true})}/>
                                     </p>
                                   <p>No, but I will next time!
                                       <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
@@ -127,6 +133,7 @@ class GoalShow extends React.Component{
                               <label className="">Journal about your Goal!
                               </label>
                               <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
+                              <div className={this.state.errors}>{this.props.errors[0]}</div>
                           </div>
                           <div className="journal_text_area">
                               <label>Add any highlights:

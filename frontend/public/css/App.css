@@ -631,6 +631,25 @@ body {
   justify-content: center;
   align-items: center; }
 
+#goal_show_left {
+  margin-right: 110px; }
+
+#goal_show_right {
+  margin-left: 110px;
+  min-width: 360px; }
+
+.back_link {
+  position: relative;
+  bottom: 45px;
+  color: #ADC95C;
+  width: 140px; }
+
+.journal_errors_hidden {
+  display: none; }
+
+.journal_errors_show {
+  color: red; }
+
 .journal_header {
   font-size: 20px;
   padding: 5px; }
@@ -638,6 +657,35 @@ body {
 .journal_header > * {
   font-size: 15px;
   margin-left: 10px; }
+
+.journal_button_div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%; }
+
+#journal_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 10px 16px;
+  margin-top: 15px;
+  text-align: center;
+  background: #fffd54;
+  color: #acc95c;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #acc95c;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+  text-shadow: -1px -1px #ffde1c;
+  font-weight: normal;
+  font-family: "Myriad Pro", M; }
+
+#journal_button:hover {
+  cursor: pointer; }
 
 .App {
   text-align: center; }
