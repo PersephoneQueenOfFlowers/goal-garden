@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import JournalShowContainer from '../journals/journal_show_container'
+import JournalShowContainer from '../journals/journal_show_container';
 import Hero from '../home/hero';
 
 class GoalShow extends React.Component{
@@ -76,7 +76,7 @@ class GoalShow extends React.Component{
         if(journals !== undefined){
             journalsArr = Object.values(journals)
         }
-        debugger
+        // debugger
         return(
           <div>
             <Hero pageClass={"show"} header={goal.title}/>
