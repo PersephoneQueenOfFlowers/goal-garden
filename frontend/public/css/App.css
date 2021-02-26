@@ -154,7 +154,7 @@ body {
 
 .form {
   border: 2px dashed #acc95c;
-  height: 440px;
+  min-height: 440px;
   padding: 20px;
   border-radius: 15px; }
   .form h2 {
@@ -165,19 +165,10 @@ body {
     font-size: 18px; }
 
 .add_goal_show .form {
-  border: 1px solid red;
-  height: 550px; }
+  min-height: 550px; }
   .add_goal_show .form h2 {
     margin-top: 10px;
     margin-bottom: 10px; }
-
-.form input {
-  border: 1px solid #acc95c;
-  border-radius: 3px;
-  width: 250px;
-  height: 32px;
-  padding-left: 8px;
-  margin-top: 5px; }
 
 .form textarea {
   border: 1px solid #acc95c;
@@ -187,13 +178,43 @@ body {
   width: 250px;
   height: 50px; }
 
+.form .num-input {
+  width: 80px; }
+
+.hide-button {
+  display: none; }
+
+.show-button {
+  width: 225px;
+  padding: 10px 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #fffd54;
+  color: #acc95c;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.3em;
+  border: 2px dashed #acc95c;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px #fffd54, 2px 1px 6px 4px #fffd54;
+  text-shadow: -1px -1px #ffde1c;
+  font-weight: normal;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.form input {
+  border: 1px solid #acc95c;
+  border-radius: 3px;
+  width: 250px;
+  height: 32px;
+  padding-left: 8px;
+  margin-top: 5px; }
+
 .form label {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-top: 5px; }
 
 .button {
-  width: 225px;
-  height: 24px;
   padding: 10px 16px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -216,7 +237,7 @@ body {
 
 .button:hover {
   text-decoration: none;
-  color: #014421; }
+  color: #228c22; }
 
 .errors {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -296,7 +317,6 @@ body {
       .middle img {
         margin-top: -16%; } }
   .middle .left, .middle .right {
-    flex: 20%;
     margin-top: 10%; }
     .middle .left .goal-list li, .middle .left .background-container li, .middle .right .goal-list li, .middle .right .background-container li {
       list-style: none; }
@@ -405,8 +425,44 @@ body {
 .goal_box_container {
   display: flex;
   flex-direction: row;
-  width: max-content;
-  border: 1px solid red; }
+  width: max-content; }
+
+.flower_picture {
+  height: 650px;
+  width: 280px;
+  background-image: url("./images/sprite-daisy.png");
+  background-repeat: no-repeat; }
+
+.goal .middle .left {
+  margin-top: 2%; }
+  .goal .middle .left .goals-container.form-container {
+    height: unset; }
+  .goal .middle .left .background-container {
+    flex-direction: row;
+    max-width: unset;
+    min-width: 360px !important; }
+    .goal .middle .left .background-container .present-goals-container {
+      padding-right: 20px; }
+      .goal .middle .left .background-container .present-goals-container h4 {
+        padding: 10px 0; }
+      .goal .middle .left .background-container .present-goals-container .goal-show {
+        color: #b95cc9; }
+        .goal .middle .left .background-container .present-goals-container .goal-show:hover {
+          color: #9336a3; }
+    .goal .middle .left .background-container .goal_box_container {
+      box-sizing: border-box;
+      padding: 5px 0; }
+      .goal .middle .left .background-container .goal_box_container a {
+        color: #7da336; }
+        .goal .middle .left .background-container .goal_box_container a:hover {
+          color: #5ca3c9;
+          text-decoration: none; }
+      .goal .middle .left .background-container .goal_box_container button {
+        padding-left: 8px;
+        font-size: .75rem;
+        color: lightgrey; }
+        .goal .middle .left .background-container .goal_box_container button:hover {
+          color: #c9825c; }
 
 .flower_picture_box {
   height: 400px;
