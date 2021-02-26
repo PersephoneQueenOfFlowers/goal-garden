@@ -71,31 +71,37 @@ router.post("/",
 
       // const createdDay = new Date();
       // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
-
-      const newGoal = new Goal ({
+      Goal.findOne({
         user: req.user.id,
-        body: req.body.body,
-        title: req.body.title,
-        expirationDate: req.body.expirationDate,
-        checkInterval: req.body.checkInterval,
-        // avatar: req.body.avatar,
-        // active: req.body.active,
-        // count: req.body.count,
-        // streak: req.body.streak
-        // createdAt: createdDay
+        title: req.body.title
+      }).then(goal => {
+        if (goal) return res.status(400).json({ GoalError: "Goals must have unique titles!"});
+        const newGoal = new Goal ({
+          user: req.user.id,
+          body: req.body.body,
+          title: req.body.title,
+          expirationDate: req.body.expirationDate,
+          checkInterval: req.body.checkInterval,
+          // avatar: req.body.avatar,
+          // active: req.body.active,
+          // count: req.body.count,
+          // streak: req.body.streak
+          // createdAt: createdDay
+        });
+       
+  
+        //might have to move keys with default
+        //values outside of the newGoal 
+        //and only set with if statements, like
+        // if (req.body.streak) newGoal[streak] = req.body.streak;
+        //
+        // need to look into how Mongoose default values work
+  
+        newGoal
+          .save()
+          .then(goal => res.json(goal));
+
       });
-     
-
-      //might have to move keys with default
-      //values outside of the newGoal 
-      //and only set with if statements, like
-      // if (req.body.streak) newGoal[streak] = req.body.streak;
-      //
-      // need to look into how Mongoose default values work
-
-      newGoal
-        .save()
-        .then(goal => res.json(goal));
 
 });
 
@@ -128,18 +134,34 @@ router.patch("/:id",
       .then(goal => {
         if (!goal) return res.status(400).json({ unAuthorized: "Not Your Goal!"});
         goalProps = [
-          "body", "title", "expirationDate", "checkInterval",
+          "body", "expirationDate", "checkInterval",
         // "avatar", "active", "count", "streak"
         ];
 
         for (prop of goalProps) {
           goal[prop] = req.body[prop] || goal[prop];
         }
-      
-        
-
-        goal.save()
-        .then(goal => res.json(goal));
+        // looks like can just add index to mongoose as well --
+        // from https://stackoverflow.com/questions/16061744/mongoose-how-to-define-a-combination-of-fields-to-be-unique
+        // goal.index({ user: 1, title: 1 }, { unique: true})
+        if(req.body.title !== goal.title){
+          Goal
+          .findOne({
+            user: req.user.id,
+            title: req.body.title
+          })
+          .then(sameNewTitleGoal => {
+            debugger
+            if (sameNewTitleGoal) return res.status(400).json({ GoalError: "Goals must have unique titles!"});
+            goal.title = req.body.title;
+            goal.save()
+            .then(goal => res.json(goal));
+          })
+        } else {
+          debugger
+          goal.save()
+          .then(goal => res.json(goal));
+        }
       })
       .catch(err => res.status(400).json({noGoalFound: "No Goal Found"}));
 });
