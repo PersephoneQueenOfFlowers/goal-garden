@@ -72,7 +72,7 @@ class GoalShow extends React.Component{
         return(
       
           <div>
-          <Hero header={"Current Goal: " + goal.title}/>
+            <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
               <img src='./css/images/grass-border.png' alt=""/>
             <div className="flower_picture_box">
