@@ -11,7 +11,7 @@ function Hero(props){
   return (
     <section className="hero">
       {/* <Nav /> */}
-      <div className="hero-inner-container">
+      <div className={`hero-inner-container ${props.pageClass}`}>
         <h1><span className="beauty">G</span>oal<span className="beauty">G</span>arden</h1>
         <p>{props.header}</p>
       </div>

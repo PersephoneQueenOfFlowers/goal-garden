@@ -22,6 +22,8 @@
         margin-top: -16%; } }
   .middle .left, .middle .right {
     margin-top: 10%; }
+    .middle .left.hide, .middle .right.hide {
+      display: none; }
     .middle .left .goal-list li, .middle .left .background-container li, .middle .right .goal-list li, .middle .right .background-container li {
       list-style: none; }
       .middle .left .goal-list li:before, .middle .left .background-container li:before, .middle .right .goal-list li:before, .middle .right .background-container li:before {

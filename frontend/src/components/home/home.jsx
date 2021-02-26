@@ -139,7 +139,7 @@ const Home = (props) => {
 
       <section className="middle taskList">
         <img src='./css/images/grass-border.png' alt=""/>
-        <div className="left">
+        <div className="left hide">
           <div className="background-container">
             <h3>
               Here you can:

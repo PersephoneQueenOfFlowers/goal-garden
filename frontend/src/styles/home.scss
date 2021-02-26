@@ -22,6 +22,7 @@
       }
     }
     .left, .right{
+      &.hide {display:none}
       margin-top: 10%;
       .goal-list, .background-container {
         li{
