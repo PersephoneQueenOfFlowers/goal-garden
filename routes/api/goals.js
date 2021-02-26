@@ -70,10 +70,10 @@ router.post("/",
         return res.status(400).json(errors);
       }
 
-      const createdDay = new Date();
-      createdDay.setDate(createdDay.getDate() - Number(req.body.days));
-      const exprDate = new Date(createdDay);
-      exprDate.setDate(exprDate.getDate() + 2);
+      // const createdDay = new Date();
+      // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+      // const exprDate = new Date(createdDay);
+      // exprDate.setDate(exprDate.getDate() + 2);
 
       Goal.findOne({
         user: req.user.id,
@@ -84,13 +84,14 @@ router.post("/",
           user: req.user.id,
           body: req.body.body,
           title: req.body.title,
-          expirationDate: exprDate,
+          // expirationDate: exprDate,
+          expirationDate: req.body.expirationDate,
           checkInterval: req.body.checkInterval,
           // avatar: req.body.avatar,
           // active: req.body.active,
           // count: req.body.count,
           // streak: req.body.streak
-          createdAt: createdDay
+          // createdAt: createdDay
         });
        
   
