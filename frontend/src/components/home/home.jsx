@@ -87,7 +87,7 @@ class MyVerticallyCenteredModal extends React.Component {
     e.preventDefault();
     const curr_goal = this.state.goals[this.state.key];
     curr_goal.journals.push(this.state.journal_entry);
-    this.setState({ journal_entry: "", journalForm: "journal_form_hidden" });
+    this.setState({ journal_entry: "", journalForm: "journal_form_hidden", highlights: "", cues: "", rewards: "" });
     this.addOrLater = "Add New Journal";
   }
 
