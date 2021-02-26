@@ -22,6 +22,10 @@ class Goal extends React.Component {
       this.setState({[type]: e.currentTarget.value})
     })
   }
+  toggleButton(){
+    this.state.formClass === "add_goal_hidden" ? this.setState({ formClass: "add_goal_show" }) : this.setState({ formClass: "add_goal_hidden" })
+    
+  }
 
   createGoal(e){
     e.preventDefault();
@@ -58,6 +62,7 @@ class Goal extends React.Component {
             )
         });
     const headerMsg = goals.length === 0 ? "You have no goals." : "All Goals";
+    const buttonClss = this.state.formClass === "add_goal_hidden" ? "show-button" : "hide-button";
       return (
           <div className="body home goal">
             <Hero />
