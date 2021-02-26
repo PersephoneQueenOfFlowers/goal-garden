@@ -54,3 +54,10 @@
 .signup-button:hover, .login-button:hover {
   text-decoration: underline;
   color: #acc95c; }
+
+.session-window {
+  height: 100vh;
+  background-image: linear-gradient(180deg, #6c5d47, #fff); }
+
+#session-form {
+  background-color: white; }
