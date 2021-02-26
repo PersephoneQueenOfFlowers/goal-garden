@@ -42,11 +42,21 @@ const Nav = ({ currentUser, logout, history }) => {
         </div>
     );
 
-    return (
-        currentUser ?
-            personalGreeting(currentUser, logout) :
-            sessionLink()
-    );
+    if( currentUser ){
+        if(currentUser.id !== undefined){
+            return (personalGreeting(currentUser, logout))
+        }else{
+            return (sessionLink())
+        }
+    }else{
+        return (sessionLink())
+    }
+
+    // return (
+    //     currentUser ?
+    //         personalGreeting(currentUser, logout) :
+    //         sessionLink()
+    // );
 };
 
 export default withRouter(Nav);
