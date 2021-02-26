@@ -145,7 +145,7 @@
     display: none;
 }
 
-.journal_form_show, .journal_goal_show{
+.journal_form_show, .journal_goal_show, .motivational_msg_show{
     border: 2px solid green;
     border-radius: 10px;
     display: flex;
@@ -159,6 +159,10 @@
     background: white;
     max-height: 660px;
     overflow: scroll;
+}
+
+.motivational_msg_hidden{
+    display: none
 }
 
 .spacer{

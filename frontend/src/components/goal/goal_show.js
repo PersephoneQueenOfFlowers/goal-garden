@@ -15,7 +15,8 @@ class GoalShow extends React.Component{
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
                         journalShow: "journal_goal_hidden",
-                        errors: "journal_errors_hidden"}
+                        errors: "journal_errors_hidden",
+                        motivationalMsg: "motivational_msg_hidden"}
         this.addOrLater = "Add New Journal"
         this.addJournal = this.addJournal.bind(this);
         this.handleButton = this.handleButton.bind(this);
@@ -94,6 +95,7 @@ class GoalShow extends React.Component{
                   <p className="goal_description">{goal.body}</p>
                 </div>
               </div>
+              <div className={this.state.motivationalMsg}></div>
               <div  id={this.state.journalShow}>
                 <div className={this.state.journalShow}>
                   <div className="journal_button_div"><button id="journal_button" onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button></div>
