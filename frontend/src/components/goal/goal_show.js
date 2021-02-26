@@ -78,7 +78,7 @@ class GoalShow extends React.Component{
             <div className="flower_picture_box">
                 <div id={`growth${this.growth}`} className="flower_picture"></div>
             </div>
-              <div className="left">
+              <div className="left" id="goal_show_left">
                 <div className="background-container">
                 <h3>
                     <h2>Goal Details </h2>
@@ -86,7 +86,7 @@ class GoalShow extends React.Component{
                   <p className="goal_description">{goal.body}</p>
                 </div>
               </div>
-              <div className="right">
+              <div className="right" id="goal_show_right">
                 <div className="goals-container">
                   <div className="journal_right">
                   <h3>Journals</h3>
