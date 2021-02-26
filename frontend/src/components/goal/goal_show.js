@@ -14,7 +14,8 @@ class GoalShow extends React.Component{
                         cues: "",
                         rewards: "",
                         journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
-                        journalShow: "journal_goal_hidden"}
+                        journalShow: "journal_goal_hidden",
+                        errors: "journal_errors_hidden"}
         this.addOrLater = "Add New Journal"
         this.growth = 3;
         this.addJournal = this.addJournal.bind(this);
@@ -34,11 +35,16 @@ class GoalShow extends React.Component{
                                 rewards: this.state.rewards,
                                 goal: this.props.match.params.goalId}
                             )
-
-        this.setState({success: false, body: "", highlights: "", cues: "", rewards: ""})
         setTimeout(() => {
+          if(this.props.errors.length === 0){
+            this.setState({ success: false, body: "", highlights: "", cues: "", rewards: "", journalForm: "journal_form_hidden", errors: "journal_errors_hidden"})
             this.props.fetchJournals(this.props.match.params.goalId)
+          }else{
+            this.setState({errors: "journal_errors_show"})
+          }
+          
         }, 300)
+
     }
 
     handlechange(type){
@@ -70,7 +76,6 @@ class GoalShow extends React.Component{
             journalsArr = Object.values(journals)
         }
         return(
-      
           <div>
             <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
@@ -117,7 +122,7 @@ class GoalShow extends React.Component{
                               <label>Did achieve your goal step?</label>
                               <div className="journal_radio_buttons">
                                     <p>Yes I did!
-                                      <input type="radio" name="success" value="true" onClick={() => this.setState({success: true})}/>
+                                      <input type="radio" name="success" value="true" checked="checked" onClick={() => this.setState({success: true})}/>
                                     </p>
                                   <p>No, but I will next time!
                                       <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
@@ -128,6 +133,7 @@ class GoalShow extends React.Component{
                               <label className="">Journal about your Goal!
                               </label>
                               <textarea className="journal_text_area_input" id="journal_input" value={this.state.body} onChange={this.handlechange("body")}/>
+                              <div className={this.state.errors}>{this.props.errors[0]}</div>
                           </div>
                           <div className="journal_text_area">
                               <label>Add any highlights:

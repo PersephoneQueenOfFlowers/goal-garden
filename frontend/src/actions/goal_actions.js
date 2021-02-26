@@ -21,6 +21,7 @@ export const eraseGoal = (goalId) => ({
   type: REMOVE_GOAL,
   goalId
 });
+
 export const receiveGoalErrors = errors => ({
   type: RECEIVE_GOAL_ERRORS,
   errors
