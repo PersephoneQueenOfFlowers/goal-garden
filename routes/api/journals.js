@@ -54,12 +54,12 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
         _id: req.params.goalId
     })
     .then(goal => {
-        // const createdDay = new Date();
-        // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+        const createdDay = new Date();
+        createdDay.setDate(createdDay.getDate() - Number(req.body.days));
     
         const failGoalStateUpdate = {0:0, 1:0, 2:1, 3:4, 4:5, 5:6, 6:6};
         const succeedGoalStateUpdate = {0:1, 1:2, 2:3, 3:3, 4:3, 5:4, 6:5};
-        let goalState = goal.goalState;
+        let goalState = goal.growthNumber;
 
         if(req.body.success){
             goalState = succeedGoalStateUpdate[goalState];
@@ -76,14 +76,14 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
             goalState: goalState,
             cues: req.body.cues,
             rewards: req.body.rewards,
-            // createdAt: createdDay
+            createdAt: createdDay
         });
     
         newJournal
             .save()
             .then(journal => res.json(journal))
             .then(() => {
-                goal.goalState = goalState;
+                goal.growthNumber = goalState;
                 goal.save().then(() => res.json({ "goalUpdate" : `Goalstate updated to ${goalState}`}));
             });
     })
