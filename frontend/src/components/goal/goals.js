@@ -7,7 +7,7 @@ class Goal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_show", addGoalButton: "add new goal"}
+    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal"}
 
     this.createGoal = this.createGoal.bind(this);
     this.showGoalForm = this.showGoalForm.bind(this);
