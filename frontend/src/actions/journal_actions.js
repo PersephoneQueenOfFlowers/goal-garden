@@ -57,3 +57,9 @@ export const deleteJournal = (journalId) => dispatch => (
         .then(() => dispatch(removeJournal(journalId)))
         .catch(err => console.log(err))
 )
+
+export const updateJournal = (journal) => dispatch => {
+    APIUtil.updateJournal(journal)
+    .then((journal) => dispatch(receiveJournal(journal)))
+    .catch(err => console.log(err.response.data))
+}
