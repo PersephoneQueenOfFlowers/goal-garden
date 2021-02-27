@@ -10,7 +10,6 @@ export const writeGoal = data => {
 }
 
 export const updateGoal = (data) => {
-  debugger
   return axios.patch(`/api/goals/${data._id}`, data)
 }
 

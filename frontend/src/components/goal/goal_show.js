@@ -79,7 +79,6 @@ class GoalShow extends React.Component{
         if(journals !== undefined){
             journalsArr = Object.values(journals)
         }
-        // debugger
         return(
           <div>
             <Hero pageClass={"show"} header={goal.title}/>

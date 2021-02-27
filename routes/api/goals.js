@@ -63,7 +63,6 @@ router.get("/:id",
 router.post("/", 
 passport.authenticate('jwt', { session: false }),
 (req, res) => {
-    debugger
       const { isValid, errors } = validateGoalCreate(req.body);
 
       if (!isValid) {
@@ -152,14 +151,12 @@ router.patch("/:id",
             title: req.body.title
           })
           .then(sameNewTitleGoal => {
-            debugger
             if (sameNewTitleGoal) return res.status(400).json({ GoalError: "Goals must have unique titles!"});
             goal.title = req.body.title;
             goal.save()
             .then(goal => res.json(goal));
           })
         } else {
-          debugger
           goal.save()
           .then(goal => res.json(goal));
         }

@@ -59,7 +59,6 @@ export const deleteJournal = (journalId) => dispatch => (
 )
 
 export const updateJournal = (journal) => dispatch => {
-    debugger
     APIUtil.updateJournal(journal)
     .then((journal) => dispatch(receiveJournal(journal)))
     .catch(err => console.log(err.response.data))
