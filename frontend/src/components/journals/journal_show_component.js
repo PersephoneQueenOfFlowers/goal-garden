@@ -26,7 +26,6 @@ class JournalShowComponent extends React.Component {
     }
 
     editJournal(){
-        debugger
         this.props.updateJournal({_id: this.props.journal._id, body: this.state.body})
     }
 

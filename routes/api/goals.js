@@ -61,8 +61,9 @@ router.get("/:id",
 // should only be accesible when a user is authenticated and current goal belongs to user
 // should only save goal if it passes validations
 router.post("/", 
-  passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+passport.authenticate('jwt', { session: false }),
+(req, res) => {
+    debugger
       const { isValid, errors } = validateGoalCreate(req.body);
 
       if (!isValid) {

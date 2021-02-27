@@ -9,8 +9,9 @@ export const writeGoal = data => {
   return axios.post('/api/goals/', data)
 }
 
-export const updateGoal = (id,data) => {
-  return axios.patch(`/api/goals/${id}`, data)
+export const updateGoal = (data) => {
+  debugger
+  return axios.patch(`/api/goals/${data._id}`, data)
 }
 
 export const getGoal = id => {
