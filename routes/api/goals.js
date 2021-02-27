@@ -6,8 +6,9 @@ const passport = require('passport');
 
 //router
 const router = express.Router();
-//model
+//models
 const Goal = require('../../models/Goal');
+const Journal = require('../../models/Journal');
 //keys
 const keys = require('../../config/keys');
 
@@ -71,6 +72,9 @@ passport.authenticate('jwt', { session: false }),
 
       // const createdDay = new Date();
       // createdDay.setDate(createdDay.getDate() - Number(req.body.days));
+      // const exprDate = new Date(createdDay);
+      // exprDate.setDate(exprDate.getDate() + 2);
+
       Goal.findOne({
         user: req.user.id,
         title: req.body.title
@@ -80,6 +84,7 @@ passport.authenticate('jwt', { session: false }),
           user: req.user.id,
           body: req.body.body,
           title: req.body.title,
+          // expirationDate: exprDate,
           expirationDate: req.body.expirationDate,
           checkInterval: req.body.checkInterval,
           // avatar: req.body.avatar,
@@ -99,7 +104,19 @@ passport.authenticate('jwt', { session: false }),
   
         newGoal
           .save()
-          .then(goal => res.json(goal));
+          .then(goal => {
+
+            newJournal = new Journal({
+              success: true,
+              goal: goal.id,
+              body: "Created a new goal! Every journey starts with a single step!",
+              createdAt: goal.createdAt,
+              goalState: 0
+            });
+            
+            newJournal.save()
+            .then(() => res.json(goal));
+          });
 
       });
 

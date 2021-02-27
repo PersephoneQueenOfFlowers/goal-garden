@@ -76,7 +76,7 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
             goalState: goalState,
             cues: req.body.cues,
             rewards: req.body.rewards,
-            // createdAt: createdDay
+            // createdAt: req.body.createdAt || new Date()
         });
     
         newJournal
