@@ -2,6 +2,14 @@
 const Goal = require("../../models/Goal");
 const Journal = require("../../models/Journal");
 
+//this problem help solves asynchronicity issue of finding the journals for the goal
+//and then using the checkInterval and expirationDate for that same goal
+
+// asynchronicity + for loop of goals causes the goal variable to be set to other goals
+// before the journals are returned (because the journal retrieval is an async call 
+// putting it on the JS Callback Queue before getting evaluated). so this function creates
+// a separate context in which that particular goal is saved.
+
 
 const generateCheckIns = function(goal) {
   Journal
@@ -35,7 +43,7 @@ const generateCheckIns = function(goal) {
           missingDueDates.push(dueDate.toISOString());
           dueDate.setDate(dueDate.getDate() - goal.checkInterval);
         }
-        debugger
+        // debugger
         // step 3 -- creating journals from latestDate until now -- 
         // go through the array backwards -> that way able to keep
         // goal state updated
@@ -73,7 +81,6 @@ const generateCheckIns = function(goal) {
 
 
 module.exports = (userId) => {
-
   Goal
     .find({ user: userId })
     .then(goals => {
