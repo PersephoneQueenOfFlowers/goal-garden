@@ -3,15 +3,30 @@ import React from 'react'
 class JournalShowComponent extends React.Component {
     constructor(props){
         super(props)
+        this.state = {body: this.props.journal.body}
         this.handleDelete = this.handleDelete.bind(this);
-    }
-
-    componentDidMount(){
-        // this.props.fetchJournal(this.props.match.params.journalId)
+        this.editJournal = this.editJournal.bind(this);
     }
 
     handleDelete(){
         this.props.deleteJournal(this.props.journal._id)
+    }
+
+    handleChange(){
+        return(e => {
+            let value = e.currentTarget.value
+            this.setState({body: e.currentTarget.value})
+        })
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.journal._id !== prevProps.journal._id){
+            this.setState({body: this.props.journal.body})
+        }
+    }
+
+    editJournal(){
+        this.props.updateJournal({_id: this.props.journal._id, body: this.state.body})
     }
 
     render(){
@@ -19,15 +34,24 @@ class JournalShowComponent extends React.Component {
         let success = ""
         let influence = ""
         let rewards = ""
+        let body = ""
+        let edit= ""
         const  { journal } = this.props 
+        if(this.state.body === undefined && journal.body){
+            this.setState({body: journal.body})
+        }
         if(journal.success === true){
             success = "Step Achieved!"
             influence = "Cues:"
             rewards = "rewards_true"
+            body = (<div>{journal.body}</div>)
+            edit = "journal_edit_hidden"
         }else{
             success = "Step missed"
             influence = "Distractions:"
             rewards = "rewards_false"
+            body = (<textarea onChange={this.handleChange()} value={this.state.body}/>)
+            edit = "journal_edit_show"
         }
         
         return(
@@ -38,7 +62,7 @@ class JournalShowComponent extends React.Component {
                     </div>
                     <div>
                         <div className="journal_header">Journal Entry:
-                            <div>{journal.body}</div>
+                            <div>{body}</div>
                         </div>
                     </div>
                     <div>
@@ -61,6 +85,7 @@ class JournalShowComponent extends React.Component {
                         })}</div>
                         </div>
                     </div>
+                    <button onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
                     {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
                 </div>
             </div>

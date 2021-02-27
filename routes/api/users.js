@@ -20,7 +20,6 @@ const generateMissedCheckins = require('./user-missed-check-ins');
 
 router.get("/test", passport.authenticate('jwt', { session: false }), (req, res) => {
   // res.json({ msg: "This is the user route" });
-  // debugger;
   // generateMissedCheckins(req.user.id, res);
 });
 
@@ -98,7 +97,6 @@ router.post('/login', (req, res) => {
                 });
               }
             );
-            // debugger;
             generateMissedCheckins(user.id);
           } else {
             return res.status(400).json({ password: "Incorrect password" });

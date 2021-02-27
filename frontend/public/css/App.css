@@ -720,6 +720,9 @@ body {
 #journal_button:hover {
   cursor: pointer; }
 
+.journal_edit {
+  display: none; }
+
 .App {
   text-align: center; }
 
