@@ -21,7 +21,6 @@ Peer-reviewer, you may want to have some conversation with the other dev if you 
 
 Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/git-workflow with git-workflow questions.
 
-* What does Goal Garden do.
 * Goal Garden is a curated space for personal goal setting and tracking. 
 * In it, we can set goals for ourselves and set intervals for check-ins. A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
 *   whether progress has been made. 
