@@ -50,7 +50,7 @@ When we make a journal, we receive a motivational message.
   
 1 or 2 cool features that we think are interesting. 
 
-# Goal FLower
+# Code Snippet Feature
 
 ## Updating the Flower to Represent The State of The oal
 &nbsp;&nbsp;&nbsp;&nbsp;The goal flower visually connects the backend of the application to the front end. When a user makes a goal the goal is represented as a flower. This goal starts off as a seedling and as users successfully meet their check in and journal about it their goal flower will grow representing the growth the user has made in their goal. However if a user misses a check in for their goal the goal flower will either shrink and revert back to a seedling if it has not reached full bloom or if it had previously reached full bloom it will start to wilt and wither and will keep doing so until the user successfully checks in again.
