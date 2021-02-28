@@ -1,7 +1,16 @@
 goal garden root directory README
 
 
+## **Technologies used:**
+ 
+**Database**: **MongoDB** (document-based NoSQL database).
+
+**Backend**: **Express** (web application framework for Node.), **Node.js**: (JavaScript runtime environment), **Mongoose** (object data modeling (ODM) library for MongoDB and Node.js).
+
+**Frontend**: **React**, **Redux**, **Axios** (promise-based HTTP client to make HTTP requests).
+
 ![app architecture diagram](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
+
 
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
