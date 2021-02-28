@@ -41,3 +41,45 @@ When we make a journal, we receive a motivational message.
   
 1 or 2 cool features that we think are interesting. 
 
+
+# Code Snippet Feature
+
+## Auto-generated Journals for Missed Check-ins
+
+One way we wanted to keep users honest about sticking to their goals was by creating a feature where the site would know when the user was supposed to check-in (based on the goal's `createdAt` date and the goal's `checkInterval`).
+
+We decided to make this a backend feature and have the script run whenever the user logged in -- going through every goal the user had and creating new journals for every missed check-in period during which the user had not created a journal.
+
+A couple of complications we ran into were whether the user had created any journals for that goal, whether the goal was still active or not (since goals have a `expirationDate`), and how to check whether a journal had been created within a check-in period.
+
+If a user didn't have any journals for a particular goal, we would use the goal's createdAt date as the last date for the last checkin.
+
+If the current datetime was past the goal's expirationDate, we would still potentially need to generate missed check-ins, as it is possible that the user has been away for a while.
+
+
+```js
+const latestDateISO = journal ? journal.createdAt : goal.createdAt;
+    
+const lastCheckin = new Date(latestDateISO);
+
+const goalCreationDate = new Date(goal.createdAt);
+const millisecondsPerDay = 1000*60*60*24;
+const millisecondsPerCheckin = millisecondsPerDay * goal.checkInterval;
+
+const latestRelevantDate = Date.now() < goal.expirationDate ? Date.now() : goal.expirationDate
+const daysSinceGoalCreation = Math.floor((latestRelevantDate - goalCreationDate)/millisecondsPerDay);
+const dueDatesSinceGoalCreation = Math.floor(daysSinceGoalCreation/goal.checkInterval);
+
+
+const lastDueDate = new Date(goalCreationDate);
+lastDueDate.setDate(lastDueDate.getDate() + dueDatesSinceGoalCreation * goal.checkInterval);
+let dueDate = new Date(lastDueDate);
+
+const missingDueDates = [];
+
+while (dueDate - lastCheckin >= millisecondsPerCheckin){
+  missingDueDates.push(dueDate.toISOString());
+  dueDate.setDate(dueDate.getDate() - goal.checkInterval);
+}
+```
+
