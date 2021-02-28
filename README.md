@@ -1,20 +1,5 @@
 goal garden root directory README
 
-### Live Site
- * http://goalgarden.herokuapp.com/
-
-### How to use
-
-
-### Technologies used:
-
-* Database: MongoDB (document-based NoSQL database).
-* Backend: Express (web application framework for Node.), Node.js: (JavaScript runtime environment) Mongoose (object data modeling (ODM) library for MongoDB and Node.js).
-* Frontend: React, Redux, Axios (promise-based HTTP client to make HTTP requests).
-
-
-
-
 
 ![alt text](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
 
@@ -36,20 +21,15 @@ Peer-reviewer, you may want to have some conversation with the other dev if you 
 
 Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/git-workflow with git-workflow questions.
 
-/**********( Styles )**********/
-
-New SCSS preprocessor folders and commands. 
-When we write CSS, we write it into the files under the src/styles directory and write it as SCSS code. NOTE: The files will still accept CSS, but what a waste. Better to write SCSS into the src/styles directory. 
-
-Run:
-  cd frontend
-  [npm install node-sass --save] 
+* What does Goal Garden do.
+* Goal Garden is a curated space for personal goal setting and tracking. 
+* In it, we can set goals for ourselves and set intervals for check-ins. A check-in occurs when we write a journal into our goal that speaks to 
+*   whether or not the goal has been reached definitively. 
+*   whether progress has been made. 
+*   have we rewarded ourselves for progress. 
+*   what kind of challenges or roadblocks we hit along the way. 
+*   when we make a journal, we receive a motivational message. 
+* How to use it. 
   
-Then, with terminal inside frontend dir: 
-Run:
-  [npm run build-css] - to build public/CSS file from src/styles/App.scss and scss imports
-  [npm run watch-css] - to watch for changes in the src/styles directory during development and rebuild. 
-
-  
-
+1 or 2 cool features that we think are interesting. 
 
