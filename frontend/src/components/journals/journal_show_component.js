@@ -85,7 +85,9 @@ class JournalShowComponent extends React.Component {
                         })}</div>
                         </div>
                     </div>
-                    <button onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
+                    <div id="jounral_edit_div">
+                        <button id="edit_journal_button" onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
+                    </div>
                     {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
                 </div>
             </div>
