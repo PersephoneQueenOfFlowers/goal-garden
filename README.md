@@ -28,12 +28,14 @@ Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/gi
 
 * A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
 
-![journaling-creation demo](/frontend/public/css/images/creating_journal_resized.gif "creating_journal")
+![journaling-creation demo](/frontend/public/css/images/creating_journal.gif "creating_journal")
 
-*.  whether progress has been made. 
-*   have we rewarded ourselves for progress. 
+Records are kept of:
+*   whether progress has been made, 
+*   have we rewarded ourselves for progress, 
 *   what kind of challenges or roadblocks we hit along the way. 
-*   when we make a journal, we receive a motivational message. 
+
+When we make a journal, we receive a motivational message. 
 
 ![missing-checkin demo](/frontend/public/css/images/missed_checkins.gif "missing_checkin")
 * How to use it. 
