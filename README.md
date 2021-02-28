@@ -1,5 +1,18 @@
 goal garden root directory README
 
+###Live Site
+http://goalgarden.herokuapp.com/
+
+###How to use
+
+
+###Technologies used:
+
+* Database: MongoDB (document-based NoSQL database).
+* Backend: Express (web application framework for Node.), Node.js: (JavaScript runtime environment) Mongoose (object data modeling (ODM) library for MongoDB and Node.js).
+* Frontend: React, Redux, Axios (promise-based HTTP client to make HTTP requests).
+
+
 
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
