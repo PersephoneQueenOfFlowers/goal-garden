@@ -1,5 +1,11 @@
 goal garden root directory README
 
+# Goal Garden
+
+
+## **Overview**:
+The goal garden is a curated space for help with personal goal accountability and tracking. The application will provide areas for goal progress visualization, journalling, and accountability.
+
 
 ## **Technologies used:**
  
