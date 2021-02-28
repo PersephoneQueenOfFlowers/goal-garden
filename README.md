@@ -14,6 +14,8 @@ http://goalgarden.herokuapp.com/
 
 
 
+![alt text](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
+
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
 * git checkout master
