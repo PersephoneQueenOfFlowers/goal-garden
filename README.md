@@ -34,6 +34,8 @@ Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/gi
 *   have we rewarded ourselves for progress. 
 *   what kind of challenges or roadblocks we hit along the way. 
 *   when we make a journal, we receive a motivational message. 
+
+![missing-checkin demo](/frontend/public/css/images/missed_checkins.gif "missing_checkin")
 * How to use it. 
   
 1 or 2 cool features that we think are interesting. 
