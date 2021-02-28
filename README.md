@@ -1,6 +1,6 @@
 goal garden root directory README
 
-![alt text]()
+
 
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
