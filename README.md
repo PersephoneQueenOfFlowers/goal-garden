@@ -23,11 +23,14 @@ Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/gi
 
 * Goal Garden is a curated space for personal goal setting and tracking. 
 * In it, we can set goals for ourselves and set intervals for check-ins. 
-* 
+
 ![goal-setting demo](/frontend/public/css/images/creating_goal_reduced.gif "creating_goal")
 
 * A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
-*   whether progress has been made. 
+
+![journaling-creation demo](/frontend/public/css/images/creating_journal_resized.gif "creating_journal")
+
+*.  whether progress has been made. 
 *   have we rewarded ourselves for progress. 
 *   what kind of challenges or roadblocks we hit along the way. 
 *   when we make a journal, we receive a motivational message. 
