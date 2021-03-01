@@ -5,7 +5,7 @@ import JournalShowComponent from "./journal_show_component"
 
 const mapStateToProps = (state, ownProps) => {
     return{
-        
+        errors: state.errors.journal
     }
 }
 

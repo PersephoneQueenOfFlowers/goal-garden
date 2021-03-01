@@ -750,6 +750,9 @@ body {
   cursor: pointer;
   text-decoration: underline; }
 
+#rewards_false {
+  display: none; }
+
 .App {
   text-align: center; }
 

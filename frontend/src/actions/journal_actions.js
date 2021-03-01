@@ -61,5 +61,5 @@ export const deleteJournal = (journalId) => dispatch => (
 export const updateJournal = (journal) => dispatch => {
     APIUtil.updateJournal(journal)
     .then((journal) => dispatch(receiveJournal(journal)))
-    .catch(err => console.log(err.response.data))
+    .catch(err => dispatch(receiveJournalErrors(err.response.data)))
 }
