@@ -70,8 +70,11 @@
       }
     }
     .middle img {
-        @media all and (min-width: 300px) and (max-width:900px){
+        @media all and (min-width: 300px) and (max-width:500px){
           top: -13%;
+        }
+         @media all and (min-width: 501px) and (max-width:900px){
+          top: 0;
         }
     }
   }

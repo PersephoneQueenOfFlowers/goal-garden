@@ -169,9 +169,12 @@ body {
             background-position: 0% 107%; } }
         .main-container .home .hero .hero-inner-container p {
           text-align: center; }
-    @media all and (min-width: 300px) and (max-width: 900px) {
+    @media all and (min-width: 300px) and (max-width: 500px) {
       .main-container .home .middle img {
         top: -13%; } }
+    @media all and (min-width: 501px) and (max-width: 900px) {
+      .main-container .home .middle img {
+        top: 0; } }
 
 * {
   max-width: 100%; }
