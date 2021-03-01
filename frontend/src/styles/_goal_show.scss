@@ -6,10 +6,13 @@
     // background-position-y: 10px;
     // border: 1px solid red;
     position: absolute;
-    top: -280px;
+    top: -380px;
     width: 200px;
     display: flex;
     justify-content: center;
+    @media all and (min-width:350px) and (max-width:500px){
+      left:-60px;
+    }
 }
 
 
@@ -109,36 +112,16 @@
 .journal_right{
     display: flex;
     flex-direction: row;
-    // border: 1px solid red;
 }
-
-// .journal_goal_show{
-//     position: absolute;
-//     right: 639px;
-//     top: 200px;
-//     border: 2px solid green;
-//     border-radius: 10px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     font-family:  "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-//     width: 402px;
-//     padding-left: 28px;
-//     padding-right: 28px;
-//     padding-top: 28px;
-//     background: white;
-//     max-height: 660px;
-//     overflow: scroll;
-//     // justify-content: flex-start;
-// }
 
 
 #journal_form_show, #journal_goal_show, #motivational_msg_show{
     margin-top: 157px;
-//     position: absolute;
-//     right: 639px;
-//     top: 200px;
 //     // border: 1px solid red;
+}
+
+#journal_form_show {
+  margin-top:0;
 }
 
 #journal_form_hidden, #journal_goal_hidden, #motivational_msg_hidden{

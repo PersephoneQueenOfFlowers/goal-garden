@@ -273,6 +273,9 @@ body {
       flex-direction: column; }
       .hero .hero-inner-container.show h1 {
         margin-top: -200px; }
+        @media all and (min-width: 350px) and (max-width: 500px) {
+          .hero .hero-inner-container.show h1 {
+            margin-top: -40px; } }
 
 .header-greeting .header-name {
   font-family: 'Stick', sans-serif; }
@@ -321,6 +324,10 @@ body {
     width: 95%;
     position: absolute;
     flex: 1; }
+    @media all and (min-width: 350px) and (max-width: 499px) {
+      .middle img {
+        top: -5%;
+        z-index: 10; } }
     @media all and (min-width: 500px) and (max-width: 992px) {
       .middle img {
         margin-top: -15%; } }
@@ -501,10 +508,13 @@ body {
   height: 400px;
   background-repeat: no-repeat;
   position: absolute;
-  top: -280px;
+  top: -380px;
   width: 200px;
   display: flex;
   justify-content: center; }
+  @media all and (min-width: 350px) and (max-width: 500px) {
+    .flower_picture_box {
+      left: -60px; } }
 
 .flower_picture {
   background-image: url("./images/sprite-daisy.png");
@@ -585,6 +595,9 @@ body {
 
 #journal_form_show, #journal_goal_show, #motivational_msg_show {
   margin-top: 157px; }
+
+#journal_form_show {
+  margin-top: 0; }
 
 #journal_form_hidden, #journal_goal_hidden, #motivational_msg_hidden {
   display: none; }
