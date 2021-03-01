@@ -29,8 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css": "node-sass -o public/css/ src/styles/",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "build-css": "node-sass -o public/css/ src/styles/  --output-style nested",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\" --output-style nested"
   },
   "eslintConfig": {
     "extends": [

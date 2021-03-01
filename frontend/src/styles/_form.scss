@@ -104,3 +104,26 @@
     color: rgb(174, 73, 73);
     margin-bottom: 10px;
 }
+.modal-content {
+  @media all and (min-width: 300px) and (max-width:900px){
+    flex-wrap:wrap;
+  }
+  .modal-body{
+    @media all and (min-width: 300px) and (max-width:900px){
+      flex-wrap:wrap;
+      padding: 0 1%;
+    }
+    .right {
+      @media all and (min-width: 300px) and (max-width:900px){
+        padding-top: 2%;
+      }
+      #journal_form_show {
+        @media all and (min-width: 300px) and (max-width:900px){
+          max-width: 95%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

@@ -112,6 +112,9 @@ body {
   background: transparent;
   right: 20px;
   align-items: center; }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    .login-signup, .header-greeting {
+      right: 15%; } }
   .login-signup .button, .header-greeting .button {
     width: 80px;
     padding: 10px 6px;
@@ -125,14 +128,26 @@ body {
   display: grid;
   grid-template-columns: [first nav-start] 150px [main-start] 1fr [last];
   grid-template-rows: [main-start] 1fr [footer-start] 50px [last]; }
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    .main-container {
+      grid-template-columns: none !important;
+      display: flex;
+      width: 100%; } }
   .main-container .home {
     grid-column: first / span 2;
     grid-row: main-start / 2; }
+    @media screen and (min-width: 300px) and (max-width: 900px) {
+      .main-container .home {
+        width: 100%; } }
     .main-container .home .hero {
       min-height: 340px;
       display: grid;
       grid-template-columns: [first] 200px [center] 1fr [right] 200px;
       grid-template-rows: [nav] 75px [hero-inner] 1fr [last]; }
+      @media all and (min-width: 300px) and (max-width: 900px) {
+        .main-container .home .hero {
+          grid-template-columns: none;
+          display: flex; } }
       .main-container .home .hero .nav {
         grid-column: 1 / span 3;
         grid-row: 1; }
@@ -143,8 +158,26 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: end; }
+        @media all and (min-width: 300px) and (max-width: 900px) {
+          .main-container .home .hero .hero-inner-container {
+            grid-template-columns: none;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background-position: 0% 107%; } }
         .main-container .home .hero .hero-inner-container p {
           text-align: center; }
+    @media all and (min-width: 300px) and (max-width: 500px) {
+      .main-container .home .middle img {
+        top: -13%; } }
+    @media all and (min-width: 501px) and (max-width: 900px) {
+      .main-container .home .middle img {
+        top: 0; } }
+
+* {
+  max-width: 100%; }
 
 .form-container {
   display: flex;
@@ -244,6 +277,25 @@ body {
   font-size: 12px;
   color: #ae4949;
   margin-bottom: 10px; }
+
+@media all and (min-width: 300px) and (max-width: 900px) {
+  .modal-content {
+    flex-wrap: wrap; } }
+
+@media all and (min-width: 300px) and (max-width: 900px) {
+  .modal-content .modal-body {
+    flex-wrap: wrap;
+    padding: 0 1%; } }
+
+@media all and (min-width: 300px) and (max-width: 900px) {
+  .modal-content .modal-body .right {
+    padding-top: 2%; } }
+
+@media all and (min-width: 300px) and (max-width: 900px) {
+  .modal-content .modal-body .right #journal_form_show {
+    max-width: 95%;
+    padding-left: 0;
+    padding-right: 0; } }
 
 .hero {
   background-image: url("./images/3d-garden-resized.png");
