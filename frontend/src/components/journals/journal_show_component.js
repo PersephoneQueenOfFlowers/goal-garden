@@ -21,7 +21,7 @@ class JournalShowComponent extends React.Component {
 
     componentDidUpdate(prevProps){
         if(this.props.journal._id !== prevProps.journal._id){
-            this.setState({body: this.props.journal.body})
+            this.setState({body: this.props.journal.body, errors:"journal_erros_hidden"})
         }
     }
 
@@ -91,7 +91,7 @@ class JournalShowComponent extends React.Component {
                         })}</div>
                         </div>
                     </div>
-                    <div id="jounral_edit_div">
+                    <div id={edit}>
                         <button id="edit_journal_button" onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
                     </div>
                     {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
