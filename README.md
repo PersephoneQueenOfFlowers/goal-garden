@@ -1,7 +1,22 @@
 goal garden root directory README
 
+# Goal Garden
+
+
+## **Overview**:
+The goal garden is a curated space for help with personal goal accountability and tracking. The application will provide areas for goal progress visualization, journalling, and accountability.
+
+
+## **Technologies used:**
+ 
+**Database**: **MongoDB** (document-based NoSQL database).
+
+**Backend**: **Express** (web application framework for Node.), **Node.js**: (JavaScript runtime environment), **Mongoose** (object data modeling (ODM) library for MongoDB and Node.js).
+
+**Frontend**: **React**, **Redux**, **Axios** (promise-based HTTP client to make HTTP requests).
 
 ![app architecture diagram](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
+
 
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
@@ -41,6 +56,50 @@ When we make a journal, we receive a motivational message.
   
 1 or 2 cool features that we think are interesting. 
 
+# Code Snippet Feature
+
+## Updating the Flower to Represent The State of The oal
+&nbsp;&nbsp;&nbsp;&nbsp;The goal flower visually connects the backend of the application to the front end. When a user makes a goal the goal is represented as a flower. This goal starts off as a seedling and as users successfully meet their check in and journal about it their goal flower will grow representing the growth the user has made in their goal. However if a user misses a check in for their goal the goal flower will either shrink and revert back to a seedling if it has not reached full bloom or if it had previously reached full bloom it will start to wilt and wither and will keep doing so until the user successfully checks in again.
+	
+&nbsp;&nbsp;&nbsp;&nbsp;A challenge for this was deciding how to add in the flower images and connect them to  the back end. We resolved this issue by giving the goal model a `growthNumber` property that represents what stage the flower should be in. When a successful or unsuccessful journal is written for a goal it updates the growth number accordingly. This `growthNumber` property of the goal is then referenced during the rendering of the goal show component and depending on the `growthNumber` it will apply different css properties on the flower image to show the correct state of the flower.  The flower image is actually one image sprite with all stages of the flower on it. The `growthNumber` changes the background position of the flower sprite so that the correct flower is shown.
+
+```css
+#growth0{
+    background-position-x: 10px;
+    width: 140px;
+}
+
+#growth1{
+    background-position-x: -150px;
+    width: 147px;
+}
+
+#growth2{
+    background-position-x: -320px;
+    width: 147px;
+}
+
+#growth3{
+    background-position-x: -477px;
+    width: 160px;
+}
+
+#growth4{
+    background-position-x: -662px;
+    // padding-right: 45px;
+    width: 178px;
+}
+
+#growth5{
+    background-position-x: -833px;
+    width: 147px;
+}
+
+#growth6{
+    background-position-x: -993px;
+    width: 147px;
+}
+```
 
 # Code Snippet Feature
 
