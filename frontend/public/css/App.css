@@ -812,6 +812,12 @@ body {
   cursor: pointer;
   text-decoration: underline; }
 
+#rewards_false {
+  display: none; }
+
+#journal_edit_hidden {
+  display: none; }
+
 .App {
   text-align: center; }
 

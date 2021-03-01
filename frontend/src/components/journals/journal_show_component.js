@@ -3,7 +3,7 @@ import React from 'react'
 class JournalShowComponent extends React.Component {
     constructor(props){
         super(props)
-        this.state = {body: this.props.journal.body}
+        this.state = {body: this.props.journal.body, errors: "journal_errors_hidden"}
         this.handleDelete = this.handleDelete.bind(this);
         this.editJournal = this.editJournal.bind(this);
     }
@@ -21,12 +21,17 @@ class JournalShowComponent extends React.Component {
 
     componentDidUpdate(prevProps){
         if(this.props.journal._id !== prevProps.journal._id){
-            this.setState({body: this.props.journal.body})
+            this.setState({body: this.props.journal.body, errors:"journal_erros_hidden"})
         }
     }
 
     editJournal(){
         this.props.updateJournal({_id: this.props.journal._id, body: this.state.body})
+        setTimeout(() => {
+            if(this.props.errors.length !== 0){
+                this.setState({errors: "journal_errors_show"})
+            }
+        }, 200)
     }
 
     render(){
@@ -64,6 +69,7 @@ class JournalShowComponent extends React.Component {
                         <div className="journal_header">Journal Entry:
                             <div>{body}</div>
                         </div>
+                        <div className={this.state.errors}>{this.props.errors[0]}</div>
                     </div>
                     <div>
                         <div className="journal_header">Highlights:
@@ -78,14 +84,14 @@ class JournalShowComponent extends React.Component {
                         </div>
                     </div>
                     <div>
-                        <div className="journal_header">Rewards:
+                        <div className="journal_header" id={rewards}>Rewards:
                         {/* TODO add conditonal logic to make it appear only on success */}
                         <div>{journal.rewards.map((reward,i) => {
                             return(<div key={i}>{reward}</div>)
                         })}</div>
                         </div>
                     </div>
-                    <div id="jounral_edit_div">
+                    <div id={edit}>
                         <button id="edit_journal_button" onClick={() => this.editJournal()} className={edit}>Edit Journal</button>
                     </div>
                     {/* <button onClick={() => this.handleDelete()}>Delete Journal</button> */}
