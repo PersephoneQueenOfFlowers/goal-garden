@@ -91,7 +91,7 @@ class GoalShow extends React.Component{
                 <div className="background-container">
                   <Link to="/goals"className="back_link">Back to All Goals</Link>
                 <h3>
-                    <h2>Goal Details </h2>
+                    Goal Details
                 </h3>
                   <p className="goal_description">{goal.body}</p>
                 </div>
@@ -113,10 +113,10 @@ class GoalShow extends React.Component{
                     <label>Did achieve your goal step?</label>
                     <div className="journal_radio_buttons">
                       <p>Yes I did!
-                                      <input type="radio" name="success" value="true" checked={this.state.success} onClick={() => this.setState({ success: true })} />
+                                      <input type="radio" name="success" value="true" checked={this.state.success} onChange={() => this.setState({ success: true })} />
                       </p>
                       <p>No, but I will next time!
-                                      <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })} />
+                                      <input type="radio" name="success" value="false" onChange={() => this.setState({ success: false })} />
                       </p>
                     </div>
                   </div>

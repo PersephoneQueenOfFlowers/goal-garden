@@ -72,16 +72,16 @@ class JournalShowComponent extends React.Component {
                     </div>
                     <div>
                         <div className="journal_header">{influence}
-                        <div>{journal.cues.map(cue => {
-                            return (<div>{cue}</div>)
+                        <div>{journal.cues.map((cue,i) => {
+                            return (<div key={i}>{cue}</div>)
                         })}</div>
                         </div>
                     </div>
                     <div>
                         <div className="journal_header">Rewards:
                         {/* TODO add conditonal logic to make it appear only on success */}
-                        <div>{journal.rewards.map(reward => {
-                            return(<div>{reward}</div>)
+                        <div>{journal.rewards.map((reward,i) => {
+                            return(<div key={i}>{reward}</div>)
                         })}</div>
                         </div>
                     </div>
