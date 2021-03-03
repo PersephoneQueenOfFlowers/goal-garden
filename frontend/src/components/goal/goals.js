@@ -16,7 +16,7 @@ class Goal extends React.Component {
   componentDidMount() {
     this.props.fetchGoals();
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
 
     this.setState({errors: nextProps.errors})
   }
@@ -62,7 +62,7 @@ class Goal extends React.Component {
   render() {
     const goals = this.props.goals.map(goal => {
             return (
-              <div className="outer-goalbox-container">
+              <div className="outer-goalbox-container" key={goal._id}>
                 <GoalBox goal={goal} key={goal._id} removeGoal={this.props.removeGoal}/>
               </div>
             )
