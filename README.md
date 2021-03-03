@@ -1,7 +1,7 @@
 goal garden root directory README
 
 
-![alt text](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
+![app architecture diagram](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
 
 /**********( Git workflow )**********/
 to begin work on a feature branch, from the 'master' branch 
@@ -22,12 +22,22 @@ Peer-reviewer, you may want to have some conversation with the other dev if you 
 Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/git-workflow with git-workflow questions.
 
 * Goal Garden is a curated space for personal goal setting and tracking. 
-* In it, we can set goals for ourselves and set intervals for check-ins. A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
-*   whether progress has been made. 
-*   have we rewarded ourselves for progress. 
+* In it, we can set goals for ourselves and set intervals for check-ins. 
+
+![goal-setting demo](/frontend/public/css/images/creating_goal_reduced.gif "creating_goal")
+
+* A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
+
+![journaling-creation demo](/frontend/public/css/images/creating_journal.gif "creating_journal")
+
+Records are kept of:
+*   whether progress has been made, 
+*   have we rewarded ourselves for progress, 
 *   what kind of challenges or roadblocks we hit along the way. 
-*   when we make a journal, we receive a motivational message. 
-* How to use it. 
+
+When we make a journal, we receive a motivational message. 
+
+![missing-checkin demo](/frontend/public/css/images/missed_checkins.gif "missing_checkin")
   
 1 or 2 cool features that we think are interesting. 
 
