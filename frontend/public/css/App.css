@@ -506,7 +506,10 @@ body {
 
 .session-window {
   height: 100vh;
-  background-image: linear-gradient(180deg, #6c5d47, #fff); }
+  background-image: linear-gradient(180deg, #6c5d47, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 #session-form {
   background-color: white; }
