@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 import Nav from './nav';
 
 const mSTP = state => {
@@ -9,7 +9,8 @@ const mSTP = state => {
 }
 const mDTP = dispatch => {
     return {
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        login: (user) => dispatch(login(user))
     }
 }
 
