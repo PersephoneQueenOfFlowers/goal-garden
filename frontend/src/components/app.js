@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './main/main';
 import NavContainer from './nav/nav_container';
+import Footer from './footer/footer';
 import {
   BrowserRouter as Router,
   Route,
@@ -30,6 +31,7 @@ const App = () => {
 
               <Redirect to="/" />
             </Switch>
+          <Footer />
         </div>
     )
 };

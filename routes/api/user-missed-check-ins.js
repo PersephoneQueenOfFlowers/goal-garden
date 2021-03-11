@@ -10,6 +10,8 @@ const Journal = require("../../models/Journal");
 // putting it on the JS Callback Queue before getting evaluated). so this function creates
 // a separate context in which that particular goal is saved.
 
+// Mongoose allows find one with sort: 
+// https://stackoverflow.com/questions/13443069/mongoose-findone-with-sorting
 
 const generateCheckIns = function(goal) {
   Journal
@@ -18,12 +20,13 @@ const generateCheckIns = function(goal) {
       .sort('-createdAt')
       .then(journals => {
         const journal = journals[0];
-        const latestDateISO = journal ? journal.createdAt : goal.createdAt;
+        
+        // maybe just use journal since I made it so when you create a new goal a first journal is created?
         // const latestDateISO = journal.createdAt;
+        const latestDateISO = journal ? journal.createdAt : goal.createdAt;
     
         const lastCheckin = new Date(latestDateISO);
 
-        //step 2 -- find number of journals need to create
         const goalCreationDate = new Date(goal.createdAt);
         const millisecondsPerDay = 1000*60*60*24;
         const millisecondsPerCheckin = millisecondsPerDay * goal.checkInterval;
