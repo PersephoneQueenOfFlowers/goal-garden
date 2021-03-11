@@ -47,17 +47,17 @@ export default() => {
           <div className="member-name"> Seth Schoenfeld </div>
           <ul className="footer-links">
             <li className="user-profile">
-              <a href="">
+              <a href="http://www.sethschoenfeld.com/">
                 <img src="./css/images/profile.png" alt=""/>
               </a>
             </li>
             <li className="linked-in">
-              <a href="">
+              <a href="https://www.linkedin.com/in/seth-schoenfeld-32b20a11">
                 <img src="./css/images/linkedin.png" alt=""/>
               </a>
             </li>
             <li className="github">
-              <a href="">
+              <a href="https://github.com/TheSethness">
                 <img src="./css/images/github.png" alt=""/>
               </a>
             </li>
