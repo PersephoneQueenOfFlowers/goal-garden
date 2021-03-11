@@ -552,6 +552,9 @@ body {
 #session-form {
   background-color: white; }
 
+#main-window {
+  min-height: 100vh; }
+
 .add_goal_hidden {
   display: none; }
 

@@ -70,7 +70,7 @@ class Goal extends React.Component {
     const headerMsg = goals.length === 0 ? "You have no goals." : "All Goals";
     
       return (
-          <div className="body home goal">
+          <div className="body home goal" id="main-window">
             <Hero />
             <section className="middle taskList">
               <img src='./css/images/grass-border.png' alt="" />

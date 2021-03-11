@@ -80,7 +80,7 @@ class GoalShow extends React.Component{
             journalsArr = Object.values(journals)
         }
         return(
-          <div>
+        <div id="main-window">
             <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
               <img src='./css/images/grass-border.png' alt=""/>

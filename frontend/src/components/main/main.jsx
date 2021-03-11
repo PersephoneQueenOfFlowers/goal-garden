@@ -36,7 +36,7 @@ function Main(props) {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
-    <div className="main-container">
+    <div className="main-container" id="main-window">
       <HomeContainer modalShow={modalShow} setModalShow={setModalShow} modal={MyVerticallyCenteredModal}/>
     </div>
   );
