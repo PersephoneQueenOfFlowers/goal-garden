@@ -369,7 +369,8 @@ body {
   margin-top: 60px;
   padding-top: 26px; }
   .footer .footer-header {
-    color: white; }
+    color: white;
+    font-size: 20px; }
   .footer .team-spread {
     display: flex;
     flex-direction: row; }
