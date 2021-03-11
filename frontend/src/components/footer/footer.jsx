@@ -32,12 +32,12 @@ export default() => {
               </a>
             </li>
             <li className="linked-in">
-              <a href="">
+              <a href="https://www.linkedin.com/in/andrew-curd-054997b1/">
                 <img src="./css/images/linkedin.png" alt=""/>
               </a>
             </li>
             <li className="github">
-              <a href="">
+              <a href="https://github.com/andrewc2695">
                 <img src="./css/images/github.png" alt=""/>
               </a>
             </li>
