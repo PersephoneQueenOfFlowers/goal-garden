@@ -402,7 +402,8 @@ body {
             border: 1px solid black; }
         .footer .team-spread .member .footer-links li:hover {
           background: #e6e6e6;
-          box-shadow: 0 6px 0px #e6e6e6; }
+          box-shadow: 0 6px 0px #e6e6e6;
+          padding-top: 1px; }
 
 .middle {
   display: flex;
