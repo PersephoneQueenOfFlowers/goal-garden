@@ -22,15 +22,26 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 
-const Nav = ({ currentUser, logout, history }) => {
+const Nav = ({ currentUser, logout, login, history }) => {
 
     const redirect = () => {
         logout();
         history.push(`/`);
     }
+    const demoSignIn = (e) =>{
+        e.stopPropagation();
+        e.preventDefault();
+        const guestUser = {
+            email: 'myguest@test.com',
+            firstName: 'Guest',
+            password: 'quietgame51'
+        };
+        login(guestUser).then(()=> history.push('/goals'));
+    }
 
     const sessionLink = () => (
         <nav className="login-signup">
+             <button type="button" onClick={demoSignIn} className="button" >Demo</button>
              <Link className="button" to="/login">Login</Link>
              <Link className="button" to="/signup">Signup</Link>
         </nav>
