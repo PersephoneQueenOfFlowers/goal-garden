@@ -1,3 +1,5 @@
+[<img src="https://github.com/TheSethness/goal-garden/frontend/public/gg-favicon.png">](https://github.com/TheSethness/goal-garden/)
+
 Goal Garden PRODUCTION README
 
 # Goal Garden
