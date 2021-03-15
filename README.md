@@ -1,4 +1,4 @@
-[<img width="150px" src="frontend/public/gg-favicon.png">](frontend/public/gg-favicon.png) Goal Garden PRODUCTION README
+[<img width="75px" src="frontend/public/gg-favicon.png">](frontend/public/gg-favicon.png) Goal Garden PRODUCTION README
 
 # Goal Garden
 
