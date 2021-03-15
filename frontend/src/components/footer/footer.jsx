@@ -72,12 +72,12 @@ export default() => {
               </a>
             </li>
             <li className="linked-in">
-              <a target="_blank" href="">
+              <a target="_blank" href="https://www.linkedin.com/in/reed-haubenstock-49325995/">
                 <img src="./css/images/linkedin.png" alt=""/>
               </a>
             </li>
             <li className="github">
-              <a target="_blank" href="">
+              <a target="_blank" href="https://github.com/rhaubenstock/">
                 <img src="./css/images/github.png" alt=""/>
               </a>
             </li>
