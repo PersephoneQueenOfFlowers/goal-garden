@@ -5,7 +5,7 @@ goal garden root directory README
 [goal-garden Live](http://goalgarden.herokuapp.com/#/)
 
 ## **Overview**:
-The goal garden is a curated space for help with personal goal accountability and tracking. The application will provide areas for goal progress visualization, journalling, and accountability.
+Goal Garden is a curated space for help with personal goal accountability and tracking. The application provides areas for goal progress visualization, journalling, and accountability.
 
 
 ## **Technologies used:**
