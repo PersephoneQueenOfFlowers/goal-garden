@@ -145,7 +145,7 @@ class MyVerticallyCenteredModal extends React.Component {
                   <label>Did achieve your goal step?</label>
                   <div className="journal_radio_buttons">
                         <p>Yes I did!
-                          <input type="radio" name="success" value="true" checked={this.state.success} onClick={() => this.setState({success: true}) }/>
+                          <input type="radio" name="success" value="true" defaultChecked onClick={() => this.setState({success: true}) }/>
                         </p>
                       <p>No, but I will next time!
                           <input type="radio" name="success" value="false" onClick={() => this.setState({ success: false })}/>
