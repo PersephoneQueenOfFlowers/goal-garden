@@ -1,4 +1,4 @@
-goal garden root directory README
+Goal Garden PRODUCTION README
 
 # Goal Garden
 
