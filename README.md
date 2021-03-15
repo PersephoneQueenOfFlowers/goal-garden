@@ -1,4 +1,4 @@
-[<img src="TheSethness/goal-garden/frontend/public/gg-favicon.png">](TheSethness/goal-garden/frontend/public/gg-favicon.png)
+[<img src="frontend/public/gg-favicon.png">](frontend/public/gg-favicon.png)
 
 Goal Garden PRODUCTION README
 
