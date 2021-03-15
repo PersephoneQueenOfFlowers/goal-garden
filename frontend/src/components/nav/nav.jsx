@@ -22,9 +22,10 @@ import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 
-const Nav = ({ currentUser, logout, login, history }) => {
+const Nav = ({ currentUser, logout, login, history, removeGoals }) => {
 
     const redirect = () => {
+        removeGoals();
         logout();
         history.push(`/`);
     }

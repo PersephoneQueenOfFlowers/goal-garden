@@ -1,4 +1,4 @@
-import { RECEIVE_GOALS, RECEIVE_GOAL, REMOVE_GOAL } from '../actions/goal_actions';
+import { RECEIVE_GOALS, RECEIVE_GOAL, REMOVE_GOAL, REMOVE_USERS_GOALS } from '../actions/goal_actions';
   
   const GoalsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -12,12 +12,13 @@ import { RECEIVE_GOALS, RECEIVE_GOAL, REMOVE_GOAL } from '../actions/goal_action
         }
         return newState;
       case RECEIVE_GOAL:
-  
         newState[action.goal.data._id] = action.goal.data; 
         return newState;
       case REMOVE_GOAL:
         delete newState[action.goalId];
         return newState;
+      case REMOVE_USERS_GOALS:
+        return {};
       default:
         return state;
     }

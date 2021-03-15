@@ -3,7 +3,8 @@ import { getGoals, writeGoal, getGoal, deleteGoal} from '../util/goal_api_util';
 export const RECEIVE_GOALS = "RECEIVE_GOALS";
 export const RECEIVE_GOAL = "RECEIVE_GOAL";
 export const REMOVE_GOAL = "REMOVE_GOAL";
-export const RECEIVE_GOAL_ERRORS = "RECEIVE_GOAL_ERRORS"
+export const RECEIVE_GOAL_ERRORS = "RECEIVE_GOAL_ERRORS";
+export const REMOVE_USERS_GOALS = "REMOVE_USERS_GOALS";
 
 
 
@@ -25,6 +26,10 @@ export const eraseGoal = (goalId) => ({
 export const receiveGoalErrors = errors => ({
   type: RECEIVE_GOAL_ERRORS,
   errors
+})
+
+export const removeUsersGoals = () => ({
+  type: REMOVE_USERS_GOALS
 })
 
 
