@@ -1,4 +1,4 @@
-[<img width="75px" src="frontend/public/gg-favicon.png">](frontend/public/gg-favicon.png) <h1 style="line-height:80px">Goal Garden</h1>
+[<img width="75px" src="frontend/public/gg-favicon.png">](frontend/public/gg-favicon.png) <h1 style="line-height:80px, display:inline-block">Goal Garden</h1>
 
 ## **Link to Live Site**:
 [goal-garden Live](http://goalgarden.herokuapp.com/#/)
