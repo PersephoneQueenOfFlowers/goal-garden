@@ -30,7 +30,8 @@ class GoalShow extends React.Component{
         this.props.fetchJournals(this.props.match.params.goalId)
     }
 
-    addJournal(){
+    addJournal(e){
+        e.preventDefault();
         this.props.createJournal({body: this.state.body,
                                 highlights: this.state.highlights,
                                 success: this.state.success,
@@ -110,7 +111,7 @@ class GoalShow extends React.Component{
                 </div>
               </div>
               <div id={this.state.journalForm}>
-                <form onSubmit={() => this.addJournal()} className={this.state.journalForm}>
+                <form onSubmit={(e) => this.addJournal(e)} className={this.state.journalForm}>
                   <div className="journal_radio">
                     <label>Did achieve your goal step?</label>
                     <div className="journal_radio_buttons">
