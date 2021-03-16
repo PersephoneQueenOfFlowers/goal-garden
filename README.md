@@ -1,4 +1,4 @@
-"/path/to/custom.css"
+<style></style>
 
 
 ### **Live Link**:
