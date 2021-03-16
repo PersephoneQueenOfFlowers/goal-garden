@@ -79,9 +79,8 @@ class GoalShow extends React.Component{
         if (!goal) return null;
         let journalsArr = []
         if(journals !== undefined){
-          journalsArr = Object.values(journals).sort((a, b) => (a.createdBy > b.createdBy) ? 1 : -1).reverse();
+          journalsArr = Object.values(journals).sort((a, b) => new Date(a.createdAt).getTime() > new Date(b.createdAt).getTime() ? 1 : -1);
         }
-        debugger
         return(
         <div id="main-window">
             <Hero pageClass={"show"} header={goal.title}/>
