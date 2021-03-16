@@ -1,7 +1,7 @@
 const Validator = require('validator');
 const validText = require('./valid-text');
 const validFutureDate = require('./valid-future-date');
-module.exports = (data) => {
+module.exports = (data) => {    
     let errors = {};
     
     // data is req.body
