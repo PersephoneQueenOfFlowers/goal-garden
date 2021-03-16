@@ -2,7 +2,7 @@
 <a href="http://goalgarden.herokuapp.com/#/" target="_blank"><img width="375px" style="display:inline-block" src="frontend/public/gg-logo.png" /></a>
 
 ## **Overview**:
-Goal Garden is a curated space for help with personal goal accountability and tracking. The application provides areas for goal progress visualization, journalling, and accountability.
+Goal Garden is a curated space for personal goal accountability and tracking. The application provides areas for goal progress visualization and journaling and technical opportunities for accountability.
 
 
 ## **Technologies used:**
