@@ -39,15 +39,16 @@ class Goal extends React.Component {
     this.props.composeGoal({body: this.state.body,
                             title: this.state.title,
                             expirationDate: this.state.date,
-                            checkInterval: this.state.interval})
+                            checkInterval: this.state.interval})     
+  }
 
-    setTimeout(() => {
-      if(this.props.errors.length === 0){
-        this.setState({ title: "", body: "", 
-          date: this.realDate, interval: "1", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []})
-      }
-    }, 1500)      
-                     
+  componentDidUpdate(prevProps){
+    if(this.props.goals.length > prevProps.goals.length){
+      this.setState({
+        title: "", body: "",
+        date: this.realDate, interval: "1", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []
+      });
+    }
   }
 
   showGoalForm(e){ 
