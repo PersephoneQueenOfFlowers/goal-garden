@@ -35,7 +35,6 @@ When we make a journal, we receive a motivational message.
 
 ![missing-checkin demo](/frontend/public/css/images/missed_checkins.gif "missing_checkin")
   
-1 or 2 cool features that we think are interesting. 
 
 # Code Snippet Feature
 
