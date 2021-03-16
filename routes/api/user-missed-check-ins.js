@@ -65,6 +65,7 @@ const generateCheckIns = function(goal) {
             goal: goal.id,
             body: "Missed check-in :(",
             createdAt: missedDate,
+            editable: true,
             goalState: goalState
           });
 

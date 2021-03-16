@@ -50,14 +50,16 @@ class JournalShowComponent extends React.Component {
             influence = "Cues:"
             rewards = "rewards_true"
             body = (<div>{journal.body}</div>)
-            edit = "journal_edit_hidden"
+            // edit = "journal_edit_hidden"
         }else{
             success = "Step missed"
             influence = "Distractions:"
             rewards = "rewards_false"
             body = (<textarea onChange={this.handleChange()} value={this.state.body}/>)
-            edit = "journal_edit_show"
+            // edit = "journal_edit_show"
         }
+
+        edit = journal.editable ? "journal_edit_show" : "journal_edit_hidden";
         
         return(
             <div>

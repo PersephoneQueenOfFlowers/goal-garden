@@ -76,6 +76,7 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
             goalState: goalState,
             cues: req.body.cues,
             rewards: req.body.rewards,
+            editable: false
             // createdAt: req.body.createdAt || new Date()
         });
     
@@ -111,8 +112,9 @@ router.patch("/:id",
             if (!goal) return res.status(400).json({ unAuthorized: "Not Your Journal!"});
             if(!journal.success) {
     
-                journal.body = req.body.body
-              
+                journal.body = req.body.body;
+                journal.editable = false;
+                
                 journal.save()
                 .then(journal => res.json(journal));
             } else {
