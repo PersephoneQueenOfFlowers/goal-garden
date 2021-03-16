@@ -1,10 +1,4 @@
 
-
-    (setq markdown-xhtml-header-content
-      "<style type='text/css'>
-a { text-decoration: none; }
-a:hover { text-decoration: underline;box-shadow: 0 6px 0px #e6e6e6;padding-top: 1px; }
-</style>")
 ### **Live Link**:
 <a href="http://goalgarden.herokuapp.com/#/" target="_blank"><img width="375px" style="display:inline-block" src="frontend/public/gg-logo.png"></a>
 
