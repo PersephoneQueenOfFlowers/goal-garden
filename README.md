@@ -1,11 +1,10 @@
-goal garden root directory README
+<img width="75px" style="display:inline-block" src="frontend/public/gg-favicon.png"> <h1 style="line-height:80px; display:inline-block">Goal Garden</h1>
 
-# Goal Garden
-
+## **Link to Live Site**:
 [goal-garden Live](http://goalgarden.herokuapp.com/#/)
 
 ## **Overview**:
-The goal garden is a curated space for help with personal goal accountability and tracking. The application will provide areas for goal progress visualization, journalling, and accountability.
+Goal Garden is a curated space for help with personal goal accountability and tracking. The application provides areas for goal progress visualization, journalling, and accountability.
 
 
 ## **Technologies used:**
@@ -17,25 +16,6 @@ The goal garden is a curated space for help with personal goal accountability an
 **Frontend**: **React**, **Redux**, **Axios** (promise-based HTTP client to make HTTP requests).
 
 ![app architecture diagram](https://github.com/TheSethness/goal-garden/blob/master/frontend/public/css/images/diagram.png "diagram")
-
-
-/**********( Git workflow )**********/
-to begin work on a feature branch, from the 'master' branch 
-* git checkout master
-* git pull (to make sure master has latest content when you create the feature branch)
-* git checkout -b <initials-da-mo-pageName-featureName> 
-example git checkout -b <ss-2-21-home-goal-list>
-* git add . 
-* git commit -m 'built the whole thing and test it, too'
-* git push
-* when you are confident you have a feature done, checkout master, git pull for latest upstream changes, checkout feature branch, merge in master and test. 
-* add, commit, push changes upstream in feature branch, and create a pull request and notify a team member you're ready for peer-review. 
-* they'll check out the branch locally, look at it, run it, make sure that the pages and the work in the commit match what the feature branch says they are doing. 
-
-
-Peer-reviewer, you may want to have some conversation with the other dev if you have some questions, about what they did. Then merge the code into master. Remember, we are branching off <master>.
-
-Refer to https://open.appacademy.io/learn/swe-in-person/mern-stack-curriculum/git-workflow with git-workflow questions.
 
 * Goal Garden is a curated space for personal goal setting and tracking. 
 * In it, we can set goals for ourselves and set intervals for check-ins. 
@@ -55,7 +35,6 @@ When we make a journal, we receive a motivational message.
 
 ![missing-checkin demo](/frontend/public/css/images/missed_checkins.gif "missing_checkin")
   
-1 or 2 cool features that we think are interesting. 
 
 # Code Snippet Feature
 

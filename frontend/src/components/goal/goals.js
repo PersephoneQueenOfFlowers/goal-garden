@@ -114,7 +114,7 @@ class Goal extends React.Component {
                             </div>
                             <div className="errors">{this.state.errors.find(err => err.includes('Date'))}</div>
                             <div>
-                                <label>How often does this goal occur?(in days)
+                                <label>How often do you want to check in on this goal?(in days)
                                   <div>
                                     <input type="number" value={this.state.interval} onChange={this.handleChange("interval")} min="1" max="365" />
                                   </div>

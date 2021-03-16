@@ -13,7 +13,7 @@ const MOTIVATIONAL_MESSAGES = [
                             "Even dreams that seem impossible can be accomplished; you just have to trust yourself and never get tired of fighting.",
                             "The taste of victory is even sweeter if others said you would not be able to do it. Always move forward and never stop.",
                             "If you do not fight the battle of life, you will never be a winner. Come on! Fear nothing and go out and conquer your dreams.",
-                            "Falls let us know how far we had gone, get up and continues traveling the long road to success.",
+                            "Falls let us know how far we had gone, get up and continue traveling the long road to success.",
                         ];
 
 export const getMotivationalMsg = () =>{
