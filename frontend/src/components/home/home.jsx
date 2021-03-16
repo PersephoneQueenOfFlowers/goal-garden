@@ -67,7 +67,7 @@ class MyVerticallyCenteredModal extends React.Component {
       goals: goals,
       key: this.props.modalkey,
       goal: goals[this.props.modalkey],
-      journal_entry: ""
+      journal_entry: "",
     }
     this.addOrLater = "Add New Journal";
     this.handleButton = this.handleButton.bind(this);
@@ -85,10 +85,14 @@ class MyVerticallyCenteredModal extends React.Component {
 
   addJournal(e){
     e.preventDefault();
-    const curr_goal = this.state.goals[this.state.key];
-    curr_goal.journals.push(this.state.journal_entry);
-    this.setState({ journal_entry: "", journalForm: "journal_form_hidden", highlights: "", cues: "", rewards: "" });
-    this.addOrLater = "Add New Journal";
+    if(this.state.journal_entry === ""){
+      this.setState({errors: "journal_errors_show"})
+    }else{
+      const curr_goal = this.state.goals[this.state.key];
+      curr_goal.journals.push(this.state.journal_entry);
+      this.setState({ journal_entry: "", journalForm: "journal_form_hidden", highlights: "", cues: "", rewards: "", errors: "journal_errors_hidden"});
+      this.addOrLater = "Add New Journal";
+    }
   }
 
   updateField(field){
@@ -155,7 +159,8 @@ class MyVerticallyCenteredModal extends React.Component {
               <div className="journal_text_area">
                   <label className="">Journal about your Goal!
                   </label>
-                <textarea className="journal_text_area_input" id="journal_input" value={this.state.journal_entry} onChange={this.updateField("journal_entry")} /> 
+                <textarea className="journal_input" id="journal_input" value={this.state.journal_entry} onChange={this.updateField("journal_entry")} /> 
+                <div className={this.state.errors}>Journal can not be blank.</div>
               </div>
               <div className="journal_text_area">
                   <label>Add any highlights:
@@ -222,7 +227,7 @@ const Home = (props) => {
         </div>
         <div className="right">
           <div className="goals-container">
-            <h3>Current Goals</h3>
+            <h3>Demo Goals</h3>
             <ul className="goal-list">
               {
                 Object.keys(goals).map( (goalKey, idx) =>{

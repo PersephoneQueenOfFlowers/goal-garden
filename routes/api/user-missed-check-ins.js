@@ -46,7 +46,6 @@ const generateCheckIns = function(goal) {
           missingDueDates.push(dueDate.toISOString());
           dueDate.setDate(dueDate.getDate() - goal.checkInterval);
         }
-        // debugger
         // step 3 -- creating journals from latestDate until now -- 
         // go through the array backwards -> that way able to keep
         // goal state updated

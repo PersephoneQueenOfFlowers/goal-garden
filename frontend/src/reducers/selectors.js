@@ -3,17 +3,20 @@ export const asArray = ({ goals }) => {
 }
 
 const MOTIVATIONAL_MESSAGES = [
-                            "Life is short, nobody knows when it will be their time to leave it, so live fully every moment and do not let sadness overshadow your mind.",
-                            "You must never give up; the goals you have will be your motivation to fight until the end.",
-                            "Dreaming does not cost anything, but making dreams come true requires a lot of time, dedication and perseverance. What are you waiting for to accomplish yours?",
-                            "The first step to being successful is to believe you are. In your thoughts you must visualize where you want to go and you will be there.",
-                            "The challenges we face every day help us increase our strength and give us the drive we need so we don’t give up.",
-                            "Success is on top so the road is hard, you can slip and fall off, but if you keep an eye on the goal you will never stop.",
-                            "If you mess do not blame yourself, no one is free to do so. But you have to be careful not to repeat it.",
-                            "Even dreams that seem impossible can be accomplished; you just have to trust yourself and never get tired of fighting.",
-                            "The taste of victory is even sweeter if others said you would not be able to do it. Always move forward and never stop.",
-                            "If you do not fight the battle of life, you will never be a winner. Come on! Fear nothing and go out and conquer your dreams.",
-                            "Falls let us know how far we had gone, get up and continues traveling the long road to success.",
+                            "\"Try again. Fail again. Fail better.\" ~ Samuel Beckett",
+                            "\"Good things happen to those who hustle\" ~ Anais Nin",
+                            "\"My 3 rules for creativity in life: 1) Always be tender. 2) Fear no one. 3) Carry a great bullshit detector.\" ~Laurie Anderson",
+                            "\"I hope not. I expect not. I am free. \" ~Anonymously etched on base of The Acropolis",
+                            "\"No pressure, no diamonds.\" ~Thomas Carlyle",
+                            "\"Success is not final, failure is not fatal: it is the courage to continue that counts.\" ~Winston Churchill",
+                            "\"It is better to fail in originality, than to succeed in imitation.\" ~Herman Melville",
+                            "\"Wealth is not theirs who has it, but theirs who enjoys it.\" ~Ben Franklin",
+                            "\"Today, do what others won’t so tomorrow you can accomplish what others can't.\" ~Simone Biles",
+                            "\"No matter what life throws at you, or how unfair you think it is, never give up. Pick yourself up and go on.\" ~Megan Rapinoe",
+                            "\"Be led by your talent, not by your self-loathing. Those other things, you'll have to manage.\" ~Russell Brand",
+                            "\"Surround yourself with people who challenge you, teach you, and push you to be your best self.\" ~Bill Gates",
+                            "\"Enthusiasm is one of the most powerful engines of success. When you do a thing, do it with all your might.\" ~Ralph Waldo Emerson",
+                            "\"Your trials did not come to punish you, but to awaken you.\" ~Paramahansa Yogananda"
                         ];
 
 export const getMotivationalMsg = () =>{
