@@ -30,6 +30,9 @@ const JournalSchema = new Schema ({
   rewards: {
     type: Array
   },
+  reflection: {
+    type: String
+  }
   // createdAt: {
   //   type: Date,
   //   default: Date.now

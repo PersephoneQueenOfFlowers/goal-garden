@@ -44,9 +44,9 @@ module.exports = (data) => {
     //     }
     // }
 
-    if(Validator.isEmpty(data.body)) {
-        errors.body = 'Body field is rquired';
-    }
+    // if(Validator.isEmpty(data.body)) {
+    //     errors.body = 'Body field is rquired';
+    // }
     
     return {
         errors,

@@ -76,6 +76,7 @@ router.post('/:goalId', passport.authenticate('jwt', { session: false }), (req, 
             goalState: goalState,
             cues: req.body.cues,
             rewards: req.body.rewards,
+            reflection: req.body.reflection || ""
             // createdAt: req.body.createdAt || new Date()
         });
     
@@ -109,15 +110,11 @@ router.patch("/:id",
         })
         .then(goal => {
             if (!goal) return res.status(400).json({ unAuthorized: "Not Your Journal!"});
-            if(!journal.success) {
     
-                journal.body = req.body.body
-              
-                journal.save()
-                .then(journal => res.json(journal));
-            } else {
-                res.status(400).json({ journalError: "Journal cannot be edited"});
-            }
+            journal.reflection = req.body.reflection;
+            
+            journal.save()
+            .then(journal => res.json(journal));
         })
         .catch(() => res.status(404).json({noGoalFound: "No Goal Found"}));
     })
