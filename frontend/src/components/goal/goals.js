@@ -6,9 +6,14 @@ import Hero from '../home/hero';
 class Goal extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { title: "", body: "", date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []}
-
+    this.date = new Date();
+    this.date.setDate(this.date.getDate() + 1);
+    this.date = this.date.toLocaleDateString().split("/");
+    if (parseInt(this.date[0]) < 10) {
+      this.date[0] = "0" + this.date[0];
+    }
+    this.realDate = this.date[2] + "-" + this.date[0] + "-" + this.date[1];
+    this.state = { title: "", body: "", date: this.realDate, interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []};
     this.createGoal = this.createGoal.bind(this);
     this.showGoalForm = this.showGoalForm.bind(this);
   }
@@ -108,7 +113,7 @@ class Goal extends React.Component {
                             <div>
                                 <label>How Long do you want to keep this goal going for?
                                   <div>
-                                    <input type="date" value={this.state.date} onChange={this.handleChange("date")} />
+                                    <input type="date" value={this.realDate} onChange={this.handleChange("date")} />
                                   </div>
                                 </label>
                             </div>
