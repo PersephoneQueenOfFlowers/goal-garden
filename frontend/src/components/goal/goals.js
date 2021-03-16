@@ -39,7 +39,7 @@ class Goal extends React.Component {
     setTimeout(() => {
       if(this.props.errors.length === 0){
         this.setState({ title: "", body: "", 
-          date: new Date().toISOString().slice(0, 10), interval: "1", formClass: "add_goal_hidden", addGoalButton: "add new goal"})
+          date: new Date().toISOString().slice(0, 10), interval: "1", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []})
       }
     }, 300)      
                      
