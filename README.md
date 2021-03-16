@@ -1,6 +1,6 @@
 
 
-### *Live Link*:
+### **Live Link**:
 <a href="http://goalgarden.herokuapp.com/#/" target="_blank"><img width="375px" style="display:inline-block" src="frontend/public/gg-logo.png"></a>
 
 ## **Overview**:
