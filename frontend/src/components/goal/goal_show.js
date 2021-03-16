@@ -69,15 +69,12 @@ class GoalShow extends React.Component{
           this.addOrLater = "Add New Journal"
         }
       }else{
-        // debugger
-        // let x = 3;
         this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journalId: type._id, goalId: type.goal, motivationalMsg: "motivational_msg_hidden"})
         this.addOrLater = "Add New Journal"
       }
     }
 
     render(){
-        debugger
         const { goal, journals } = this.props;
         if (!goal) return null;
         let journalsArr = []

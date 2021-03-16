@@ -23,7 +23,7 @@ class JournalShowComponent extends React.Component {
     componentDidUpdate(prevProps){
         if(this.props.journal._id !== prevProps.journal._id){
             this.setState({ body: this.props.journal.body,
-                            reflection: this.props.journal.reflection, 
+                            reflection: this.props.journal.reflection || "", 
                             errors:"journal_errors_hidden" });
         }
         else if(this.props.journal.reflection !== prevProps.journal.reflection){
