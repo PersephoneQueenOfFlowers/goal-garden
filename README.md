@@ -1,5 +1,5 @@
 ### **Live Link**:
-<a href="http://goalgarden.herokuapp.com/#/" target="_blank"><img width="375px" style="max-width: 100%; border:2px inset #fcfeff;border-radius: 50%" src="frontend/public/gg-logo.png" /></a>
+<a href="http://goalgarden.herokuapp.com/#/" target="_blank"><img width="375px" style="border:2px inset #fcfeff;border-radius:50%" src="frontend/public/gg-logo.png" /></a>
 
 ## **Overview**:
 Goal Garden is a curated space for personal goal accountability and tracking. The application provides interactive spaces for goal progress visualization and journaling and technical opportunities for accountability.
