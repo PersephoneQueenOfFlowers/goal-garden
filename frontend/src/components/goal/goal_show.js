@@ -14,7 +14,9 @@ class GoalShow extends React.Component{
                         highlights: "",
                         cues: "",
                         rewards: "",
-                        journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
+                        // journal: {createdAt: "", body: "", highlights: "", cues: [], rewards: []},
+                        journalId: null,
+                        goalId: null,
                         journalShow: "journal_goal_hidden",
                         errors: "journal_errors_hidden",
                         motivationalMsg: "motivational_msg_hidden"}
@@ -67,12 +69,15 @@ class GoalShow extends React.Component{
           this.addOrLater = "Add New Journal"
         }
       }else{
-        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journal: type, motivationalMsg: "motivational_msg_hidden"})
+        // debugger
+        // let x = 3;
+        this.setState({ journalForm: "journal_form_hidden", journalShow: "journal_goal_show", journalId: type._id, goalId: type.goal, motivationalMsg: "motivational_msg_hidden"})
         this.addOrLater = "Add New Journal"
       }
     }
 
     render(){
+        debugger
         const { goal, journals } = this.props;
         if (!goal) return null;
         let journalsArr = []
@@ -104,7 +109,7 @@ class GoalShow extends React.Component{
               <div  id={this.state.journalShow}>
                 <div className={this.state.journalShow}>
                   <div className="journal_button_div"><button id="journal_button" onClick={() => this.setState({ journalShow: "journal_goal_hidden" })}> X </button></div>
-                  {<JournalShowContainer journal={this.state.journal} />}
+                  {<JournalShowContainer journalId={this.state.journalId} goalId={this.state.goalId} close = {() => this.setState({ journalShow: "journal_goal_hidden" })} />}
                 </div>
               </div>
               <div id={this.state.journalForm}>

@@ -12,7 +12,8 @@ const JournalsReducer = (oldState = {}, action) => {
             });
             return newState;
         case RECEIVE_JOURNAL:
-            newState[action.journal.data._id] = action.journal.data
+            newState[action.journal.data._id] = action.journal.data;
+            newState[action.journal.data.goal][action.journal.data._id] = action.journal.data;
             return newState;
         case REMOVE_JOURNAL:
             delete newState[action.journalId]
