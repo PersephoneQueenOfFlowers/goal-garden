@@ -44,7 +44,7 @@ class Goal extends React.Component {
     setTimeout(() => {
       if(this.props.errors.length === 0){
         this.setState({ title: "", body: "", 
-          date: new Date().toISOString().slice(0, 10), interval: "", formClass: "add_goal_hidden", addGoalButton: "add new goal"})
+          date: new Date().toISOString().slice(0, 10), interval: "1", formClass: "add_goal_hidden", addGoalButton: "add new goal", errors: []})
       }
     }, 300)      
                      
@@ -101,7 +101,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
-                            <div className="errors">{this.state.errors[0]}</div>
+                            <div className="errors">{this.state.errors.find(err => err.includes('Title'))}</div>
                             <div>
                                 <label>Description
                                   <div>
@@ -109,7 +109,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
-                            <div className="errors">{this.state.errors[1]}</div>
+                            <div className="errors">{this.state.errors.find(err => err.includes('Body'))}</div>
                             <div>
                                 <label>How Long do you want to keep this goal going for?
                                   <div>
@@ -117,7 +117,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
-                            <div className="errors">{this.state.errors[2]}</div>
+                            <div className="errors">{this.state.errors.find(err => err.includes('Date'))}</div>
                             <div>
                                 <label>How often do you want to check in on this goal?(in days)
                                   <div>
@@ -125,7 +125,7 @@ class Goal extends React.Component {
                                   </div>
                                 </label>
                             </div>
-                            <div className="errors">{this.state.errors[3]}</div>
+                            <div className="errors">{this.state.errors.find(err => err.includes('Interval'))}</div>
                                 <button type="submit" className="button">Create New Goal!</button>
                           </div>
                         </form>
