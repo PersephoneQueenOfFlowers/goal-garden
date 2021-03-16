@@ -1,4 +1,4 @@
-(("/path/to/custom.css"))
+("/path/to/custom.css")
 
 
 ### **Live Link**:
