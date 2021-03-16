@@ -22,7 +22,7 @@ Goal Garden is a curated space for personal goal accountability and tracking. Th
 
 * A check-in occurs when we write a journal into our goal that speaks to whether or not the goal has been reached definitively. 
 
-![journaling-creation demo](/frontend/public/css/images/creating_journal_resized.gif "creating_journal")
+![journaling-creation demo](/frontend/public/css/images/creating_journal.gif "creating_journal")
 
 Records are kept of:
 *   whether progress has been made, 
