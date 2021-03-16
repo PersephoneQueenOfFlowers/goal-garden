@@ -1,4 +1,4 @@
-<img width="75px" style="display:inline-block" src="frontend/public/gg-logo.png"> <h1 style="line-height:80px; display:inline-block">Goal Garden</h1>
+<img width="375px" style="display:inline-block" src="frontend/public/gg-logo.png"> <h1 style="line-height:80px; display:inline-block">Goal Garden</h1>
 
 ## **Link to Live Site**:
 [goal-garden Live](http://goalgarden.herokuapp.com/#/)
