@@ -123,6 +123,7 @@ class MyVerticallyCenteredModal extends React.Component {
   }
 
   render(){
+    debugger
     if(!this.state.goals){ return null}
     return (
       <Modal
