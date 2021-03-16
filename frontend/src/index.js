@@ -37,16 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById('root');
 
-  window.store = store;
-  window.dispatch = store.dispatch;
+  // window.store = store;
+  // window.dispatch = store.dispatch;
 
-  window.login = login;
-  window.logout = logout;
+  // window.login = login;
+  // window.logout = logout;
 
-  window.fetchJournals = fetchJournals;
-  window.fetchJournal = fetchJournal;
-  window.createJournal = createJournal;
-  window.deleteJournal = deleteJournal;
+  // window.fetchJournals = fetchJournals;
+  // window.fetchJournal = fetchJournal;
+  // window.createJournal = createJournal;
+  // window.deleteJournal = deleteJournal;
 
   ReactDOM.render(<Root store={store} />, root);
 });
