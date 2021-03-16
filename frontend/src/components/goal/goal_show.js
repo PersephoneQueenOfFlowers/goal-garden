@@ -115,10 +115,10 @@ class GoalShow extends React.Component{
                     <label>Did achieve your goal step?</label>
                     <div className="journal_radio_buttons">
                       <p>Yes I did!
-                                      <input type="radio" name="success" value="true" checked={this.state.success} onChange={() => this.setState({ success: true })} />
+                                <input type="radio" name="success" value="true" defaultChecked={this.state.success} onChange={() => this.setState({ success: true })} />
                       </p>
                       <p>No, but I will next time!
-                                      <input type="radio" name="success" value="false" onChange={() => this.setState({ success: false })} />
+                            <input type="radio" name="success" value="false" onChange={() => this.setState({ success: false })} />
                       </p>
                     </div>
                   </div>
