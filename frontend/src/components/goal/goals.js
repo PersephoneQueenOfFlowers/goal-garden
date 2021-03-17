@@ -79,7 +79,8 @@ class Goal extends React.Component {
           <div className="body home goal" id="main-window">
             <Hero />
             <section className="middle taskList">
-              <img src='./css/images/grass-border.png' alt="" />
+              <img className="leftBorder" src='./css/images/grass-border.png' alt="" />
+              <img className="rightBorder" src='./css/images/grass-border.png' alt="" />
               <div className="left">
                 <div className="background-container">
                     <div className="present-goals-container">

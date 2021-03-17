@@ -11,19 +11,23 @@
   background-image: linear-gradient(180deg, #6c5d47, #fff);
   margin-bottom: -65px; }
   .middle img {
-    width: 95%;
+    width: 35%;
     position: absolute;
     flex: 1; }
+    .middle img.leftBorder {
+      left: 0; }
+    .middle img.rightBorder {
+      right: 0; }
     @media all and (min-width: 350px) and (max-width: 499px) {
       .middle img {
         top: -5%;
         z-index: 10; } }
     @media all and (min-width: 500px) and (max-width: 992px) {
       .middle img {
-        margin-top: -15%; } }
+        margin-top: -9%; } }
     @media all and (min-width: 993px) {
       .middle img {
-        margin-top: -16%; } }
+        margin-top: -7%; } }
   .middle .left, .middle .right {
     margin-top: 10%; }
     .middle .left.hide, .middle .right.hide {

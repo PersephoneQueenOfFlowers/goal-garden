@@ -86,7 +86,8 @@ class GoalShow extends React.Component{
         <div id="main-window">
             <Hero pageClass={"show"} header={goal.title}/>
             <section className="middle taskList">
-              <img src='./css/images/grass-border.png' alt=""/>
+              <img className="leftBorder" src='./css/images/grass-border.png' alt=""/>
+              <img className="rightBorder" src='./css/images/grass-border.png' alt="" />
             <div className="flower_picture_box">
                 <div id={`growth${this.props.goal.growthNumber}`} className="flower_picture"></div>
             </div>
