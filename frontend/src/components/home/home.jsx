@@ -123,7 +123,6 @@ class MyVerticallyCenteredModal extends React.Component {
   }
 
   render(){
-    debugger
     if(!this.state.goals){ return null}
     return (
       <Modal
@@ -212,7 +211,8 @@ const Home = (props) => {
         <Hero />
 
       <section className="middle taskList">
-        <img src='./css/images/grass-border.png' alt=""/>
+        <img className="leftBorder" src='./css/images/grass-border.png' alt=""/>
+        <img className="rightBorder" src='./css/images/grass-border.png' alt="" />
         <div className="left hide">
           <div className="background-container">
             <h3>
